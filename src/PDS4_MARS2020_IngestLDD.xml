@@ -1214,6 +1214,9 @@
   <!-- *** Beginning of rule statements *** -->
 
   <!-- Rules for time values SCLK, SOL, and LTST, for all Mars 2020 Product_Observational labels -->
+  
+  <!--08/31/2020 Rules commented out for LDD generation.  There is an  error in the syntax of the rules causing data dictionary genneration to fail.  
+  
   <DD_Rule>
     <local_identifier>mars2020_time_rules</local_identifier>
     <rule_context>/pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Observation_Information</rule_context>
@@ -1224,6 +1227,7 @@
                       (mars2020:spacecraft_clock_partition) 
                       or 
                       (contains(mars2020:spacecraft_clock_start, '/')) 
+                    ) 
                       or 
                       ( (not (mars2020:spacecraft_clock_partition)) 
                          and 
@@ -1245,6 +1249,7 @@
         (mars2020:spacecraft_clock_partition) 
         or 
         (contains(mars2020:spacecraft_clock_stop, '/')) 
+        ) 
         or 
         ( (not (mars2020:spacecraft_clock_partition)) 
         and 
@@ -1330,7 +1335,10 @@
         present.</rule_description>
     </DD_Rule_Statement>
   </DD_Rule>
+  --> 
+  
   <!--  End of Mars 2020-specific rules for time values SCLK, SOL, and LTST -->
 
   <!-- End of rule statements -->
+
 </Ingest_LDD>
