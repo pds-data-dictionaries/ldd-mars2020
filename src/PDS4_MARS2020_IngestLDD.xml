@@ -1224,7 +1224,6 @@
                       (mars2020:spacecraft_clock_partition) 
                       or 
                       (contains(mars2020:spacecraft_clock_start, '/')) 
-                    ) 
                       or 
                       ( (not (mars2020:spacecraft_clock_partition)) 
                          and 
@@ -1246,7 +1245,6 @@
         (mars2020:spacecraft_clock_partition) 
         or 
         (contains(mars2020:spacecraft_clock_stop, '/')) 
-        ) 
         or 
         ( (not (mars2020:spacecraft_clock_partition)) 
         and 
