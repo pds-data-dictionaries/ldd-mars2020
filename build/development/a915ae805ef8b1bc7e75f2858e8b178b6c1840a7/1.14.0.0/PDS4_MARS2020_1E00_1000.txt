@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Mon Aug 31 23:28:58 UTC 2020
+   Time                   Tue Sep 01 20:33:34 UTC 2020
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -106,11 +106,11 @@ Parsed Input - Header:
     The Mars 2020 mission dictionary contains classes and attributes specific to
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
-    Mars 2020 version 1.0.0.0 last updated 2020-08-11
+    Mars 2020 version 1.0.0.0 
     PDS Build 1.14.0.0
     LDDTool version 11.3.1
     
-    Built with LDDTool -placJms1  MARS2020.xml
+    Built with LDDTool -plJ1  MARS2020.xml
 
     2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
     2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
@@ -126,7 +126,7 @@ Parsed Input - Header:
     2020-08-28 Added classes PIXL_Illumination and SuperCam_RMI_Mini_Header and their attributes, from Bob Deen
     
   
-   Last Modification Time 2020-08-11T21:18Z
+   Last Modification Time 2020-09-01T19:02Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -255,7 +255,7 @@ Parsed Input - Attributes:
    name                   flash_duration
    version                1.14
    value data type        ASCII_Real
-   description            TBD by Bob
+   description            The flash_duration attribute provides the duration of a single component of the flash for the PIXL MCC illumination.
    unit of measure type   Units_of_Time
 
    name                   temperature_value
@@ -451,8 +451,8 @@ Parsed Input - Classes:
       maximum occurrences   *
       reference type        component_of
 
-   name                   Flash
-   description            TBD by Bob
+   name                   Device_Flash
+   description            The Device_Flash class provides the duration of a single identified component of the flash for the PIXL MCC illumination.
    is abstract            false
    is choice              false
    subclass of            USER
@@ -469,15 +469,15 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        attribute_of
 
-   name                   Flashes
-   description            TBD by Bob
+   name                   Device_Flashes
+   description            The Device_Flashes class provides a container for the set of flash durations for the PIXL MCC illumination.
    is abstract            false
    is choice              false
    subclass of            USER
 
    Associations
 
-      local identifier      mars2020.Flash
+      local identifier      mars2020.Device_Flash
       minimum occurrences   0
       maximum occurrences   *
       reference type        component_of
@@ -545,7 +545,7 @@ Parsed Input - Classes:
       reference type        component_of
 
    name                   PIXL_Illumination
-   description            TBD by Bob
+   description            Container class containing information related to the illumination devices on PIXL. There are two, flood light and structured light. Note that some of the illumination is in the img:Illumination class; the information here is instrument-specific information that does not fit into the img: framework.
    is abstract            false
    is choice              false
    subclass of            USER
@@ -557,7 +557,7 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        component_of
 
-      local identifier      mars2020.Flashes
+      local identifier      mars2020.Device_Flashes
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
@@ -685,7 +685,7 @@ Parsed Input - Classes:
    Associations
 
       local identifier      mars2020.Observation_Information
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 
