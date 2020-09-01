@@ -821,13 +821,13 @@
                  </mars2020:Device_Current>
                  ...
               </mars2020:Device_Currents>
-              <mars2020:Flashes>
-                 <mars2020:Flash>
+              <mars2020:Device_Flashes>
+                 <mars2020:Device_Flash>
                     <mars2020:device_name>Programmed flash D1D2 for output x</>
                     <mars2020:flash_duration unit="s">0.0</>
-                 </mars2020:Flash>
+                 </mars2020:Device_Flash>
                  ...
-              </mars2020:Flashes>
+              </mars2020:Device_Flashes>
               <mars2020:Device_Temperatures>
                  <mars2020:Device_Temperature>
                     <mars2020:device_name>PRE_FLASH_TEMP</>
@@ -885,9 +885,9 @@
     </DD_Association>
   </DD_Class>
 
-  <DD_Class>  <name>Flash</name>
+  <DD_Class>  <name>Device_Flash</name>
     <version_id>1.0</version_id>
-    <local_identifier>mars2020.Flash</local_identifier>
+    <local_identifier>mars2020.Device_Flash</local_identifier>
     <submitter_name>Bob Deen</submitter_name>
     <definition>TBD by Bob</definition>
     <abstract_flag>false</abstract_flag>
@@ -905,15 +905,15 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
-  <DD_Class> <name>Flashes</name>
+  <DD_Class> <name>Device_Flashes</name>
     <version_id>1.0</version_id>
-    <local_identifier>mars2020.Flashes</local_identifier>
+    <local_identifier>mars2020.Device_Flashes</local_identifier>
     <submitter_name>Bob Deen</submitter_name>
     <definition>TBD by Bob</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>
-      <identifier_reference>mars2020.Flash</identifier_reference>
+      <identifier_reference>mars2020.Device_Flash</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>*</maximum_occurrences>
@@ -1007,7 +1007,7 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
-      <identifier_reference>mars2020.Flashes</identifier_reference>
+      <identifier_reference>mars2020.Device_Flashes</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -1193,7 +1193,7 @@
     <DD_Association>
       <identifier_reference>mars2020.Observation_Information</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
