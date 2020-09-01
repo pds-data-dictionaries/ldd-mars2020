@@ -5,8 +5,6 @@
 <?xml-model 
     href="http://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1800.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<!-- 07/20/20 GEO/SHS Initial version of Mars 2020 Mission Dictionary
--->
 
 <Ingest_LDD 
   xmlns="http://pds.nasa.gov/pds4/pds/v1" 
@@ -25,11 +23,11 @@
     The Mars 2020 mission dictionary contains classes and attributes specific to
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
-    Mars 2020 version 1.0.0.0 last updated 2020-08-11
+    Mars 2020 version 1.0.0.0 
     PDS Build 1.14.0.0
     LDDTool version 11.3.1
     
-    Built with LDDTool -placJms1  MARS2020.xml
+    Built with LDDTool -plJ1  MARS2020.xml
 
     2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
     2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
@@ -45,7 +43,7 @@
     2020-08-28 Added classes PIXL_Illumination and SuperCam_RMI_Mini_Header and their attributes, from Bob Deen
     
   </comment>
-  <last_modification_date_time>2020-08-11T21:18Z</last_modification_date_time>
+  <last_modification_date_time>2020-09-01T19:02Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -501,7 +499,8 @@
     <local_identifier>mars2020.flash_duration</local_identifier>
     <nillable_flag>false</nillable_flag>
     <submitter_name>Bob Deen</submitter_name>
-    <definition>TBD by Bob</definition>
+    <definition>The flash_duration attribute provides the duration of a single component
+    of the flash for the PIXL MCC illumination.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
@@ -889,7 +888,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.Device_Flash</local_identifier>
     <submitter_name>Bob Deen</submitter_name>
-    <definition>TBD by Bob</definition>
+    <definition>The Device_Flash class provides the duration of a single
+    identified component of the flash for the PIXL MCC illumination.</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>
@@ -909,7 +909,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.Device_Flashes</local_identifier>
     <submitter_name>Bob Deen</submitter_name>
-    <definition>TBD by Bob</definition>
+    <definition>The Device_Flashes class provides a container for 
+    the set of flash durations for the PIXL MCC illumination.</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>
@@ -997,7 +998,11 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.PIXL_Illumination</local_identifier>
     <submitter_name>Bob Deen</submitter_name>
-    <definition>TBD by Bob</definition>
+    <definition>Container class containing information related to the illumination
+    devices on PIXL. There are two, flood light and structured light. Note
+    that some of the illumination is in the img:Illumination class; the
+    information here is instrument-specific information that does not 
+    fit into the img: framework.</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>
@@ -1215,7 +1220,6 @@
 
   <!-- Rules for time values SCLK, SOL, and LTST, for all Mars 2020 Product_Observational labels -->
   
-  <!--08/31/2020 Rules commented out for LDD generation.  There is an  error in the syntax of the rules causing data dictionary genneration to fail.  
   
   <DD_Rule>
     <local_identifier>mars2020_time_rules</local_identifier>
@@ -1223,17 +1227,10 @@
 
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
-      <rule_test>if ( 
-                      (mars2020:spacecraft_clock_partition) 
-                      or 
-                      (contains(mars2020:spacecraft_clock_start, '/')) 
-                    ) 
-                      or 
-                      ( (not (mars2020:spacecraft_clock_partition)) 
-                         and 
-                        (not (mars2020:spacecraft_clock_start))   
-                      ) 
-                    ) then true() else false() 
+      <rule_test>if ( (mars2020:spacecraft_clock_partition) 
+                    or (contains(mars2020:spacecraft_clock_start, '/')) 
+                    or ( (not (mars2020:spacecraft_clock_partition)) and (not (mars2020:spacecraft_clock_start)) ) ) 
+                 then true() else false()
       </rule_test>
       <rule_message>mars2020:error:sclk_rule_0: If mars2020:spacecraft_clock_start is
         present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by
@@ -1242,20 +1239,13 @@
         partition number followed by a forward slash, OR the partition number must be given by spacecraft_clock_partition.
       </rule_description>
     </DD_Rule_Statement>
-
+      
     <DD_Rule_Statement>
       <rule_type>Assert</rule_type>
-      <rule_test>if ( 
-        (mars2020:spacecraft_clock_partition) 
-        or 
-        (contains(mars2020:spacecraft_clock_stop, '/')) 
-        ) 
-        or 
-        ( (not (mars2020:spacecraft_clock_partition)) 
-        and 
-        (not (mars2020:spacecraft_clock_stop))   
-        ) 
-        ) then true() else false() 
+      <rule_test>if ( (mars2020:spacecraft_clock_partition) 
+                    or (contains(mars2020:spacecraft_clock_stop, '/')) 
+                    or ( (not (mars2020:spacecraft_clock_partition)) and (not (mars2020:spacecraft_clock_stop)) ) ) 
+                 then true() else false()
       </rule_test>
       <rule_message>mars2020:error:sclk_rule_1: If mars2020:spacecraft_clock_stop is
         present, it must begin with a partition number followed by a forward slash, OR the partition number must be given by
@@ -1335,7 +1325,6 @@
         present.</rule_description>
     </DD_Rule_Statement>
   </DD_Rule>
-  --> 
   
   <!--  End of Mars 2020-specific rules for time values SCLK, SOL, and LTST -->
 
