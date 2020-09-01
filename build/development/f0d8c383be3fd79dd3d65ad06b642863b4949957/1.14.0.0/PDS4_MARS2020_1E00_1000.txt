@@ -1,0 +1,702 @@
+PDS4 Local Data Dictionary Processing Report
+
+Configuration:
+   LDDTool Version        11.3.2
+   LDD Version Id:        1.0.0.0
+   LDD Label Version Id:  1.0
+   LDD Discipline (T/F):  false
+   LDD Namespace URL:     http://pds.nasa.gov/pds4/
+   LDD URN Prefix:        urn:nasa:pds:
+   Time                   Tue Sep 01 00:34:40 UTC 2020
+   Common Schema          [PDS4_PDS_1E00.xsd]
+   Common Schematron      [PDS4_PDS_1E00.sch]
+   IM Version Id:         1.14.0.0
+   IM Namespace Id:       pds
+   IM Label Version Id:   1.20
+   IM Object Model        [UpperModel.pont]
+   IM Data Dictionary     [dd11179.pins]
+   IM Configuration File  [MDPTNConfigClassDisp.xml]
+   IM Glossary            [Glossary.pins]
+   IM Document Spec       [DMDocument.pins]
+
+Parameters:
+   Input File             [/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD.xml]
+   PDS Processing         true
+   LDD Processing         true
+   Discipline LDD         false
+   Mission LDD            true
+   Write Attr Elements    false
+   Merge with Master      false
+
+Summary:
+   Classes                14
+   Attributes             33
+   Associations           52
+   Error messages         0
+   Warning messages       35
+   Information messages   23
+
+Detailed validation messages
+   WARNING  Header:  - New steward has been specified:geo
+   WARNING  Header:  - New namespace id has been specified:mars2020
+   WARNING  Class: <Detector> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Focus> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Optical_Filter> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Instrument_State> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Detector> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Focus> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Optical_Filter> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
+   INFO     Attribute: <release_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <spacecraft_clock_partition> - The default minimum value provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 19
+   INFO     Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
+   INFO     Attribute: <spacecraft_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 19
+   INFO     Attribute: <start_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 10
+   INFO     Attribute: <start_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
+   INFO     Attribute: <start_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+   INFO     Attribute: <start_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
+   INFO     Attribute: <start_local_true_solar_time_sol> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <start_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <start_solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <start_solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
+   INFO     Attribute: <stop_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 10
+   INFO     Attribute: <stop_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
+   INFO     Attribute: <stop_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
+   INFO     Attribute: <stop_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
+   INFO     Attribute: <stop_local_true_solar_time_sol> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <stop_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <stop_solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
+   INFO     Attribute: <stop_solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
+
+Parsed Input - Header:
+   LDD Name               Mars 2020 Mission
+   LDD Version            1.0.0.0
+   Full Name              Susan Slavney
+   Steward                geo
+   Namespace Id           mars2020
+   Comment                
+    The Mars 2020 mission dictionary contains classes and attributes specific to
+    the Mars 2020 (Perseverance Rover) mission and its instruments.
+    
+    Mars 2020 version 1.0.0.0 last updated 2020-08-11
+    PDS Build 1.14.0.0
+    LDDTool version 11.3.1
+    
+    Built with LDDTool -placJms1  MARS2020.xml
+
+    2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
+    2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
+      product_type_name replaces product_type
+      release_number replaces release_id (but it is still an ASCII string)
+      spacecraft_clock_start replaces spacecraft_clock_start_count
+      spacecraft_clock_stop replaces spacecraft_clock_stop_count
+      spacecraft_clock_partition replaces spacecraft_clock_count_partition
+      start_local_true_solar_time_sol and stop_local_true_solar_time_sol replace local_true_solar_time_sol
+    2020-08-19 Removed enumerated values list for product_type_name, until we know what values to use, if any
+    2020-08-20 Changed mars2020:error:sclk_rule_0 to allow spacecraft_clock_start and stop to be evaluated independently
+    2020-08-25 Added container class Mars2020_Parameters
+    2020-08-28 Added classes PIXL_Illumination and SuperCam_RMI_Mini_Header and their attributes, from Bob Deen
+    
+  
+   Last Modification Time 2020-08-11T21:18Z
+   PDS4 Merge Flag        false
+
+Parsed Input - Attributes:
+
+   name                   mission_phase_name
+   version                1.14
+   value data type        ASCII_Short_String_Preserved
+   description            The mission_phase_name identifies a time period within the mission.
+
+   name                   product_type_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
+
+   name                   release_number
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            release_number is the identifier of a scheduled release of Mars 2020 data from PDS. The first Mars 2020 data release has release_number "01". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
+   minimum characters     1
+
+   name                   sol_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0.
+   minimum value          0
+
+   name                   spacecraft_clock_partition
+   version                1.14
+   value data type        ASCII_Integer
+   description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock_start and spacecraft_clock_stop attributes. This attribute may be used when the spacecraft_clock values do not include a partition number.
+   minimum value          1
+
+   name                   spacecraft_clock_start
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The spacecraft_clock_start is the value of the spacecraft clock at the beginning of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.ffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .ffffff is an optional fraction of a second up to 6 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   minimum characters     1
+   maximum characters     19
+
+   name                   spacecraft_clock_stop
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description             The spacecraft_clock_stop is the value of the spacecraft clock at the end of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.ffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .ffffff is an optional fraction of a second up to 6 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   minimum characters     1
+   maximum characters     19
+
+   name                   start_local_mean_solar_time
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Start_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum characters     10
+   maximum characters     24
+
+   name                   start_local_true_solar_time
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum characters     8
+   maximum characters     24
+
+   name                   start_local_true_solar_time_sol
+   version                1.14
+   value data type        ASCII_Integer
+   description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol should accompany the attribute start_local_true_solar_time if that attribute's value does not include a sol number prefix.
+   minimum value          0
+
+   name                   start_sol_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            Start_sol_number is the number of the Mars day on which a multiple-day observation was begun. Landing day is Sol 0.
+   minimum value          0
+
+   name                   start_solar_longitude
+   version                1.14
+   value data type        ASCII_Real
+   description            Start_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the beginning of an observation.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   stop_local_mean_solar_time
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Stop_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum characters     10
+   maximum characters     24
+
+   name                   stop_local_true_solar_time
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum characters     8
+   maximum characters     24
+
+   name                   stop_local_true_solar_time_sol
+   version                1.14
+   value data type        ASCII_Integer
+   description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol should accompany the attribute stop_local_true_solar_time if that attribute's value does not include a sol number prefix.
+   minimum value          0
+
+   name                   stop_sol_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            Stop_sol_number is the number of the Mars day on which a multiple-day observation was ended. Landing day is Sol 0.
+   minimum value          0
+
+   name                   stop_solar_longitude
+   version                1.14
+   value data type        ASCII_Real
+   description            Stop_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the end of an observation.
+   minimum value          0
+   maximum value          360
+   unit of measure type   Units_of_Angle
+
+   name                   current_value
+   version                1.14
+   value data type        ASCII_Real
+   description            The current_value attribute provides provides the current, in the specified units, of an imaging instrument or some part of the imaging instrument.
+   unit of measure type   Units_of_Current
+
+   name                   device_name
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            The device_name attribute supplies the formal name for an imaging instrument, an imaging instrument device, or some point on the instrument or device.
+
+   name                   flash_duration
+   version                1.14
+   value data type        ASCII_Real
+   description            TBD by Bob
+   unit of measure type   Units_of_Time
+
+   name                   temperature_value
+   version                1.14
+   value data type        ASCII_Real
+   description            The temperature_value attribute provides the temperature, in the specified units, of some point on an imaging instrument or other imaging instrument device.
+   unit of measure type   Units_of_Temperature
+
+   name                   voltage_value
+   version                1.14
+   value data type        ASCII_Real
+   description            The voltage_value attribute provides provides the voltage, in the specified units, of an imaging instrument or some part of the imaging instrument.
+   unit of measure type   Units_of_Voltage
+
+   name                   data_length
+   version                1.14
+   value data type        ASCII_NonNegative_Integer
+   description            Specifies the size of the image (in the telemetry stream) in bytes for SuperCam RMI.
+
+   name                   marker_pad
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Static value used by the SuperCam RMI Body Unit (BU).
+
+   name                   memory_bank
+   version                1.14
+   value data type        ASCII_Integer
+   description            For SuperCam RMI this specifies the Mast Unit (MU) memory bank used to hold image before transfer to RCE. There are 64 memory banks in the MU. 
+
+   name                   milliseconds_count
+   version                1.14
+   value data type        ASCII_Integer
+   description            Millisecond count from RCE time sync when image received from mast unit by SuperCam RMI.
+
+   name                   num_images_transmitted
+   version                1.14
+   value data type        ASCII_NonNegative_Integer
+   description            For SuperCam RMI, this is the number of images transmitted to the RCE.
+
+   name                   rce_time_sync
+   version                1.14
+   value data type        ASCII_Integer
+   description            Last time sync value received from RCE by SuperCam RMI
+
+   name                   reserved_1
+   version                1.14
+   value data type        ASCII_Integer
+   description            Reserved field for SuperCam RMI mini-header
+
+   name                   reserved_2
+   version                1.14
+   value data type        ASCII_Integer
+   description            Reserved field for SuperCam RMI mini-header
+
+   name                   rmi_cmos_registers
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Dump of SuperCam RMI hardware registers
+
+   name                   rmi_fpga_registers
+   version                1.14
+   value data type        ASCII_Short_String_Collapsed
+   description            Dump of all SuperCam RMI FPGA registers
+
+   name                   rmi_header_size
+   version                1.14
+   value data type        ASCII_NonNegative_Integer
+   description            For SuperCam RMI this is the total number of bytes in MU and BU headers
+
+Parsed Input - Classes:
+
+   name                   Observation_Information
+   description            The Observation_Information class provides information about a science observation.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.release_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mission_phase_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.product_type_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_start
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_stop
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.spacecraft_clock_partition
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_sol_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_mean_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_true_solar_time
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_local_true_solar_time_sol
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.start_solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_solar_longitude
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Current
+   description            The Device_Current class provides the current of some point on an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.current_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Currents
+   description            The Device_Currents class provides a container for the set of currents of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Current
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Flash
+   description            TBD by Bob
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.flash_duration
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Flashes
+   description            TBD by Bob
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Flash
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Temperature
+   description            The Device_Temperature class provides a container for the temperature of some point on an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.temperature_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Temperatures
+   description            The Device_Temperatures class provides a container for the set of temperatures of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Temperature
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   Device_Voltage
+   description            The Device_Voltage class provides the voltage of some point on an imaging instrument or other imaging device. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.device_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.voltage_value
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   Device_Voltages
+   description            The Device_Voltage class provides a container for the set of voltages of an imaging instrument or other imaging device.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Voltage
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
+
+   name                   PIXL_Illumination
+   description            TBD by Bob
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Device_Currents
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Flashes
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Temperatures
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.Device_Voltages
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   PIXL_Parameters
+   description            The PIXL Parameters class provides metadata specific to PIXL observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.PIXL_Illumination
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   SuperCam_RMI_Mini_Header
+   description             This class contains the "mini-header" for the SuperCam RMI camera on Mars 2020. The mini- header is a set of information that is tightly tied to the camera hardware, and the instrument team finds value in keeping the set of mini- header information together. Much (but not all) of the information is also included in appropriate sections of the discipline dictionaries, which is where general users should go. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.rmi_header_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.memory_bank
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rmi_cmos_registers
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rmi_fpga_registers
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.marker_pad
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rce_time_sync
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.milliseconds_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.num_images_transmitted
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_2
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.data_length
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      img.Exposure
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      img.Subframe
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      img.High_Dynamic_Range
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   SuperCam_Parameters
+   description            The SuperCam_Parameters class provides metadata specific to SuperCam observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.SuperCam_RMI_Mini_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+   name                   Mars2020_Parameters
+   description            The Mars2020_Parameters class is a superclass containing all Mars2020 mission classes.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.Observation_Information
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.PIXL_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+End of Report
