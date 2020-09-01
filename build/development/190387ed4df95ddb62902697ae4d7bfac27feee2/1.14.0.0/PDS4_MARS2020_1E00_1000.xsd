@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Sep 01 00:34:40 UTC 2020 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Sep 01 20:54:14 UTC 2020 -->
   <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -30,11 +30,11 @@
     The Mars 2020 mission dictionary contains classes and attributes specific to
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
-    Mars 2020 version 1.0.0.0 last updated 2020-08-11
+    Mars 2020 version 1.0.0.0 
     PDS Build 1.14.0.0
     LDDTool version 11.3.1
     
-    Built with LDDTool -placJms1  MARS2020.xml
+    Built with LDDTool -plJ1  MARS2020.xml
 
     2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
     2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
@@ -80,7 +80,9 @@
 
   <xs:complexType name="Device_Flash">
     <xs:annotation>
-<xs:documentation>TBD by Bob</xs:documentation>
+      <xs:documentation>The Device_Flash class provides the duration of
+        a single identified component of the flash for the PIXL MCC
+        illumination.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="device_name" type="mars2020:device_name" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -90,7 +92,9 @@
 
   <xs:complexType name="Device_Flashes">
     <xs:annotation>
-<xs:documentation>TBD by Bob</xs:documentation>
+      <xs:documentation>The Device_Flashes class provides a container
+        for the set of flash durations for the PIXL MCC
+        illumination.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Device_Flash" type="mars2020:Device_Flash" minOccurs="0" maxOccurs="unbounded"> </xs:element>
@@ -186,7 +190,12 @@
 
   <xs:complexType name="PIXL_Illumination">
     <xs:annotation>
-<xs:documentation>TBD by Bob</xs:documentation>
+      <xs:documentation>Container class containing information related
+        to the illumination devices on PIXL. There are two, flood light
+        and structured light. Note that some of the illumination is in
+        the img:Illumination class; the information here is
+        instrument-specific information that does not fit into the img:
+        framework.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Device_Currents" type="mars2020:Device_Currents" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -306,7 +315,9 @@
 
   <xs:complexType name="flash_duration">
     <xs:annotation>
-<xs:documentation>TBD by Bob</xs:documentation>
+      <xs:documentation>The flash_duration attribute provides the
+        duration of a single component of the flash for the PIXL MCC
+        illumination.</xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="mars2020:flash_duration_WO_Units">

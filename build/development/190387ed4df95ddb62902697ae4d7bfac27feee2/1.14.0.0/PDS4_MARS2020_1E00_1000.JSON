@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.14.0.0" ,
-      "Date": "Tue Sep 01 00:34:40 UTC 2020" ,
+      "Date": "Tue Sep 01 20:54:14 UTC 2020" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -94,7 +94,7 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "null"
+            "description": "The Device_Flash class provides the duration of a single identified component of the flash for the PIXL MCC illumination."
               , "associationList": [
              {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.Device_Flash.mars2020.device_name" ,
@@ -141,7 +141,7 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "null"
+            "description": "The Device_Flashes class provides a container for the set of flash durations for the PIXL MCC illumination."
               , "associationList": [
              {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.Device_Flashes.mars2020.Device_Flash" ,
@@ -678,7 +678,7 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "null"
+            "description": "Container class containing information related to the illumination devices on PIXL. There are two, flood light and structured light. Note that some of the illumination is in the img:Illumination class; the information here is instrument-specific information that does not fit into the img: framework."
               , "associationList": [
              {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Illumination.mars2020.Device_Currents" ,
@@ -1133,7 +1133,7 @@
             "nameSpaceId": "mars2020" ,
             "steward": "geo" ,
             "versionId": "1.14" ,
-            "description": "null" ,
+            "description": "The flash_duration attribute provides the duration of a single component of the flash for the PIXL MCC illumination." ,
             "isNillable": "false" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,
