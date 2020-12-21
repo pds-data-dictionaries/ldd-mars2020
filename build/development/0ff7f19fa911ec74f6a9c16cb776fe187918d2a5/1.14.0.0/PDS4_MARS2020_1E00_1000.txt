@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        11.3.2
+   LDDTool Version        0.0.0
    LDD Version Id:        1.0.0.0
    LDD Label Version Id:  1.0
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Sep 01 20:54:14 UTC 2020
+   Time                   Mon Dec 21 21:43:08 UTC 2020
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -33,68 +33,10 @@ Summary:
    Attributes             33
    Associations           52
    Error messages         0
-   Warning messages       35
-   Information messages   23
+   Warning messages       0
+   Information messages   0
 
 Detailed validation messages
-   WARNING  Header:  - New steward has been specified:geo
-   WARNING  Header:  - New namespace id has been specified:mars2020
-   WARNING  Class: <Detector> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Focus> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Optical_Filter> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Instrument_State> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Detector> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Focus> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Optical_Filter> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Onboard_Compression> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Sampling> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Companding> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Exposure> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <Subframe> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   WARNING  Class: <High_Dynamic_Range> - An exposed class was found nested within another exposed class. Nested exposed classes should only be present if there is a specific requirement to expose the additional class.
-   INFO     Attribute: <release_number> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <spacecraft_clock_partition> - The default minimum value provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <spacecraft_clock_start> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <spacecraft_clock_start> - The default maximum characters provided by the attribute's data type is being overridden with 19
-   INFO     Attribute: <spacecraft_clock_stop> - The default minimum characters provided by the attribute's data type is being overridden with 1
-   INFO     Attribute: <spacecraft_clock_stop> - The default maximum characters provided by the attribute's data type is being overridden with 19
-   INFO     Attribute: <start_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 10
-   INFO     Attribute: <start_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
-   INFO     Attribute: <start_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <start_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
-   INFO     Attribute: <start_local_true_solar_time_sol> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <start_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <start_solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <start_solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
-   INFO     Attribute: <stop_local_mean_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 10
-   INFO     Attribute: <stop_local_mean_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
-   INFO     Attribute: <stop_local_true_solar_time> - The default minimum characters provided by the attribute's data type is being overridden with 8
-   INFO     Attribute: <stop_local_true_solar_time> - The default maximum characters provided by the attribute's data type is being overridden with 24
-   INFO     Attribute: <stop_local_true_solar_time_sol> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <stop_sol_number> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <stop_solar_longitude> - The default minimum value provided by the attribute's data type is being overridden with 0
-   INFO     Attribute: <stop_solar_longitude> - The default maximum value provided by the attribute's data type is being overridden with 360
 
 Parsed Input - Header:
    LDD Name               Mars 2020 Mission
