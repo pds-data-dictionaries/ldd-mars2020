@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Mon Dec 21 21:43:09 UTC 2020 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
+  <!-- *** This PDS4 product schema is an operational deliverable. *** -->
+  <!--                                                                           -->
+  <!--               Dictionary Stack                                            -->
+  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.8.2.0 - img: - Imaging                                                  -->
+  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
+  <!-- 1.8.2.0 - img: - Imaging                                                  -->
+  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
+  <!-- 1.0.0.0 - mars2020: - Mars 2020 Mission                                   -->
+  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD. -->
+  <!--                                                                           -->
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://pds.nasa.gov/pds4/mission/mars2020/v1"
+    xmlns:mars2020="http://pds.nasa.gov/pds4/mission/mars2020/v1"
+    xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:img="http://pds.nasa.gov/pds4/img/v1"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified"
+    version="1.0.0.0">
+ 
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1F00_1820.xsd"/>
+ 
+  <xs:annotation>
+    <xs:documentation>
+
+    The Mars 2020 mission dictionary contains classes and attributes specific to
+    the Mars 2020 (Perseverance Rover) mission and its instruments.
+    
+    Mars 2020 version 1.0.0.0 
+    PDS Build 1.14.0.0
+    LDDTool version 11.3.1
+    
+    Built with LDDTool -plJ1  MARS2020.xml
+
+    2020-07-29 Confirmed spacecraft clock count notation (Bob Deen)
+    2020-08-11 Revised some attribute names to be consistent with msn discipline dictionary, for efficient searches:
+      product_type_name replaces product_type
+      release_number replaces release_id (but it is still an ASCII string)
+      spacecraft_clock_start replaces spacecraft_clock_start_count
+      spacecraft_clock_stop replaces spacecraft_clock_stop_count
+      spacecraft_clock_partition replaces spacecraft_clock_count_partition
+      start_local_true_solar_time_sol and stop_local_true_solar_time_sol replace local_true_solar_time_sol
+    2020-08-19 Removed enumerated values list for product_type_name, until we know what values to use, if any
+    2020-08-20 Changed mars2020:error:sclk_rule_0 to allow spacecraft_clock_start and stop to be evaluated independently
+    2020-08-25 Added container class Mars2020_Parameters
+    2020-08-28 Added classes PIXL_Illumination and SuperCam_RMI_Mini_Header and their attributes, from Bob Deen
+    
+  
+    </xs:documentation>
+  </xs:annotation>
+ 
+  <xs:element name="Mars2020_Parameters" type="mars2020:Mars2020_Parameters"> </xs:element>
+
+  <xs:complexType name="Device_Current">
+    <xs:annotation>
+      <xs:documentation>The Device_Current class provides the current of
+        some point on an imaging instrument or other imaging
+        device.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device_name" type="mars2020:device_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="current_value" type="mars2020:current_value" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Currents">
+    <xs:annotation>
+      <xs:documentation>The Device_Currents class provides a container
+        for the set of currents of an imaging instrument or other
+        imaging device.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device_Current" type="mars2020:Device_Current" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Flash">
+    <xs:annotation>
+      <xs:documentation>The Device_Flash class provides the duration of
+        a single identified component of the flash for the PIXL MCC
+        illumination.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device_name" type="mars2020:device_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="flash_duration" type="mars2020:flash_duration" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Flashes">
+    <xs:annotation>
+      <xs:documentation>The Device_Flashes class provides a container
+        for the set of flash durations for the PIXL MCC
+        illumination.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device_Flash" type="mars2020:Device_Flash" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Temperature">
+    <xs:annotation>
+      <xs:documentation>The Device_Temperature class provides a
+        container for the temperature of some point on an imaging
+        instrument or other imaging device.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device_name" type="mars2020:device_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="temperature_value" type="mars2020:temperature_value" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Temperatures">
+    <xs:annotation>
+      <xs:documentation>The Device_Temperatures class provides a
+        container for the set of temperatures of an imaging instrument
+        or other imaging device.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device_Temperature" type="mars2020:Device_Temperature" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Voltage">
+    <xs:annotation>
+      <xs:documentation>The Device_Voltage class provides the voltage of
+        some point on an imaging instrument or other imaging device.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device_name" type="mars2020:device_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="voltage_value" type="mars2020:voltage_value" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Device_Voltages">
+    <xs:annotation>
+      <xs:documentation>The Device_Voltage class provides a container
+        for the set of voltages of an imaging instrument or other
+        imaging device.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device_Voltage" type="mars2020:Device_Voltage" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Mars2020_Parameters">
+    <xs:annotation>
+      <xs:documentation>The Mars2020_Parameters class is a superclass
+        containing all Mars2020 mission classes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Observation_Information" type="mars2020:Observation_Information" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="PIXL_Parameters" type="mars2020:PIXL_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SuperCam_Parameters" type="mars2020:SuperCam_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Observation_Information">
+    <xs:annotation>
+      <xs:documentation>The Observation_Information class provides
+        information about a science observation.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="release_number" type="mars2020:release_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="mission_phase_name" type="mars2020:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="product_type_name" type="mars2020:product_type_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_start" type="mars2020:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_stop" type="mars2020:spacecraft_clock_stop" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="spacecraft_clock_partition" type="mars2020:spacecraft_clock_partition" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="sol_number" type="mars2020:sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_sol_number" type="mars2020:start_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_sol_number" type="mars2020:stop_sol_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_mean_solar_time" type="mars2020:start_local_mean_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_mean_solar_time" type="mars2020:stop_local_mean_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_true_solar_time" type="mars2020:start_local_true_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_local_true_solar_time_sol" type="mars2020:start_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_true_solar_time" type="mars2020:stop_local_true_solar_time" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_local_true_solar_time_sol" type="mars2020:stop_local_true_solar_time_sol" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_solar_longitude" type="mars2020:start_solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_solar_longitude" type="mars2020:stop_solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:mission_phase_name = ('ATLO', 'Cruise', 'Development', 'Surface Mission', 'Test')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="PIXL_Illumination">
+    <xs:annotation>
+      <xs:documentation>Container class containing information related
+        to the illumination devices on PIXL. There are two, flood light
+        and structured light. Note that some of the illumination is in
+        the img:Illumination class; the information here is
+        instrument-specific information that does not fit into the img:
+        framework.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Device_Currents" type="mars2020:Device_Currents" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Device_Flashes" type="mars2020:Device_Flashes" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Device_Temperatures" type="mars2020:Device_Temperatures" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Device_Voltages" type="mars2020:Device_Voltages" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PIXL_Parameters">
+    <xs:annotation>
+      <xs:documentation>The PIXL Parameters class provides metadata
+        specific to PIXL observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PIXL_Illumination" type="mars2020:PIXL_Illumination" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SuperCam_Parameters">
+    <xs:annotation>
+      <xs:documentation>The SuperCam_Parameters class provides metadata
+        specific to SuperCam observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SuperCam_RMI_Mini_Header" type="mars2020:SuperCam_RMI_Mini_Header" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SuperCam_RMI_Mini_Header">
+    <xs:annotation>
+      <xs:documentation> This class contains the "mini-header" for the
+        SuperCam RMI camera on Mars 2020. The mini- header is a set of
+        information that is tightly tied to the camera hardware, and the
+        instrument team finds value in keeping the set of mini- header
+        information together. Much (but not all) of the information is
+        also included in appropriate sections of the discipline
+        dictionaries, which is where general users should go.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rmi_header_size" type="mars2020:rmi_header_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="memory_bank" type="mars2020:memory_bank" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rmi_cmos_registers" type="mars2020:rmi_cmos_registers" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rmi_fpga_registers" type="mars2020:rmi_fpga_registers" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="marker_pad" type="mars2020:marker_pad" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="rce_time_sync" type="mars2020:rce_time_sync" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="milliseconds_count" type="mars2020:milliseconds_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="num_images_transmitted" type="mars2020:num_images_transmitted" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="reserved_1" type="mars2020:reserved_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="reserved_2" type="mars2020:reserved_2" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_length" type="mars2020:data_length" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Exposure" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:Subframe" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element ref="img:High_Dynamic_Range" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:annotation>
+      <xs:documentation>This section contains the simpleTypes that provide more constraints
+        than those at the base data type level. The simpleTypes defined here build on the base data
+        types. This is another component of the common dictionary and therefore falls within the
+        common namespace.
+      </xs:documentation>
+    </xs:annotation>
+
+  <xs:simpleType name="current_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="current_value">
+    <xs:annotation>
+      <xs:documentation>The current_value attribute provides provides
+        the current, in the specified units, of an imaging instrument or
+        some part of the imaging instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:current_value_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Current" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="data_length">
+    <xs:annotation>
+      <xs:documentation>Specifies the size of the image (in the
+        telemetry stream) in bytes for SuperCam RMI.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="device_name">
+    <xs:annotation>
+      <xs:documentation>The device_name attribute supplies the formal
+        name for an imaging instrument, an imaging instrument device, or
+        some point on the instrument or device.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="flash_duration_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="flash_duration">
+    <xs:annotation>
+      <xs:documentation>The flash_duration attribute provides the
+        duration of a single component of the flash for the PIXL MCC
+        illumination.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:flash_duration_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Time" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="marker_pad">
+    <xs:annotation>
+      <xs:documentation>Static value used by the SuperCam RMI Body Unit
+        (BU).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="memory_bank">
+    <xs:annotation>
+      <xs:documentation>For SuperCam RMI this specifies the Mast Unit
+        (MU) memory bank used to hold image before transfer to RCE.
+        There are 64 memory banks in the MU. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="milliseconds_count">
+    <xs:annotation>
+      <xs:documentation>Millisecond count from RCE time sync when image
+        received from mast unit by SuperCam RMI.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mission_phase_name">
+    <xs:annotation>
+      <xs:documentation>The mission_phase_name identifies a time period
+        within the mission.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Preserved">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="num_images_transmitted">
+    <xs:annotation>
+      <xs:documentation>For SuperCam RMI, this is the number of images
+        transmitted to the RCE.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="product_type_name">
+    <xs:annotation>
+      <xs:documentation>The product_type_name identifies a group of data
+        products within a collection that have some property in common,
+        such as processing level, resolution, or instrument-specific
+        setting. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rce_time_sync">
+    <xs:annotation>
+      <xs:documentation>Last time sync value received from RCE by
+        SuperCam RMI</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="release_number">
+    <xs:annotation>
+      <xs:documentation>release_number is the identifier of a scheduled
+        release of Mars 2020 data from PDS. The first Mars 2020 data
+        release has release_number "01". The release_number for a given
+        product is always the first release in which it appears, and
+        does not change if the product is revised
+        later.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reserved_1">
+    <xs:annotation>
+      <xs:documentation>Reserved field for SuperCam RMI
+        mini-header</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="reserved_2">
+    <xs:annotation>
+      <xs:documentation>Reserved field for SuperCam RMI
+        mini-header</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rmi_cmos_registers">
+    <xs:annotation>
+      <xs:documentation>Dump of SuperCam RMI hardware
+        registers</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rmi_fpga_registers">
+    <xs:annotation>
+      <xs:documentation>Dump of all SuperCam RMI FPGA
+        registers</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="rmi_header_size">
+    <xs:annotation>
+      <xs:documentation>For SuperCam RMI this is the total number of
+        bytes in MU and BU headers</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_NonNegative_Integer">
+    	<xs:pattern value='[0-9]+'/>
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="18446744073709551615"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="sol_number">
+    <xs:annotation>
+      <xs:documentation>Sol_number is the number of the Mars day on
+        which an observation was acquired. Landing day is Sol
+        0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_partition">
+    <xs:annotation>
+      <xs:documentation>The spacecraft_clock_partition provides the
+        clock partition active for the spacecraft_clock_start and
+        spacecraft_clock_stop attributes. This attribute may be used
+        when the spacecraft_clock values do not include a partition
+        number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="1"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_start">
+    <xs:annotation>
+      <xs:documentation> The spacecraft_clock_start is the value of the
+        spacecraft clock at the beginning of an observation, in seconds.
+        Values are formed according to the pattern
+        [p/]dddddddddd[.ffffff], where p is an optional partition
+        number, dddddddddd is a whole number of seconds up to 10 digits,
+        and .ffffff is an optional fraction of a second up to 6 digits.
+        The whole number and fraction are separated by a period. If a
+        partition number and slash are not present, then the attribute
+        spacecraft_clock_partition must be used. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="spacecraft_clock_stop">
+    <xs:annotation>
+      <xs:documentation> The spacecraft_clock_stop is the value of the
+        spacecraft clock at the end of an observation, in seconds.
+        Values are formed according to the pattern
+        [p/]dddddddddd[.ffffff], where p is an optional partition
+        number, dddddddddd is a whole number of seconds up to 10 digits,
+        and .ffffff is an optional fraction of a second up to 6 digits.
+        The whole number and fraction are separated by a period. If a
+        partition number and slash are not present, then the attribute
+        spacecraft_clock_partition must be used. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?'/>
+     <xs:minLength value="1"/>
+     <xs:maxLength value="19"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_mean_solar_time">
+    <xs:annotation>
+      <xs:documentation>Start_local_mean_solar_time is the local mean
+        solar time, as defined in the main PDS4 data dictionary, at the
+        beginning of an observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='(Sol\-)?[0-9]{1,5}M[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?'/>
+     <xs:minLength value="10"/>
+     <xs:maxLength value="24"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_true_solar_time">
+    <xs:annotation>
+      <xs:documentation>Start_local_true_solar_time is the local true
+        solar time, as defined in the main PDS4 data dictionary, at the
+        beginning of an observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='((Sol\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?'/>
+     <xs:minLength value="8"/>
+     <xs:maxLength value="24"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_local_true_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The start_local_true_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        true solar time (LTST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0' and can be negative.
+        Start_local_true_solar_time_sol should accompany the attribute
+        start_local_true_solar_time if that attribute's value does not
+        include a sol number prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_sol_number">
+    <xs:annotation>
+      <xs:documentation>Start_sol_number is the number of the Mars day
+        on which a multiple-day observation was begun. Landing day is
+        Sol 0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="start_solar_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="start_solar_longitude">
+    <xs:annotation>
+      <xs:documentation>Start_solar_longitude is the solar longitude, as
+        defined in the main PDS4 data dictionary, at the beginning of an
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:start_solar_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="stop_local_mean_solar_time">
+    <xs:annotation>
+      <xs:documentation>Stop_local_mean_solar_time is the local mean
+        solar time, as defined in the main PDS4 data dictionary, at the
+        end of an observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='(Sol\-)?[0-9]{1,5}M[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?'/>
+     <xs:minLength value="10"/>
+     <xs:maxLength value="24"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_local_true_solar_time">
+    <xs:annotation>
+      <xs:documentation>Stop_local_true_solar_time is the local true
+        solar time, as defined in the main PDS4 data dictionary, at the
+        end of an observation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+    	<xs:pattern value='((Sol\-)?[0-9]{1,5} )?[0-2][0-9]:[0-5][0-9]:[0-5][0-9](\.[0-9]{1,5})?'/>
+     <xs:minLength value="8"/>
+     <xs:maxLength value="24"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_local_true_solar_time_sol">
+    <xs:annotation>
+      <xs:documentation>The stop_local_true_solar_time_sol element
+        specifies the number of solar days elapsed since a reference day
+        (e.g. the day on which a landing vehicle set down) for local
+        true solar time (LTST). Days are measured in rotations of the
+        planet in question from midnight to midnight. The reference day
+        is '0', as Landing day is Sol 0. If before Landing day, then
+        value will be less than or equal to '0' and can be negative.
+        Stop_local_true_solar_time_sol should accompany the attribute
+        stop_local_true_solar_time if that attribute's value does not
+        include a sol number prefix.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_sol_number">
+    <xs:annotation>
+      <xs:documentation>Stop_sol_number is the number of the Mars day on
+        which a multiple-day observation was ended. Landing day is Sol
+        0.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_solar_longitude_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="360"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="stop_solar_longitude">
+    <xs:annotation>
+      <xs:documentation>Stop_solar_longitude is the solar longitude, as
+        defined in the main PDS4 data dictionary, at the end of an
+        observation.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:stop_solar_longitude_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Angle" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="temperature_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="temperature_value">
+    <xs:annotation>
+      <xs:documentation>The temperature_value attribute provides the
+        temperature, in the specified units, of some point on an imaging
+        instrument or other imaging instrument device.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:temperature_value_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Temperature" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="voltage_value_WO_Units">
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="voltage_value">
+    <xs:annotation>
+      <xs:documentation>The voltage_value attribute provides provides
+        the voltage, in the specified units, of an imaging instrument or
+        some part of the imaging instrument.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="mars2020:voltage_value_WO_Units">
+        <xs:attribute name="unit" type="pds:Units_of_Voltage" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>

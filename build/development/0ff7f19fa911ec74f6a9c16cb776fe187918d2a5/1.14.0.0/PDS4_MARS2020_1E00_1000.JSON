@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.14.0.0" ,
-      "Date": "Tue Sep 01 20:54:14 UTC 2020" ,
+      "Date": "Mon Dec 21 21:43:08 UTC 2020" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -1273,6 +1273,38 @@
             "unitOfMeasureId": "null" ,
             "unitId": "null" ,
             "defaultUnitId": "null"
+          , "PermissibleValueList": [
+              {"PermissibleValue": {
+                  "value": "ATLO" ,
+                  "valueMeaning": "The ATLO mission phase (Assembly, Test, and Launch Operations) is the time of spacecraft and instrument assembly and test. During this phase data products are generated using flight hardware. They are usually not part of the final PDS archive but may be used for testing and peer review. " ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Cruise" ,
+                  "valueMeaning": "The cruise mission phase is from the time of escape from Earth's orbit through the time of entry into Mars' orbit. Some data products may be generated during this time, including instrument checkout data." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Development" ,
+                  "valueMeaning": "The development mission phase refers to the period of data processing software development and testing, before instruments are integrated with the spacecraft. Data products generated during this phase are usually not part of the final PDS archive but may be used for testing and peer review." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Surface Mission" ,
+                  "valueMeaning": "The surface mission phase is the time from arrival at Mars through the end of surface operations, including the primary mission and any extended missions that may take place." ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "Test" ,
+                  "valueMeaning": "The test mission phase is not a time period but a placeholder for the mission_phase_name value, used for test data products." ,
+                  "isDeprecated": "false"
+                }
+             }
+           ]
           }
         }
       , {
