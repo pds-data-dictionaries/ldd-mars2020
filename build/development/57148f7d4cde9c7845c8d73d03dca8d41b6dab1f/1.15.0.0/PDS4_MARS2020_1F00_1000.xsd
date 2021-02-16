@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Wed Jan 06 17:51:48 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Feb 16 14:32:07 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -55,6 +55,9 @@
     2020-12-29 Changed max occurrences of PIXL_Illumination class from 1 to 2. Corrected pattern for rules 
     mars2020:error:ltst_rule_0 and mars2020:error:ltst_rule_1.
     2020-12-30 Add MOXIE_Parameters classes and attributes
+    2021-01-20 Added SHERLOC Calibration_Target class
+    2021-01-22 Added more PIXL_Parameters classes and attributes
+    2021-01-26 Made PIXL attributes both nillable and optional
     
   
     </xs:documentation>
@@ -213,6 +216,18 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="Calibration_Target">
+    <xs:annotation>
+      <xs:documentation> The Calibration_Target class contains
+        information about the target of a calibration measurement.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="calibration_target_number" nillable="true" type="mars2020:calibration_target_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="calibration_target_name" nillable="true" type="mars2020:calibration_target_name" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Device_Current">
     <xs:annotation>
       <xs:documentation>The Device_Current class provides the current of
@@ -355,6 +370,7 @@
       <xs:element name="MOXIE_Parameters" type="mars2020:MOXIE_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="PIXL_Parameters" type="mars2020:PIXL_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="RIMFAX_Parameters" type="mars2020:RIMFAX_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SHERLOC_Parameters" type="mars2020:SHERLOC_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="SuperCam_Parameters" type="mars2020:SuperCam_Parameters" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -390,6 +406,18 @@
     <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
+  <xs:complexType name="PIXL_Compression">
+    <xs:annotation>
+      <xs:documentation>The PIXL Compression class provides information
+        about the compression applied to the data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="inst_compression_mode" nillable="true" type="mars2020:inst_compression_mode" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="inst_compression_name" nillable="true" type="mars2020:inst_compression_name" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="PIXL_Illumination">
     <xs:annotation>
       <xs:documentation>Container class containing information related
@@ -414,6 +442,15 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="PIXL_Illumination" type="mars2020:PIXL_Illumination" minOccurs="0" maxOccurs="2"> </xs:element>
+      <xs:element name="pixl_motion_counter" nillable="true" type="mars2020:pixl_motion_counter" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_category" nillable="true" type="mars2020:pdp_category" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_category_name" nillable="true" type="mars2020:pdp_category_name" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_size" nillable="true" type="mars2020:pdp_size" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_nvm_usn" nillable="true" type="mars2020:pdp_nvm_usn" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_nvm_chunks" nillable="true" type="mars2020:pdp_nvm_chunks" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_nvm_block" nillable="true" type="mars2020:pdp_nvm_block" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pdp_nvm_page" nillable="true" type="mars2020:pdp_nvm_page" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="PIXL_Compression" type="mars2020:PIXL_Compression" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -614,6 +651,17 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="SHERLOC_Parameters">
+    <xs:annotation>
+      <xs:documentation>Container for the attributes describing a
+        SHERLOC observation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sherloc_config_file" type="mars2020:sherloc_config_file" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Calibration_Target" type="mars2020:Calibration_Target" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Safety_Parameter_Table">
     <xs:annotation>
 <xs:documentation>MOXIE Safety Parameter Table</xs:documentation>
@@ -795,6 +843,42 @@
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_Boolean">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="calibration_target_name">
+    <xs:annotation>
+      <xs:documentation> The calibration_target_name gives the name of
+        the calibration target as defined in the SHERLOC instrument
+        paper, Bhartia et al., SSR, 2020. Each calibration target name
+        is associated with a calibration target number: (0) NA (1) AlGaN
+        on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU
+        008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6)
+        Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon
+        (10) nGimat Coated Teflon </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="calibration_target_number">
+    <xs:annotation>
+      <xs:documentation> The calibration_target_name gives the number of
+        the calibration target as defined in the SHERLOC instrument
+        paper, Bhartia et al., SSR, 2020. Each calibration target number
+        is associated with a calibration target name: (0) Not Applicable
+        (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars
+        Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340
+        nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9)
+        Teflon (10) nGimat Coated Teflon </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_NonNegative_Integer">
         <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
       </xs:extension>
     </xs:simpleContent>
@@ -1202,6 +1286,31 @@
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="inst_compression_mode">
+    <xs:annotation>
+      <xs:documentation>The inst_compression_mode identifies the type of
+        compression applied to a data product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="inst_compression_name">
+    <xs:annotation>
+      <xs:documentation>The inst_compression_name gives the name of the
+        compression algorithm applied to a data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:complexType name="lis_soundings">
     <xs:annotation>
@@ -1713,6 +1822,95 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:complexType name="pdp_category">
+    <xs:annotation>
+      <xs:documentation>The pdp_category identifies the PIXL data
+        product category number.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_category_name">
+    <xs:annotation>
+      <xs:documentation>The pdp_category_name identifies the PIXL data
+        product category name.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_nvm_block">
+    <xs:annotation>
+      <xs:documentation>The pdp_nvm_block identifies the Non Volatile
+        Memory block from which Anomalous Retrieved data was read.
+        Applies only to anomalous data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_nvm_chunks">
+    <xs:annotation>
+      <xs:documentation>The pdp_nvm_chunks gives the number of Non
+        Volatile Memory chunks that make up a PIXL data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_nvm_page">
+    <xs:annotation>
+      <xs:documentation>The pdp_nvm_page identifies the page in Non
+        Volatile Memory from which Anomalous Retrieved Data was read.
+        Applies only to anomalous data.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_nvm_usn">
+    <xs:annotation>
+      <xs:documentation>The pdp_nvm_usn gives the Universal Sequence
+        Number of the data product as it was stored in Non-Volatile
+        Memory.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pdp_size">
+    <xs:annotation>
+      <xs:documentation>The pdp_size gives the size of the PIXL data
+        product as it was stored in Non-Volatile
+        Memory.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:simpleType name="persistence_enable">
     <xs:annotation>
       <xs:documentation> For MOXIE: MOXIE_Parameters persistence time
@@ -1721,6 +1919,21 @@
     <xs:restriction base="pds:ASCII_Boolean">
 	   </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="pixl_motion_counter">
+    <xs:annotation>
+      <xs:documentation> The PIXL Motion Counter is a counter
+        representing a change to the PIXL Hexapod position. The counter
+        starts at 0 when PIXL is powered on (presumably with the hexapod
+        in the "homed" position) and increases by 1 each time the
+        hexapod is moved. </xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_NonNegative_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
 
   <xs:simpleType name="primary_objective">
     <xs:annotation>
@@ -1905,6 +2118,18 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="sherloc_config_file">
+    <xs:annotation>
+      <xs:documentation>The sherloc_config_file provides the name of the
+        configuration file used to process a SHERLOC data
+        product.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="sinetable">
     <xs:annotation>

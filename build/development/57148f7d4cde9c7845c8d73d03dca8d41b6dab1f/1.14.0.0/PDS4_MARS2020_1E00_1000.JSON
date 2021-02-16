@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.14.0.0" ,
-      "Date": "Wed Jan 06 17:51:43 UTC 2021" ,
+      "Date": "Tue Feb 16 14:32:04 UTC 2021" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -1166,6 +1166,53 @@
         }
       , {
           "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Calibration_Target" ,
+            "title": "Calibration_Target" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": " The Calibration_Target class contains information about the target of a calibration measurement. "
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_number" ,
+                "title": "calibration_target_number" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_number"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_name" ,
+                "title": "calibration_target_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_name"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
             "identifier": "0001_NASA_PDS_1.mars2020.Device_Current" ,
             "title": "Device_Current" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -1822,6 +1869,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Mars2020_Parameters.mars2020.SHERLOC_Parameters" ,
+                "title": "SHERLOC_Parameters" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.Mars2020_Parameters.mars2020.SuperCam_Parameters" ,
                 "title": "SuperCam_Parameters" ,
                 "assocType": "component_of" ,
@@ -1831,7 +1894,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1050" ,
+                "classOrder": "1060" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.SuperCam_Parameters"
                  ]
@@ -2145,6 +2208,53 @@
         }
       , {
           "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Compression" ,
+            "title": "PIXL_Compression" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The PIXL Compression class provides information about the compression applied to the data product."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_mode" ,
+                "title": "inst_compression_mode" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_mode"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_name" ,
+                "title": "inst_compression_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_name"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
             "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Illumination" ,
             "title": "PIXL_Illumination" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -2235,6 +2345,134 @@
             "description": "The PIXL Parameters class provides metadata specific to PIXL observations."
               , "associationList": [
              {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_motion_counter" ,
+                "title": "pixl_motion_counter" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_motion_counter"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category" ,
+                "title": "pdp_category" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category_name" ,
+                "title": "pdp_category_name" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category_name"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_size" ,
+                "title": "pdp_size" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_size"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_usn" ,
+                "title": "pdp_nvm_usn" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1060" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_usn"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_chunks" ,
+                "title": "pdp_nvm_chunks" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1070" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_chunks"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_block" ,
+                "title": "pdp_nvm_block" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1080" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_block"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_page" ,
+                "title": "pdp_nvm_page" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1090" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_page"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.PIXL_Illumination" ,
                 "title": "PIXL_Illumination" ,
                 "assocType": "component_of" ,
@@ -2247,6 +2485,22 @@
                 "classOrder": "1010" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Illumination"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.PIXL_Compression" ,
+                "title": "PIXL_Compression" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1100" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Compression"
                  ]
               }
             }
@@ -3915,6 +4169,53 @@
                 "classOrder": "1100" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.Run_Parameter_Table_Values.mars2020.cl_ics4_t"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters" ,
+            "title": "SHERLOC_Parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Container for the attributes describing a SHERLOC observation"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters.mars2020.sherloc_config_file" ,
+                "title": "sherloc_config_file" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters.mars2020.sherloc_config_file"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters.mars2020.Calibration_Target" ,
+                "title": "Calibration_Target" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1020" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Calibration_Target"
                  ]
               }
             }
@@ -6617,6 +6918,56 @@
         }
       , {
           "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_name" ,
+            "title": "calibration_target_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate\/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon " ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Calibration_Target.mars2020.calibration_target_number" ,
+            "title": "calibration_target_number" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The calibration_target_name gives the number of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target number is associated with a calibration target name: (0) Not Applicable (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate\/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon " ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_NonNegative_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_NonNegative_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "10" ,
+            "pattern": "[0-9]+" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
             "identifier": "0001_NASA_PDS_1.mars2020.Device_Current.mars2020.current_value" ,
             "title": "current_value" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -7483,6 +7834,256 @@
             "unitOfMeasure": "Units_of_Angle" ,
             "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Angle" ,
             "unitId": "arcmin, arcsec, deg, hr, mrad, rad" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_mode" ,
+            "title": "inst_compression_mode" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The inst_compression_mode identifies the type of compression applied to a data product." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Compression.mars2020.inst_compression_name" ,
+            "title": "inst_compression_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The inst_compression_name gives the name of the compression algorithm applied to a data product." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category" ,
+            "title": "pdp_category" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_category identifies the PIXL data product category number." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category_name" ,
+            "title": "pdp_category_name" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_category_name identifies the PIXL data product category name." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_block" ,
+            "title": "pdp_nvm_block" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_nvm_block identifies the Non Volatile Memory block from which Anomalous Retrieved data was read. Applies only to anomalous data." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_chunks" ,
+            "title": "pdp_nvm_chunks" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_nvm_chunks gives the number of Non Volatile Memory chunks that make up a PIXL data product." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_page" ,
+            "title": "pdp_nvm_page" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_nvm_page identifies the page in Non Volatile Memory from which Anomalous Retrieved Data was read. Applies only to anomalous data." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_usn" ,
+            "title": "pdp_nvm_usn" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_nvm_usn gives the Universal Sequence Number of the data product as it was stored in Non-Volatile Memory." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_size" ,
+            "title": "pdp_size" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The pdp_size gives the size of the PIXL data product as it was stored in Non-Volatile Memory." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_motion_counter" ,
+            "title": "pixl_motion_counter" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the \"homed\" position) and increases by 1 each time the hexapod is moved. " ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_NonNegative_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_NonNegative_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "0" ,
+            "maximumValue": "18446744073709551615" ,
+            "pattern": "[0-9]+" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
             "defaultUnitId": "null"
           }
         }
@@ -9583,6 +10184,31 @@
             "unitOfMeasure": "Units_of_Time" ,
             "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Time" ,
             "unitId": "day, hr, julian day, microseconds, min, ms, s, yr" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.SHERLOC_Parameters.mars2020.sherloc_config_file" ,
+            "title": "sherloc_config_file" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product." ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
             "defaultUnitId": "null"
           }
         }

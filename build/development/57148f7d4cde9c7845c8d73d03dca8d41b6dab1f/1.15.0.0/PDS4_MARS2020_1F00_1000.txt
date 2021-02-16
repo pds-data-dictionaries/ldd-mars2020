@@ -1,13 +1,13 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        12.0.3
+   LDDTool Version        12.1.0
    LDD Version Id:        1.0.0.0
    LDD Label Version Id:  1.0
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Wed Jan 06 17:51:48 UTC 2021
+   Time                   Tue Feb 16 14:32:07 UTC 2021
    Common Schema          [PDS4_PDS_1F00.xsd]
    Common Schematron      [PDS4_PDS_1F00.sch]
    IM Version Id:         1.15.0.0
@@ -29,9 +29,9 @@ Parameters:
    Merge with Master      false
 
 Summary:
-   Classes                44
-   Attributes             220
-   Associations           292
+   Classes                47
+   Attributes             233
+   Associations           308
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -73,6 +73,9 @@ Parsed Input - Header:
     2020-12-29 Changed max occurrences of PIXL_Illumination class from 1 to 2. Corrected pattern for rules 
     mars2020:error:ltst_rule_0 and mars2020:error:ltst_rule_1.
     2020-12-30 Add MOXIE_Parameters classes and attributes
+    2021-01-20 Added SHERLOC Calibration_Target class
+    2021-01-22 Added more PIXL_Parameters classes and attributes
+    2021-01-26 Made PIXL attributes both nillable and optional
     
   
    Last Modification Time 2021-01-06T11:36
@@ -1109,6 +1112,66 @@ Parsed Input - Attributes:
    description            The flash_duration attribute provides the duration of a single component of the flash for the PIXL MCC illumination.
    unit of measure type   Units_of_Time
 
+   name                   inst_compression_mode
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_compression_mode identifies the type of compression applied to a data product.
+   nillable               true
+
+   name                   inst_compression_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The inst_compression_name gives the name of the compression algorithm applied to a data product.
+   nillable               true
+
+   name                   pdp_category
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_category identifies the PIXL data product category number.
+   nillable               true
+
+   name                   pdp_category_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The pdp_category_name identifies the PIXL data product category name.
+   nillable               true
+
+   name                   pdp_nvm_block
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_block identifies the Non Volatile Memory block from which Anomalous Retrieved data was read. Applies only to anomalous data.
+   nillable               true
+
+   name                   pdp_nvm_chunks
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_chunks gives the number of Non Volatile Memory chunks that make up a PIXL data product.
+   nillable               true
+
+   name                   pdp_nvm_page
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_nvm_page identifies the page in Non Volatile Memory from which Anomalous Retrieved Data was read. Applies only to anomalous data.
+   nillable               true
+
+   name                   pdp_nvm_usn
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The pdp_nvm_usn gives the Universal Sequence Number of the data product as it was stored in Non-Volatile Memory.
+   nillable               true
+
+   name                   pdp_size
+   version                1.15
+   value data type        ASCII_Integer
+   description            The pdp_size gives the size of the PIXL data product as it was stored in Non-Volatile Memory.
+   nillable               true
+
+   name                   pixl_motion_counter
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description             The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the "homed" position) and increases by 1 each time the hexapod is moved. 
+   nillable               true
+
    name                   temperature_value
    version                1.15
    value data type        ASCII_Real
@@ -1246,6 +1309,25 @@ Parsed Input - Attributes:
    description            Delay for switching the Tx switch on and off.
    nillable               true
    unit of measure type   Units_of_Time
+
+   name                   calibration_target_name
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
+   nillable               true
+
+   name                   calibration_target_number
+   version                1.15
+   value data type        ASCII_NonNegative_Integer
+   description             The calibration_target_name gives the number of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target number is associated with a calibration target name: (0) Not Applicable (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
+   nillable               true
+   minimum value          0
+   maximum value          10
+
+   name                   sherloc_config_file
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description            The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product.
 
    name                   data_length
    version                1.15
@@ -2876,6 +2958,24 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        component_of
 
+   name                   PIXL_Compression
+   description            The PIXL Compression class provides information about the compression applied to the data product.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.pixl.inst_compression_mode
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.inst_compression_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
    name                   PIXL_Parameters
    description            The PIXL Parameters class provides metadata specific to PIXL observations.
    is abstract            false
@@ -2884,9 +2984,54 @@ Parsed Input - Classes:
 
    Associations
 
+      local identifier      mars2020.pixl.pixl_motion_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_category
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_category_name
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_usn
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_chunks
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_block
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pdp_nvm_page
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
       local identifier      mars2020.PIXL_Illumination
       minimum occurrences   0
       maximum occurrences   2
+      reference type        component_of
+
+      local identifier      mars2020.PIXL_Compression
+      minimum occurrences   0
+      maximum occurrences   1
       reference type        component_of
 
    name                   RIMFAX_Parameters
@@ -2991,6 +3136,42 @@ Parsed Input - Classes:
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
+
+   name                   Calibration_Target
+   description             The Calibration_Target class contains information about the target of a calibration measurement. 
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.srlc.calibration_target_number
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.srlc.calibration_target_name
+      minimum occurrences   1
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SHERLOC_Parameters
+   description            Container for the attributes describing a SHERLOC observation
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.srlc.sherloc_config_file
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.srlc.calibration_target
+      minimum occurrences   0
+      maximum occurrences   *
+      reference type        component_of
 
    name                   SuperCam_RMI_Mini_Header
    description             This class contains the "mini-header" for the SuperCam RMI camera on Mars 2020. The mini- header is a set of information that is tightly tied to the camera hardware, and the instrument team finds value in keeping the set of mini- header information together. Much (but not all) of the information is also included in appropriate sections of the discipline dictionaries, which is where general users should go. 
@@ -3107,6 +3288,11 @@ Parsed Input - Classes:
       reference type        component_of
 
       local identifier      mars2020.RIMFAX_Parameters
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SHERLOC_Parameters
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
