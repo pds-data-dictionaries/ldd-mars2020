@@ -1,9 +1,9 @@
 # LDD Source Directory
 
-1/4/21 Mars 2020 Mission Dictionary revisions:
-- Included MOXIE classes and attributes
-- Changed max occurrences of PIXL_Illumination class from 1 to 2.
-- Corrected pattern for rules mars2020:error:ltst_rule_0 and mars2020:error:ltst_rule_1.
+1/20/21 - 2/16/21 Mars 2020 Mission Dictionary revisions:
+- Added SHERLOC Calibration_Target class
+- Added more PIXL_Parameters classes and attributes
+- Made PIXL attributes both nillable and optional
 
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.

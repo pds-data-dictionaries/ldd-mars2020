@@ -48,6 +48,9 @@
     2020-12-29 Changed max occurrences of PIXL_Illumination class from 1 to 2. Corrected pattern for rules 
     mars2020:error:ltst_rule_0 and mars2020:error:ltst_rule_1.
     2020-12-30 Add MOXIE_Parameters classes and attributes
+    2021-01-20 Added SHERLOC Calibration_Target class
+    2021-01-22 Added more PIXL_Parameters classes and attributes
+    2021-01-26 Made PIXL attributes both nillable and optional
     
   </comment>
   <last_modification_date_time>2021-01-06T11:36</last_modification_date_time>
@@ -2972,6 +2975,122 @@
       <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute> <name>inst_compression_mode</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.inst_compression_mode</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The inst_compression_mode identifies the type of compression applied to a data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>inst_compression_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.inst_compression_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The inst_compression_name gives the name of the compression algorithm applied to a data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_category</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_category</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_category identifies the PIXL data product category number.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_category_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_category_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_category_name identifies the PIXL data product category name.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_nvm_block</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_nvm_block</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_nvm_block identifies the Non Volatile Memory block from which Anomalous Retrieved data was read. 
+      Applies only to anomalous data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_nvm_chunks</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_nvm_chunks</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_nvm_chunks gives the number of Non Volatile Memory chunks that make up a PIXL data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_nvm_page</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_nvm_page</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_nvm_page identifies the page in Non Volatile Memory from which Anomalous Retrieved Data was read.
+      Applies only to anomalous data.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_nvm_usn</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_nvm_usn</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_nvm_usn gives the Universal Sequence Number of the data product as it was stored in Non-Volatile Memory.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pdp_size</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pdp_size</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The pdp_size gives the size of the PIXL data product as it was stored in Non-Volatile Memory.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>pixl_motion_counter</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pixl_motion_counter</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Payam Zamani</submitter_name>
+    <definition>
+      The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. 
+      The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the "homed" 
+      position) and increases by 1 each time the hexapod is moved.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>temperature_value</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.temperature_value</local_identifier>
@@ -3247,9 +3366,76 @@
   
   <!-- End Attribute Definitions for the RIMFAX_Parameters class -->
 
-  <!-- Begin Attribute Definitions for SHERLOC_Parameters Class
-       TBD
-   -->
+  <!-- Begin Attribute Definitions for SHERLOC_Parameters Class -->
+
+  <DD_Attribute> <name>calibration_target_name</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.srlc.calibration_target_name</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>
+      The calibration_target_name gives the name of the calibration target as
+      defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020.
+      Each calibration target name is associated with a calibration target number:
+      (0) NA
+      (1) AlGaN on Sapphire 264 nm
+      (2) Diffusil Diffuser
+      (3) Mars Meteorite SAU 008
+      (4) Intensity Target 
+      (5) AlGaN on Sapphire 340 nm
+      (6) Polycarbonate/opal glass)
+      (7) Vectran
+      (8) Orthofabric
+      (9) Teflon
+      (10) nGimat Coated Teflon
+    </definition>
+    <comment>Should these be enumerated values?</comment>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute> <name>calibration_target_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.srlc.calibration_target_number</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>
+      The calibration_target_name gives the number of the calibration target as
+      defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020.
+      Each calibration target number is associated with a calibration target name:
+      (0) Not Applicable 
+      (1) AlGaN on Sapphire 264 nm
+      (2) Diffusil Diffuser
+      (3) Mars Meteorite SAU 008
+      (4) Intensity Target 
+      (5) AlGaN on Sapphire 340 nm
+      (6) Polycarbonate/opal glass)
+      (7) Vectran
+      (8) Orthofabric
+      (9) Teflon
+      (10) nGimat Coated Teflon
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+      <minimum_value>0</minimum_value>
+      <maximum_value>10</maximum_value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>sherloc_config_file</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.srlc.sherloc_config_file</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
   <!-- End Attribute Definitions for the SHERLOC_Parameters class -->
 
   <!-- Begin Attribute Definitions for SuperCam_Parameters Class and subclasses -->
@@ -5205,9 +5391,19 @@
                  </mars2020:Device_Voltage>
                  ....
               </mars2020:Device_Voltages>
-              TBD
           </mars2020:PIXL_Illumination>
-          TBD
+          <mars2020:pixl_motion_counter>12345</>
+          <mars2020:pdp_category>26</>
+          <mars2020:pdp_category_name>Histogram Bulk Sum A</>
+          <mars2020:pdp_size>3636</>
+          <mars2020:pdp_nvm_usn>1472114</>
+          <mars2020:pdp_nvm_chunks>1</>
+          <mars2020:pdp_nvm_block>6314</>
+          <mars2020:pdp_nvm_page>99</>
+          <mars2020:PIXL_Compression>
+              <mars2020:inst_compression_mode>0</>
+              <mars2020:inst_compression_name>NONE</>
+          </mars2020:PIXL_Compression>
        </mars2020:PIXL_Parameters>
   -->
 
@@ -5392,6 +5588,27 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+  <DD_Class>
+    <name>PIXL_Compression</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.PIXL_Compression</local_identifier>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>The PIXL Compression class provides information about the compression applied to the data product.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.inst_compression_mode</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.inst_compression_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
   <DD_Class>  <name>PIXL_Parameters</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.PIXL_Parameters</local_identifier>
@@ -5404,6 +5621,60 @@
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>2</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pixl_motion_counter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_category</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_category_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_size</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_nvm_usn</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_nvm_chunks</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_nvm_block</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pdp_nvm_page</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.PIXL_Compression</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
 
@@ -5551,7 +5822,57 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
-
+  
+  <!-- Begin SHERLOC_Parameters Class Definition
+       Hierarchy:
+       <mars2020:SHERLOC_Parameters>
+          <mars2020:sherloc_config_file>
+          <mars2020:Calibration_Target>
+             <mars2020:calibration_target_number></>
+             <mars2020:calibration_target_name></>
+          </mars2020:Calibration_Target>
+       </mars2020:SHERLOC_Parameters>
+  -->
+  <DD_Class>  <name>Calibration_Target</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.srlc.calibration_target</local_identifier>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>
+      The Calibration_Target class contains information about the
+      target of a calibration measurement.
+    </definition>
+    <DD_Association>  
+      <identifier_reference>mars2020.srlc.calibration_target_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.srlc.calibration_target_name</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class> <name>SHERLOC_Parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.SHERLOC_Parameters</local_identifier>
+    <submitter_name>Susan Slavney</submitter_name>
+    <definition>Container for the attributes describing a SHERLOC observation</definition>
+    <DD_Association>
+      <identifier_reference>mars2020.srlc.sherloc_config_file</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.srlc.calibration_target</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  
   <!-- Begin SuperCam_Parameters Class Definition
        Hierarchy:
        <mars2020:SuperCam_Parameters>
@@ -5719,6 +6040,11 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>  <identifier_reference>mars2020.RIMFAX_Parameters</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <identifier_reference>mars2020.SHERLOC_Parameters</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
