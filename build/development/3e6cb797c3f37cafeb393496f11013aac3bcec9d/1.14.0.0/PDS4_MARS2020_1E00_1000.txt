@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Feb 16 14:32:04 UTC 2021
+   Time                   Wed Mar 10 22:03:18 UTC 2021
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -30,8 +30,8 @@ Parameters:
 
 Summary:
    Classes                47
-   Attributes             233
-   Associations           308
+   Attributes             235
+   Associations           310
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -76,9 +76,13 @@ Parsed Input - Header:
     2021-01-20 Added SHERLOC Calibration_Target class
     2021-01-22 Added more PIXL_Parameters classes and attributes
     2021-01-26 Made PIXL attributes both nillable and optional
+    2021-03-10 Changed attribute mars2020:unit to optional in MOXIE classes Run_Control_Table_Field,
+       Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
+       Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
+       Changed MOXIE attribute names *_enable to *_en. 
     
   
-   Last Modification Time 2021-01-06T11:36
+   Last Modification Time 2021-03-10T19:35
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -151,6 +155,11 @@ Parsed Input - Attributes:
    description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol should accompany the attribute start_local_true_solar_time if that attribute's value does not include a sol number prefix.
    minimum value          0
 
+   name                   start_mars_year
+   version                1.14
+   value data type        ASCII_Integer
+   description             The start_mars_year element gives the Mars year at the beginning of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
+
    name                   start_sol_number
    version                1.14
    value data type        ASCII_Integer
@@ -184,6 +193,11 @@ Parsed Input - Attributes:
    value data type        ASCII_Integer
    description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol should accompany the attribute stop_local_true_solar_time if that attribute's value does not include a sol number prefix.
    minimum value          0
+
+   name                   stop_mars_year
+   version                1.14
+   value data type        ASCII_Integer
+   description             The stop_mars_year element gives the Mars year at the end of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
 
    name                   stop_sol_number
    version                1.14
@@ -238,12 +252,12 @@ Parsed Input - Attributes:
    value data type        ASCII_Short_String_Preserved
    description             For MOXIE: Comments associated with MOXIE_Parameters Run_Control_Table_Step 
 
-   name                   cs123_enable
+   name                   cs123_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: Gas composition sensors 1, 2 and 3 enable bit 
 
-   name                   cs4_enable
+   name                   cs4_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: Gas composition sensor 4 enable bit 
@@ -288,7 +302,7 @@ Parsed Input - Attributes:
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is off in digital numbers 
 
-   name                   hs_enable
+   name                   hs_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE heater enable bit 
@@ -313,7 +327,7 @@ Parsed Input - Attributes:
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is off in digital numbers 
 
-   name                   m1_enable
+   name                   m1_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: Scroll compressor motor enable bit 
@@ -464,7 +478,7 @@ Parsed Input - Attributes:
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure operational limit persistence time 
    unit of measure type   Units_of_Time
 
-   name                   persistence_enable
+   name                   persistence_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: MOXIE_Parameters persistence time enable flag 
@@ -834,12 +848,12 @@ Parsed Input - Attributes:
    description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 temperature limit persistence time 
    unit of measure type   Units_of_Time
 
-   name                   vb_enable
+   name                   vb_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE bottom half-stack power supply enable bit 
 
-   name                   vt_enable
+   name                   vt_en
    version                1.14
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE top half-stack power supply enable bit 
@@ -1313,7 +1327,7 @@ Parsed Input - Attributes:
    name                   calibration_target_name
    version                1.14
    value data type        ASCII_Short_String_Collapsed
-   description             The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
+   description             The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
    nillable               true
 
    name                   calibration_target_number
@@ -1484,6 +1498,16 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        attribute_of
 
+      local identifier      mars2020.start_mars_year
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.stop_mars_year
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
    name                   Run_Control_Table_Metadata
    description             MOXIE Run Control Table metadata 
    is abstract            false
@@ -1521,7 +1545,7 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      pds.unit
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 
@@ -1736,32 +1760,32 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.hs_enable
+      local identifier      mars2020.moxie.hs_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.cs123_enable
+      local identifier      mars2020.moxie.cs123_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.cs4_enable
+      local identifier      mars2020.moxie.cs4_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.m1_enable
+      local identifier      mars2020.moxie.m1_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.vt_enable
+      local identifier      mars2020.moxie.vt_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
 
-      local identifier      mars2020.moxie.vb_enable
+      local identifier      mars2020.moxie.vb_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
@@ -1844,7 +1868,7 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      pds.unit
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 
@@ -1869,7 +1893,7 @@ Parsed Input - Classes:
 
    Associations
 
-      local identifier      mars2020.moxie.persistence_enable
+      local identifier      mars2020.moxie.persistence_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
@@ -2159,7 +2183,7 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      pds.unit
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 
@@ -2184,7 +2208,7 @@ Parsed Input - Classes:
 
    Associations
 
-      local identifier      mars2020.moxie.persistence_enable
+      local identifier      mars2020.moxie.persistence_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
@@ -2534,7 +2558,7 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      pds.unit
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 
@@ -2559,7 +2583,7 @@ Parsed Input - Classes:
 
    Associations
 
-      local identifier      mars2020.moxie.persistence_enable
+      local identifier      mars2020.moxie.persistence_en
       minimum occurrences   1
       maximum occurrences   1
       reference type        attribute_of
