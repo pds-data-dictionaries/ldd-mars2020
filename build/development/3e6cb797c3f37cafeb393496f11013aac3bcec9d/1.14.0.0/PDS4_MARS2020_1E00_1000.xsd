@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Feb 16 14:32:04 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Wed Mar 10 22:03:18 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
-  <!-- 1.8.2.0 - img: - Imaging                                                  -->
+  <!-- 1.8.3.0 - img: - Imaging                                                  -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
-  <!-- 1.8.2.0 - img: - Imaging                                                  -->
+  <!-- 1.8.3.0 - img: - Imaging                                                  -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
   <!-- 1.0.0.0 - mars2020: - Mars 2020 Mission                                   -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD. -->
@@ -22,7 +22,7 @@
     version="1.0.0.0">
  
     <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
-    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1820.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1830.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -58,6 +58,10 @@
     2021-01-20 Added SHERLOC Calibration_Target class
     2021-01-22 Added more PIXL_Parameters classes and attributes
     2021-01-26 Made PIXL attributes both nillable and optional
+    2021-03-10 Changed attribute mars2020:unit to optional in MOXIE classes Run_Control_Table_Field,
+       Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
+       Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
+       Changed MOXIE attribute names *_enable to *_en. 
     
   
     </xs:documentation>
@@ -85,7 +89,7 @@
     <xs:sequence>
       <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="unit" type="pds:unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="unit" type="pds:unit" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -116,7 +120,7 @@
         Values</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="persistence_enable" type="mars2020:persistence_enable" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="persistence_en" type="mars2020:persistence_en" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="ztt_p_calibrated" type="mars2020:ztt_p_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="ztt_p_digital_number" type="mars2020:ztt_p_digital_number" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="ztb_p_calibrated" type="mars2020:ztb_p_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
@@ -399,6 +403,8 @@
       <xs:element name="start_solar_longitude" type="mars2020:start_solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="stop_solar_longitude" type="mars2020:stop_solar_longitude" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="active_flight_computer" type="mars2020:active_flight_computer" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="start_mars_year" type="mars2020:start_mars_year" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="stop_mars_year" type="mars2020:stop_mars_year" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
     <!-- <xs:assert test="mars2020:mission_phase_name = ('ATLO', 'Cruise', 'Development', 'Surface Mission', 'Test')"/> -->
@@ -501,7 +507,7 @@
     <xs:sequence>
       <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="unit" type="pds:unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="unit" type="pds:unit" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -569,12 +575,12 @@
       <xs:element name="ol_xibp4_h_digital_number" type="mars2020:ol_xibp4_h_digital_number" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="ol_xibp4_l_calibrated" type="mars2020:ol_xibp4_l_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="ol_xibp4_l_digital_number" type="mars2020:ol_xibp4_l_digital_number" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="hs_enable" type="mars2020:hs_enable" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="cs123_enable" type="mars2020:cs123_enable" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="cs4_enable" type="mars2020:cs4_enable" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="m1_enable" type="mars2020:m1_enable" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="vt_enable" type="mars2020:vt_enable" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="vb_enable" type="mars2020:vb_enable" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="hs_en" type="mars2020:hs_en" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="cs123_en" type="mars2020:cs123_en" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="cs4_en" type="mars2020:cs4_en" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="m1_en" type="mars2020:m1_en" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vt_en" type="mars2020:vt_en" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="vb_en" type="mars2020:vb_en" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="comments" type="mars2020:comments" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -607,7 +613,7 @@
     <xs:sequence>
       <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="unit" type="pds:unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="unit" type="pds:unit" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -638,7 +644,7 @@
         Values</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="persistence_enable" type="mars2020:persistence_enable" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="persistence_en" type="mars2020:persistence_en" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="tl_ics1234_h_calibrated" type="mars2020:tl_ics1234_h_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="tl_ics1234_h_digital_number" type="mars2020:tl_ics1234_h_digital_number" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="cl_ics123_h_calibrated" type="mars2020:cl_ics123_h_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
@@ -681,7 +687,7 @@
     <xs:sequence>
       <xs:element name="name" type="pds:name" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="description" type="pds:description" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="unit" type="pds:unit" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="unit" type="pds:unit" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -712,7 +718,7 @@
         Values</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="persistence_enable" type="mars2020:persistence_enable" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="persistence_en" type="mars2020:persistence_en" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="sl_p2_h_calibrated" type="mars2020:sl_p2_h_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="sl_p2_h_digital_number" type="mars2020:sl_p2_h_digital_number" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="sl_p3_h_calibrated" type="mars2020:sl_p3_h_calibrated" minOccurs="1" maxOccurs="1"> </xs:element>
@@ -856,7 +862,7 @@
         is associated with a calibration target number: (0) NA (1) AlGaN
         on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU
         008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6)
-        Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon
+        Polycarbonate/opal glass (7) Vectran (8) Orthofabric (9) Teflon
         (10) nGimat Coated Teflon </xs:documentation>
     </xs:annotation>
     <xs:simpleContent>
@@ -1005,7 +1011,7 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="cs123_enable">
+  <xs:simpleType name="cs123_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: Gas composition sensors 1, 2 and 3
         enable bit </xs:documentation>
@@ -1014,7 +1020,7 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="cs4_enable">
+  <xs:simpleType name="cs4_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: Gas composition sensor 4 enable bit
         </xs:documentation>
@@ -1226,7 +1232,7 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="hs_enable">
+  <xs:simpleType name="hs_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: SOXE heater enable bit
         </xs:documentation>
@@ -1324,7 +1330,7 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="m1_enable">
+  <xs:simpleType name="m1_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: Scroll compressor motor enable bit
         </xs:documentation>
@@ -1911,7 +1917,7 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="persistence_enable">
+  <xs:simpleType name="persistence_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: MOXIE_Parameters persistence time
         enable flag </xs:documentation>
@@ -3201,6 +3207,19 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="start_mars_year">
+    <xs:annotation>
+      <xs:documentation> The start_mars_year element gives the Mars year
+        at the beginning of the observation. Mars Year 1 began on April
+        11, 1955. The year number is incremented by 1 for each Martian
+        spring equinox (solar longitude 0 degrees). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="start_sol_number">
     <xs:annotation>
       <xs:documentation>Start_sol_number is the number of the Mars day
@@ -3322,6 +3341,19 @@
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Integer">
      <xs:minInclusive value="0"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="stop_mars_year">
+    <xs:annotation>
+      <xs:documentation> The stop_mars_year element gives the Mars year
+        at the end of the observation. Mars Year 1 began on April 11,
+        1955. The year number is incremented by 1 for each Martian
+        spring equinox (solar longitude 0 degrees). </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
      <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
@@ -3482,7 +3514,7 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="vb_enable">
+  <xs:simpleType name="vb_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: SOXE bottom half-stack power supply
         enable bit </xs:documentation>
@@ -3511,7 +3543,7 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="vt_enable">
+  <xs:simpleType name="vt_en">
     <xs:annotation>
       <xs:documentation> For MOXIE: SOXE top half-stack power supply
         enable bit </xs:documentation>
