@@ -25,7 +25,7 @@
     
     Mars 2020 version 1.0.0.0 
     PDS Build 1.15.0.0
-    LDDTool version 12.0.2
+    LDDTool version 12.1.0
     
     Built with LDDTool -plJ  PDS4_IMG_Ingest_LDD.xml PDS4_MARS2020_IngestLDD.xml
      
@@ -55,9 +55,10 @@
        Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
+    2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     
   </comment>
-  <last_modification_date_time>2021-03-10T19:35</last_modification_date_time>
+  <last_modification_date_time>2021-03-30T18:42</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -275,22 +276,22 @@
     <definition>
       The spacecraft_clock_start is the value of the spacecraft clock at the
       beginning of an observation, in seconds. Values are formed 
-      according to the pattern [p/]dddddddddd[.ffffff], where p is an optional 
+      according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional 
       partition number, dddddddddd is a whole number of seconds up to 10 digits,
-      and .ffffff is an optional fraction of a second up to 6 digits. The whole
+      and .fffffffff is an optional fraction of a second up to 9 digits. The whole
       number and fraction are separated by a period. If a partition number and 
       slash are not present, then the attribute spacecraft_clock_partition must be used.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-      <formation_rule>[p/]dddddddddd[.ffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
         preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
-        value is present, it must be separated from the whole number by a period, and may have up to 6 digits. If a partition number
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
         and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
       <minimum_characters>1</minimum_characters>
       <maximum_characters>19</maximum_characters>
-      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?</pattern>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
     </DD_Value_Domain>
   </DD_Attribute>
 
@@ -302,22 +303,22 @@
     <definition>
       The spacecraft_clock_stop is the value of the spacecraft clock at the
       end of an observation, in seconds. Values are formed 
-      according to the pattern [p/]dddddddddd[.ffffff], where p is an optional 
+      according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional 
       partition number, dddddddddd is a whole number of seconds up to 10 digits,
-      and .ffffff is an optional fraction of a second up to 6 digits. The whole
+      and .fffffffff is an optional fraction of a second up to 9 digits. The whole
       number and fraction are separated by a period. If a partition number and 
       slash are not present, then the attribute spacecraft_clock_partition must be used.
     </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-      <formation_rule>[p/]dddddddddd[.ffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
+      <formation_rule>[p/]dddddddddd[.fffffffff] - The spacecraft clock value is an integer with no more than 10 digits, optionally
         preceded by a clock partition number and forward slash, and optionally followed by a fractional value. If the fractional
-        value is present, it must be separated from the whole number by a period, and may have up to 6 digits. If a partition number
+        value is present, it must be separated from the whole number by a period, and may have up to 9 digits. If a partition number
         and slash are not present, then the attribute spacecraft_clock_partition must be used.</formation_rule>
       <minimum_characters>1</minimum_characters>
       <maximum_characters>19</maximum_characters>
-      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?</pattern>
+      <pattern>([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?</pattern>
     </DD_Value_Domain>
   </DD_Attribute>
 

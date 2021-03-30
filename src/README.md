@@ -1,11 +1,8 @@
 # LDD Source Directory
 
-3/10/21 Mars 2020 Mission Dictionary revisions:
- - Changed MOXIE attribute mars2020:unit from required to optional.
- - Added optional attributes mars2020:start_mars_year and mars2020:stop_mars_year 
-   to mars2020:Observation_Information class.
- - Changed MOXIE attribute names ending in "enable" to "en".
-
+3/30/21 Mars 2020 Mission Dictionary revisions:
+Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fractional value up to 9 digits (formerly 6).
+ 
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.
 

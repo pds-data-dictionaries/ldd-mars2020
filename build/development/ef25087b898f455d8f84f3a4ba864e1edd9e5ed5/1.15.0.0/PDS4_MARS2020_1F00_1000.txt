@@ -1,18 +1,18 @@
 PDS4 Local Data Dictionary Processing Report
 
 Configuration:
-   LDDTool Version        0.0.0
+   LDDTool Version        12.1.0
    LDD Version Id:        1.0.0.0
    LDD Label Version Id:  1.0
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Wed Mar 10 22:03:18 UTC 2021
-   Common Schema          [PDS4_PDS_1E00.xsd]
-   Common Schematron      [PDS4_PDS_1E00.sch]
-   IM Version Id:         1.14.0.0
+   Time                   Tue Mar 30 19:03:15 UTC 2021
+   Common Schema          [PDS4_PDS_1F00.xsd]
+   Common Schematron      [PDS4_PDS_1F00.sch]
+   IM Version Id:         1.15.0.0
    IM Namespace Id:       pds
-   IM Label Version Id:   1.20
+   IM Label Version Id:   1.21
    IM Object Model        [UpperModel.pont]
    IM Data Dictionary     [dd11179.pins]
    IM Configuration File  [MDPTNConfigClassDisp.xml]
@@ -50,7 +50,7 @@ Parsed Input - Header:
     
     Mars 2020 version 1.0.0.0 
     PDS Build 1.15.0.0
-    LDDTool version 12.0.2
+    LDDTool version 12.1.0
     
     Built with LDDTool -plJ  PDS4_IMG_Ingest_LDD.xml PDS4_MARS2020_IngestLDD.xml
      
@@ -80,94 +80,95 @@ Parsed Input - Header:
        Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
+    2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     
   
-   Last Modification Time 2021-03-10T19:35
+   Last Modification Time 2021-03-30T18:42
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
 
    name                   active_flight_computer
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             The active_flight_computer indicates which flight computer "string" (separate sets of electronics) was active when a product was acquired. For Mars 2020 there are two redundant flight computers called "strings", also known as Rover Compute Elements (RCEs). Either string, A or B, may be active at any given time. 
 
    name                   mission_phase_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Preserved
    description            The mission_phase_name identifies a time period within the mission.
 
    name                   product_type_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The product_type_name identifies a group of data products within a collection that have some property in common, such as processing level, resolution, or instrument-specific setting. 
 
    name                   release_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            release_number is the identifier of a scheduled release of Mars 2020 data from PDS. The first Mars 2020 data release has release_number "01". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
    nillable               true
    minimum characters     1
 
    name                   sol_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Sol_number is the number of the Mars day on which an observation was acquired. Landing day is Sol 0.
    minimum value          0
 
    name                   spacecraft_clock_partition
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The spacecraft_clock_partition provides the clock partition active for the spacecraft_clock_start and spacecraft_clock_stop attributes. This attribute may be used when the spacecraft_clock values do not include a partition number.
    minimum value          1
 
    name                   spacecraft_clock_start
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
-   description             The spacecraft_clock_start is the value of the spacecraft clock at the beginning of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.ffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .ffffff is an optional fraction of a second up to 6 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   description             The spacecraft_clock_start is the value of the spacecraft clock at the beginning of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
    minimum characters     1
    maximum characters     19
 
    name                   spacecraft_clock_stop
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
-   description             The spacecraft_clock_stop is the value of the spacecraft clock at the end of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.ffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .ffffff is an optional fraction of a second up to 6 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
+   description             The spacecraft_clock_stop is the value of the spacecraft clock at the end of an observation, in seconds. Values are formed according to the pattern [p/]dddddddddd[.fffffffff], where p is an optional partition number, dddddddddd is a whole number of seconds up to 10 digits, and .fffffffff is an optional fraction of a second up to 9 digits. The whole number and fraction are separated by a period. If a partition number and slash are not present, then the attribute spacecraft_clock_partition must be used. 
    minimum characters     1
    maximum characters     19
 
    name                   start_local_mean_solar_time
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Start_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
    minimum characters     10
    maximum characters     24
 
    name                   start_local_true_solar_time
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Start_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the beginning of an observation.
    minimum characters     8
    maximum characters     24
 
    name                   start_local_true_solar_time_sol
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The start_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Start_local_true_solar_time_sol should accompany the attribute start_local_true_solar_time if that attribute's value does not include a sol number prefix.
    minimum value          0
 
    name                   start_mars_year
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             The start_mars_year element gives the Mars year at the beginning of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
 
    name                   start_sol_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Start_sol_number is the number of the Mars day on which a multiple-day observation was begun. Landing day is Sol 0.
    minimum value          0
 
    name                   start_solar_longitude
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            Start_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the beginning of an observation.
    minimum value          0
@@ -175,38 +176,38 @@ Parsed Input - Attributes:
    unit of measure type   Units_of_Angle
 
    name                   stop_local_mean_solar_time
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Stop_local_mean_solar_time is the local mean solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
    minimum characters     10
    maximum characters     24
 
    name                   stop_local_true_solar_time
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Stop_local_true_solar_time is the local true solar time, as defined in the main PDS4 data dictionary, at the end of an observation.
    minimum characters     8
    maximum characters     24
 
    name                   stop_local_true_solar_time_sol
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The stop_local_true_solar_time_sol element specifies the number of solar days elapsed since a reference day (e.g. the day on which a landing vehicle set down) for local true solar time (LTST). Days are measured in rotations of the planet in question from midnight to midnight. The reference day is '0', as Landing day is Sol 0. If before Landing day, then value will be less than or equal to '0' and can be negative. Stop_local_true_solar_time_sol should accompany the attribute stop_local_true_solar_time if that attribute's value does not include a sol number prefix.
    minimum value          0
 
    name                   stop_mars_year
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             The stop_mars_year element gives the Mars year at the end of the observation. Mars Year 1 began on April 11, 1955. The year number is incremented by 1 for each Martian spring equinox (solar longitude 0 degrees). 
 
    name                   stop_sol_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Stop_sol_number is the number of the Mars day on which a multiple-day observation was ended. Landing day is Sol 0.
    minimum value          0
 
    name                   stop_solar_longitude
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            Stop_solar_longitude is the solar longitude, as defined in the main PDS4 data dictionary, at the end of an observation.
    minimum value          0
@@ -214,1092 +215,1092 @@ Parsed Input - Attributes:
    unit of measure type   Units_of_Angle
 
    name                   cl_ics123_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 upper current limit in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   cl_ics123_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 upper current limit in digital numbers 
 
    name                   cl_ics123_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensors CS1, CS2 and CS3 current limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   cl_ics4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Gas composition sensor CS4 upper current limit in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   cl_ics4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensor CS4 upper current limit in digital numbers 
 
    name                   cl_ics4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensor CS4 current limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   comments
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Preserved
    description             For MOXIE: Comments associated with MOXIE_Parameters Run_Control_Table_Step 
 
    name                   cs123_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: Gas composition sensors 1, 2 and 3 enable bit 
 
    name                   cs4_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: Gas composition sensor 4 enable bit 
 
    name                   experiment_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             For MOXIE: Name of a MOXIE_Parameters experiment configuration 
 
    name                   file_name_digital_numbers
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             For MOXIE: Name of a MOXIE_Parameters table comma-separated value file containing the experiment intent, after conversion into digital numbers 
 
    name                   file_name_experiment_intent
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             For MOXIE: Name of a MOXIE_Parameters table comma-separated value file containing the experiment intent 
 
    name                   file_name_stem
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             For MOXIE: Stem of the file names used when creating the experiment configuration 
 
    name                   hb_vbh_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is on in calibrated units 
 
    name                   hb_vbh_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is on in digital numbers 
 
    name                   hb_vbl_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is off in calibrated units 
 
    name                   hb_vbl_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE bottom half-stack power supply is off in digital numbers 
 
    name                   hs_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE heater enable bit 
 
    name                   ht_vth_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is on in calibrated units 
 
    name                   ht_vth_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is on in digital numbers 
 
    name                   ht_vtl_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is off in calibrated units 
 
    name                   ht_vtl_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack heater temperature control loop heater PWM duty cycle upper limit when SOXE top half-stack power supply is off in digital numbers 
 
    name                   m1_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: Scroll compressor motor enable bit 
 
    name                   major_version_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Major version number of the experiment configuration 
 
    name                   minor_version_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Minor version number of the experiment configuration 
 
    name                   ol_p4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure upper operational limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   ol_p4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure upper operational limit in digital numbers 
 
    name                   ol_p4_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure lower operational limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   ol_p4_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure lower operational limit in digital numbers 
 
    name                   ol_p4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure operational limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   ol_tb_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack temperature upper operational limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ol_tb_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature upper operational limit in digital numbers 
 
    name                   ol_tb_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack temperature lower operational limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ol_tb_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature lower operational limit in digital numbers 
 
    name                   ol_tb_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature operational limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   ol_tt_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack temperature upper operational limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ol_tt_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature upper operational limit in digital numbers 
 
    name                   ol_tt_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack temperature lower operational limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ol_tt_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature lower operational limit in digital numbers 
 
    name                   ol_tt_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature operational limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   ol_xibp4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure upper operational limit in calibrated units 
 
    name                   ol_xibp4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure upper operational limit in digital numbers 
 
    name                   ol_xibp4_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure lower operational limit in calibrated units 
 
    name                   ol_xibp4_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure lower operational limit in digital numbers 
 
    name                   ol_xibp4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE bottom half-stack current to SOXE cathode pressure operational limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   ol_xitp4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure upper operational limit in calibrated units 
 
    name                   ol_xitp4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure upper operational limit in digital numbers 
 
    name                   ol_xitp4_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure lower operational limit in calibrated units 
 
    name                   ol_xitp4_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure lower operational limit in digital numbers 
 
    name                   ol_xitp4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Ratio of SOXE top half-stack current to SOXE cathode pressure operational limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   persistence_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: MOXIE_Parameters persistence time enable flag 
 
    name                   primary_objective
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Preserved
    description             For MOXIE: Primary objective of the experiment configuration 
 
    name                   run_id
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             For MOXIE: Unique identifier for the experiment configuration 
 
    name                   secondary_objective
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Preserved
    description             For MOXIE: Secondary objective of the experiment configuration 
 
    name                   sl_ib_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current upper safety limit in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   sl_ib_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current upper safety limit in digital numbers 
 
    name                   sl_ib_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_it_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current upper safety limit in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   sl_it_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current upper safety limit in digital numbers 
 
    name                   sl_it_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_p2_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Pressure between check valve and flow sensor upper safety limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   sl_p2_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure between check valve and flow sensor upper safety limit in digital numbers 
 
    name                   sl_p2_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure between check valve and flow sensor safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_p3_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Pressure between flow sensor and SOXE upper safety limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   sl_p3_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure between flow sensor and SOXE upper safety limit in digital numbers 
 
    name                   sl_p3_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure between flow sensor and SOXE safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_p4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) upper safety limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   sl_p4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) upper safety limit in digital numbers 
 
    name                   sl_p4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure at CO/CO2 VFCD inlet (SOXE cathode pressure) safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_p5_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) upper safety limit in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   sl_p5_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) upper safety limit in digital numbers 
 
    name                   sl_p5_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Pressure at O2 VFCD inlet (SOXE anode pressure) safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_t1_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at sensor panel upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t1_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at sensor panel upper safety limit in digital numbers 
 
    name                   sl_t1_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at sensor panel safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_t22_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at electronics control board upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t22_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at electronics control board upper safety limit in digital numbers 
 
    name                   sl_t22_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at electronics control board safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_t3_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at compressor housing upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t3_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at compressor housing upper safety limit in digital numbers 
 
    name                   sl_t3_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at compressor housing safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_t4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at compressor motor upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at compressor motor upper safety limit in digital numbers 
 
    name                   sl_t4_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at compressor motor safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_t7_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at baseplate upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t7_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at baseplate upper safety limit in digital numbers 
 
    name                   sl_t7_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Temperature at baseplate lower safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_t7_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at baseplate lower safety limit in digital numbers 
 
    name                   sl_t7_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Temperature at baseplate safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_tb_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack temperature upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_tb_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature upper safety limit in digital numbers 
 
    name                   sl_tb_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_tt_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack temperature upper safety limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   sl_tt_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature upper safety limit in digital numbers 
 
    name                   sl_tt_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_v28vm_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Main 28 V power supply upper voltage safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_v28vm_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Main 28 V power supply upper voltage safety limit in digital numbers 
 
    name                   sl_v28vm_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Main 28 V power supply lower voltage safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_v28vm_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Main 28 V power supply lower voltage safety limit in digital numbers 
 
    name                   sl_v28vm_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Main 28 V power supply voltage safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_v28vs_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE heaters 28 V power supply upper voltage safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_v28vs_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE heaters 28 V power supply upper voltage safety limit in digital numbers 
 
    name                   sl_v28vs_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE heaters 28 V power supply lower voltage safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_v28vs_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE heaters 28 V power supply lower voltage safety limit in digital numbers 
 
    name                   sl_v28vs_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE heaters 28 V power supply voltage safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_vb_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack voltage upper safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_vb_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack voltage upper safety limit in digital numbers 
 
    name                   sl_vb_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack voltage safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   sl_vt_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack voltage upper safety limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   sl_vt_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack voltage upper safety limit in digital numbers 
 
    name                   sl_vt_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack voltage safety limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   step_duration
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Step duration 
    unit of measure type   Units_of_Time
 
    name                   step_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Step number 
 
    name                   tl_ics1234_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 upper temperature limit in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   tl_ics1234_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 upper temperature limit in digital numbers 
 
    name                   tl_ics1234_t
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: Gas composition sensors CS1, CS2, CS3 and CS4 temperature limit persistence time 
    unit of measure type   Units_of_Time
 
    name                   vb_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE bottom half-stack power supply enable bit 
 
    name                   vt_en
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description             For MOXIE: SOXE top half-stack power supply enable bit 
 
    name                   zib_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop voltage output upper limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zib_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop voltage output upper limit in digital numbers 
 
    name                   zib_i_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop integral gain in calibrated units 
 
    name                   zib_i_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop integral gain in digital numbers 
 
    name                   zib_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop voltage output lower limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zib_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop voltage output lower limit in digital numbers 
 
    name                   zib_os_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop voltage offset in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zib_os_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop voltage offset in digital numbers 
 
    name                   zib_p_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop proportional gain in calibrated units 
 
    name                   zib_p_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop proportional gain in digital numbers 
 
    name                   zib_sp_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack current control loop setpoint in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   zib_sp_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack current control loop setpoint in digital numbers 
 
    name                   zit_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop voltage output upper limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zit_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop voltage output upper limit in digital numbers 
 
    name                   zit_i_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop integral gain in calibrated units 
 
    name                   zit_i_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop integral gain in digital numbers 
 
    name                   zit_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop voltage output lower limit in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zit_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop voltage output lower limit in digital numbers 
 
    name                   zit_os_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop voltage offset in calibrated units 
    unit of measure type   Units_of_Voltage
 
    name                   zit_os_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop voltage offset in digital numbers 
 
    name                   zit_p_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop proportional gain in calibrated units 
 
    name                   zit_p_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop proportional gain in digital numbers 
 
    name                   zit_sp_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack current control loop setpoint in calibrated units 
    unit of measure type   Units_of_Current
 
    name                   zit_sp_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack current control loop setpoint in digital numbers 
 
    name                   zp4_h_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output upper limit in calibrated units 
 
    name                   zp4_h_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output upper limit in digital numbers 
 
    name                   zp4_i_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop integral gain in calibrated units 
 
    name                   zp4_i_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop integral gain in digital numbers 
 
    name                   zp4_l_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output lower limit in calibrated units 
 
    name                   zp4_l_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM output lower limit in digital numbers 
 
    name                   zp4_os_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM offset in calibrated units 
 
    name                   zp4_os_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop scroll compressor RPM offset in digital numbers 
 
    name                   zp4_p_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop proportional gain in calibrated units 
 
    name                   zp4_p_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop proportional gain in digital numbers 
 
    name                   zp4_sp_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE cathode pressure control loop setpoint in calibrated units 
    unit of measure type   Units_of_Pressure
 
    name                   zp4_sp_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE cathode pressure control loop setpoint in digital numbers 
 
    name                   ztb_i_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop integral gain in calibrated units 
 
    name                   ztb_i_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack heater temperature control loop integral gain in digital numbers 
 
    name                   ztb_p_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack temperature control loop proportional gain in calibrated units 
 
    name                   ztb_p_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature control loop proportional gain in digital numbers 
 
    name                   ztb_sp_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE bottom half-stack temperature control loop setpoint in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ztb_sp_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE bottom half-stack temperature control loop setpoint in digital numbers 
 
    name                   ztt_i_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack heater temperature control loop integral gain in calibrated units 
 
    name                   ztt_i_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack heater temperature control loop integral gain in digital numbers 
 
    name                   ztt_p_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack temperature control loop proportional gain in calibrated units 
 
    name                   ztt_p_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature control loop proportional gain in digital numbers 
 
    name                   ztt_sp_calibrated
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description             For MOXIE: SOXE top half-stack temperature control loop setpoint in calibrated units 
    unit of measure type   Units_of_Temperature
 
    name                   ztt_sp_digital_number
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description             For MOXIE: SOXE top half-stack temperature control loop setpoint in digital numbers 
 
    name                   current_value
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            The current_value attribute provides provides the current, in the specified units, of an imaging instrument or some part of the imaging instrument.
    unit of measure type   Units_of_Current
 
    name                   device_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The device_name attribute supplies the formal name for an imaging instrument, an imaging instrument device, or some point on the instrument or device.
 
    name                   flash_duration
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            The flash_duration attribute provides the duration of a single component of the flash for the PIXL MCC illumination.
    unit of measure type   Units_of_Time
 
    name                   inst_compression_mode
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The inst_compression_mode identifies the type of compression applied to a data product.
    nillable               true
 
    name                   inst_compression_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The inst_compression_name gives the name of the compression algorithm applied to a data product.
    nillable               true
 
    name                   pdp_category
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The pdp_category identifies the PIXL data product category number.
    nillable               true
 
    name                   pdp_category_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The pdp_category_name identifies the PIXL data product category name.
    nillable               true
 
    name                   pdp_nvm_block
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The pdp_nvm_block identifies the Non Volatile Memory block from which Anomalous Retrieved data was read. Applies only to anomalous data.
    nillable               true
 
    name                   pdp_nvm_chunks
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The pdp_nvm_chunks gives the number of Non Volatile Memory chunks that make up a PIXL data product.
    nillable               true
 
    name                   pdp_nvm_page
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The pdp_nvm_page identifies the page in Non Volatile Memory from which Anomalous Retrieved Data was read. Applies only to anomalous data.
    nillable               true
 
    name                   pdp_nvm_usn
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The pdp_nvm_usn gives the Universal Sequence Number of the data product as it was stored in Non-Volatile Memory.
    nillable               true
 
    name                   pdp_size
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The pdp_size gives the size of the PIXL data product as it was stored in Non-Volatile Memory.
    nillable               true
 
    name                   pixl_motion_counter
-   version                1.14
+   version                1.15
    value data type        ASCII_NonNegative_Integer
    description             The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the "homed" position) and increases by 1 each time the hexapod is moved. 
    nillable               true
 
    name                   temperature_value
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            The temperature_value attribute provides the temperature, in the specified units, of some point on an imaging instrument or other imaging instrument device.
    unit of measure type   Units_of_Temperature
 
    name                   voltage_value
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            The voltage_value attribute provides provides the voltage, in the specified units, of an imaging instrument or some part of the imaging instrument.
    unit of measure type   Units_of_Voltage
 
    name                   calibration
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description            True if the radar is connected to the calibration cable, false if it is connected to the antenna cable. 
    nillable               true
 
    name                   config_id
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The config ID from the sounding data.
    nillable               true
 
    name                   decimation
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            _TBD
    nillable               true
 
    name                   gate_frequency
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            _TBD.
    nillable               true
    unit of measure type   Units_of_Frequency
 
    name                   group_spacing
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            _TBD
    nillable               true
 
    name                   lis_soundings
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The number of soundings in a Long Integration Sounding (LIS) observation.
    nillable               true
 
    name                   note
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            This note field can be used to indicate that the attenuation values are in dB because there is no unit_of_measure for such units.
    nillable               true
 
    name                   number_of_samples
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Number of samples in each sounding.
    nillable               true
 
    name                   number_of_sweeps
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Number of sweeps that are integrated internally in the radar.
    nillable               true
 
    name                   receive_only
-   version                1.14
+   version                1.15
    value data type        ASCII_Boolean
    description            True if the radar is in passive mode, false if it is in active (normal radar) mode. 
    nillable               true
 
    name                   rx_attenuation
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The value set for the programmable receiver attenuator.
    nillable               true
 
    name                   rx_delay
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Delay for switching the Rx switch on and off.
    nillable               true
    unit of measure type   Units_of_Time
 
    name                   setup_file
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Name of the setup file.
    nillable               true
 
    name                   sinetable
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            _TBD
    nillable               true
 
    name                   start_frequency
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Start frequency for the FMCW sweep.
    nillable               true
    unit of measure type   Units_of_Frequency
 
    name                   stop_frequency
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Stop frequency for the FMCW sweep.
    nillable               true
    unit of measure type   Units_of_Frequency
 
    name                   sweep_time
-   version                1.14
+   version                1.15
    value data type        ASCII_Real
    description            The sweep time for each integrated sweep.
    nillable               true
@@ -1312,26 +1313,26 @@ Parsed Input - Attributes:
    nillable               true
 
    name                   tx_attenuation
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            The value set for the programmable transmitter attenuator.
    nillable               true
 
    name                   tx_delay
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Delay for switching the Tx switch on and off.
    nillable               true
    unit of measure type   Units_of_Time
 
    name                   calibration_target_name
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description             The calibration_target_name gives the name of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target name is associated with a calibration target number: (0) NA (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
    nillable               true
 
    name                   calibration_target_number
-   version                1.14
+   version                1.15
    value data type        ASCII_NonNegative_Integer
    description             The calibration_target_name gives the number of the calibration target as defined in the SHERLOC instrument paper, Bhartia et al., SSR, 2020. Each calibration target number is associated with a calibration target name: (0) Not Applicable (1) AlGaN on Sapphire 264 nm (2) Diffusil Diffuser (3) Mars Meteorite SAU 008 (4) Intensity Target (5) AlGaN on Sapphire 340 nm (6) Polycarbonate/opal glass) (7) Vectran (8) Orthofabric (9) Teflon (10) nGimat Coated Teflon 
    nillable               true
@@ -1339,62 +1340,62 @@ Parsed Input - Attributes:
    maximum value          10
 
    name                   sherloc_config_file
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product.
 
    name                   data_length
-   version                1.14
+   version                1.15
    value data type        ASCII_NonNegative_Integer
    description            Specifies the size of the image (in the telemetry stream) in bytes for SuperCam RMI.
 
    name                   marker_pad
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Static value used by the SuperCam RMI Body Unit (BU).
 
    name                   memory_bank
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            For SuperCam RMI this specifies the Mast Unit (MU) memory bank used to hold image before transfer to RCE. There are 64 memory banks in the MU. 
 
    name                   milliseconds_count
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Millisecond count from RCE time sync when image received from mast unit by SuperCam RMI.
 
    name                   num_images_transmitted
-   version                1.14
+   version                1.15
    value data type        ASCII_NonNegative_Integer
    description            For SuperCam RMI, this is the number of images transmitted to the RCE.
 
    name                   rce_time_sync
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Last time sync value received from RCE by SuperCam RMI
 
    name                   reserved_1
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Reserved field for SuperCam RMI mini-header
 
    name                   reserved_2
-   version                1.14
+   version                1.15
    value data type        ASCII_Integer
    description            Reserved field for SuperCam RMI mini-header
 
    name                   rmi_cmos_registers
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Dump of SuperCam RMI hardware registers
 
    name                   rmi_fpga_registers
-   version                1.14
+   version                1.15
    value data type        ASCII_Short_String_Collapsed
    description            Dump of all SuperCam RMI FPGA registers
 
    name                   rmi_header_size
-   version                1.14
+   version                1.15
    value data type        ASCII_NonNegative_Integer
    description            For SuperCam RMI this is the total number of bytes in MU and BU headers
 

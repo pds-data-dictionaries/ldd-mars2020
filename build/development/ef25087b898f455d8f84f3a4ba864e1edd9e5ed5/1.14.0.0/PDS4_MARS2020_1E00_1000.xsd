@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Wed Mar 10 22:03:23 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Mar 30 19:03:24 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.8.3.0 - img: - Imaging                                                  -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
   <!-- 1.8.3.0 - img: - Imaging                                                  -->
@@ -21,8 +21,8 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
-    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1F00_1830.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1830.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -32,7 +32,7 @@
     
     Mars 2020 version 1.0.0.0 
     PDS Build 1.15.0.0
-    LDDTool version 12.0.2
+    LDDTool version 12.1.0
     
     Built with LDDTool -plJ  PDS4_IMG_Ingest_LDD.xml PDS4_MARS2020_IngestLDD.xml
      
@@ -62,6 +62,7 @@
        Algorithm_Parameter_Table_Field, Safety_Parameter_Table_Field, and Run_Parameter_Table_Field.
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
+    2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     
   
     </xs:documentation>
@@ -3109,15 +3110,16 @@
       <xs:documentation> The spacecraft_clock_start is the value of the
         spacecraft clock at the beginning of an observation, in seconds.
         Values are formed according to the pattern
-        [p/]dddddddddd[.ffffff], where p is an optional partition
+        [p/]dddddddddd[.fffffffff], where p is an optional partition
         number, dddddddddd is a whole number of seconds up to 10 digits,
-        and .ffffff is an optional fraction of a second up to 6 digits.
-        The whole number and fraction are separated by a period. If a
-        partition number and slash are not present, then the attribute
-        spacecraft_clock_partition must be used. </xs:documentation>
+        and .fffffffff is an optional fraction of a second up to 9
+        digits. The whole number and fraction are separated by a period.
+        If a partition number and slash are not present, then the
+        attribute spacecraft_clock_partition must be used.
+        </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?'/>
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
      <xs:minLength value="1"/>
      <xs:maxLength value="19"/>
 	   </xs:restriction>
@@ -3128,15 +3130,16 @@
       <xs:documentation> The spacecraft_clock_stop is the value of the
         spacecraft clock at the end of an observation, in seconds.
         Values are formed according to the pattern
-        [p/]dddddddddd[.ffffff], where p is an optional partition
+        [p/]dddddddddd[.fffffffff], where p is an optional partition
         number, dddddddddd is a whole number of seconds up to 10 digits,
-        and .ffffff is an optional fraction of a second up to 6 digits.
-        The whole number and fraction are separated by a period. If a
-        partition number and slash are not present, then the attribute
-        spacecraft_clock_partition must be used. </xs:documentation>
+        and .fffffffff is an optional fraction of a second up to 9
+        digits. The whole number and fraction are separated by a period.
+        If a partition number and slash are not present, then the
+        attribute spacecraft_clock_partition must be used.
+        </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
-    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,6})?'/>
+    	<xs:pattern value='([1-9]/)?[0-9]{1,10}(\.[0-9]{1,9})?'/>
      <xs:minLength value="1"/>
      <xs:maxLength value="19"/>
 	   </xs:restriction>
