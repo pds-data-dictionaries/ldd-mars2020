@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue Mar 30 19:03:24 UTC 2021
+   Time                   Thu Apr 08 00:36:20 UTC 2021
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -29,9 +29,9 @@ Parameters:
    Merge with Master      false
 
 Summary:
-   Classes                47
-   Attributes             235
-   Associations           310
+   Classes                49
+   Attributes             256
+   Associations           335
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -81,9 +81,10 @@ Parsed Input - Header:
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
+    2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
     
   
-   Last Modification Time 2021-03-30T18:42
+   Last Modification Time 2021-04-07T20:16
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -1344,10 +1345,35 @@ Parsed Input - Attributes:
    value data type        ASCII_Short_String_Collapsed
    description            The sherloc_config_file provides the name of the configuration file used to process a SHERLOC data product.
 
+   name                   bu_hardware_identifier
+   version                1.14
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific BU CNDH board. Used to know which SOH engineering unit conversion factors to apply to the data. 
+
+   name                   bu_software_version
+   version                1.14
+   value data type        ASCII_Integer
+   description             Unique identifier for the software version. Is a unix timestamp of when the software was built. 
+
+   name                   cndh_firmware_version
+   version                1.14
+   value data type        ASCII_Integer
+   description             Unique identifier for the CNDH firmware version. Is a unix timestamp of when the firmware was built. 
+
+   name                   data_definition_version
+   version                1.14
+   value data type        ASCII_Integer
+   description             Version number of the instrument command dictionary, which defines specifics of each command parameter, and the structure of individual data products like SOH. 
+
    name                   data_length
    version                1.14
    value data type        ASCII_NonNegative_Integer
    description            Specifies the size of the image (in the telemetry stream) in bytes for SuperCam RMI.
+
+   name                   generic_data_buffer_size
+   version                1.14
+   value data type        ASCII_Integer
+   description             The number of bytes of the entire generic buffer. Includes commands, data, header, and trailer, every byte from the packet header marker through the Fletcher checksum. 
 
    name                   marker_pad
    version                1.14
@@ -1364,10 +1390,30 @@ Parsed Input - Attributes:
    value data type        ASCII_Integer
    description            Millisecond count from RCE time sync when image received from mast unit by SuperCam RMI.
 
+   name                   mu_hardware_identifier
+   version                1.14
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific MU board. Used to know which housekeeping engineering unit conversion factors to apply to the data. 
+
+   name                   mu_version_identifier
+   version                1.14
+   value data type        ASCII_Integer
+   description             Version of the MU, response from the MU send version command. 
+
    name                   num_images_transmitted
    version                1.14
    value data type        ASCII_NonNegative_Integer
    description            For SuperCam RMI, this is the number of images transmitted to the RCE.
+
+   name                   number_of_sections
+   version                1.14
+   value data type        ASCII_Integer
+   description             Number of command or data sections contained in this buffer. Does not include the header section or the trailer section. 
+
+   name                   nv_xmit_buffer_count
+   version                1.14
+   value data type        ASCII_Integer
+   description             Non-volatile count of the number of times the generic buffer has been transmitted to the RCE. Acts as a unique identifier for the buffer. 
 
    name                   rce_time_sync
    version                1.14
@@ -1398,6 +1444,66 @@ Parsed Input - Attributes:
    version                1.14
    value data type        ASCII_NonNegative_Integer
    description            For SuperCam RMI this is the total number of bytes in MU and BU headers
+
+   name                   scam_lastats_flag
+   version                1.14
+   value data type        ASCII_Boolean
+   description            Logical to indicate if LIBS active are statistics
+
+   name                   scam_ldark
+   version                1.14
+   value data type        ASCII_Integer
+   description            Indicates whether darks were collected after LIBS active, before LIBS active, or both
+
+   name                   scam_ldstats_flag
+   version                1.14
+   value data type        ASCII_Boolean
+   description            Logical to indicate if LIBS dark are statistics
+
+   name                   scam_point_number
+   version                1.14
+   value data type        ASCII_Integer
+   description            Point number in the raster
+
+   name                   scam_rastats_flag
+   version                1.14
+   value data type        ASCII_Boolean
+   description            Logical to indicate if Raman active are statistics
+
+   name                   scam_rdark
+   version                1.14
+   value data type        ASCII_Integer
+   description            Indicates whether darks were collected after Raman active, before Raman active, or both
+
+   name                   scam_rdstats_flag
+   version                1.14
+   value data type        ASCII_Boolean
+   description            Logical to indicate if Raman darks are statistics
+
+   name                   scam_two_d_flag
+   version                1.14
+   value data type        ASCII_Boolean
+   description            Flag indicating a 2D collect
+
+   name                   scam_type
+   version                1.14
+   value data type        ASCII_Integer
+   description            Bit mask indicating technique type
+
+   name                   se_firmware_version
+   version                1.14
+   value data type        ASCII_Integer
+   description             Unique identifier for the SE firmware version. Is a unix timestamp of when the firmware was built. 
+
+   name                   se_hardware_identifier
+   version                1.14
+   value data type        ASCII_Integer
+   description             Hardware identifier for a specific SE board. Used to know which SOH engineering unit conversion factors to apply to the data. 
+
+   name                   xmit_data_id
+   version                1.14
+   value data type        ASCII_Integer
+   description            The data_id parameter sent with the XMIT_DATA command
 
 Parsed Input - Classes:
 
@@ -3276,6 +3382,137 @@ Parsed Input - Classes:
       maximum occurrences   1
       reference type        component_of
 
+   name                   SuperCam_Ancillary_Header
+   description            The SuperCam_Ancillary_Header class provides ancillary metadata specific to SuperCam observations.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.scam_point_number
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_type
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_two_d_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_ldark
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rdark
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rdstats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_rastats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_ldstats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.scam_lastats_flag
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+   name                   SuperCam_Generic_Packet_Header
+   description            The SuperCam Generic_Packet_Header class provides metadata from the SuperCam product generic packet header.
+   is abstract            false
+   is choice              false
+   subclass of            USER
+
+   Associations
+
+      local identifier      mars2020.rce_time_sync
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.data_definition_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.nv_xmit_buffer_count
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.bu_software_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.cndh_firmware_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.bu_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.se_firmware_version
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.se_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mu_version_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.mu_hardware_identifier
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.xmit_data_id
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.reserved_1
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.number_of_sections
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.generic_data_buffer_size
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
    name                   SuperCam_Parameters
    description            The SuperCam_Parameters class provides metadata specific to SuperCam observations.
    is abstract            false
@@ -3285,6 +3522,16 @@ Parsed Input - Classes:
    Associations
 
       local identifier      mars2020.SuperCam_RMI_Mini_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Ancillary_Header
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        component_of
+
+      local identifier      mars2020.SuperCam_Generic_Packet_Header
       minimum occurrences   0
       maximum occurrences   1
       reference type        component_of

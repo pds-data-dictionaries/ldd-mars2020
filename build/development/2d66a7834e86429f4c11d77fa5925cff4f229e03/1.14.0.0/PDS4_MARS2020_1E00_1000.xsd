@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Mar 30 19:03:24 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Thu Apr 08 00:36:20 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -63,6 +63,7 @@
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
+    2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
     
   
     </xs:documentation>
@@ -780,6 +781,54 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="SuperCam_Ancillary_Header">
+    <xs:annotation>
+      <xs:documentation>The SuperCam_Ancillary_Header class provides
+        ancillary metadata specific to SuperCam
+        observations.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="scam_point_number" type="mars2020:scam_point_number" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_type" type="mars2020:scam_type" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_two_d_flag" type="mars2020:scam_two_d_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_ldark" type="mars2020:scam_ldark" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_rdark" type="mars2020:scam_rdark" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_rdstats_flag" type="mars2020:scam_rdstats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_rastats_flag" type="mars2020:scam_rastats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_ldstats_flag" type="mars2020:scam_ldstats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="scam_lastats_flag" type="mars2020:scam_lastats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:scam_type = ('36')"/> -->
+    <!-- <xs:assert test="mars2020:scam_ldark = ('0', '1', '2', '3')"/> -->
+    <!-- <xs:assert test="mars2020:scam_rdark = ('0', '1', '2', '3')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
+  </xs:complexType>
+
+  <xs:complexType name="SuperCam_Generic_Packet_Header">
+    <xs:annotation>
+      <xs:documentation>The SuperCam Generic_Packet_Header class
+        provides metadata from the SuperCam product generic packet
+        header.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rce_time_sync" type="mars2020:rce_time_sync" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="data_definition_version" type="mars2020:data_definition_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="nv_xmit_buffer_count" type="mars2020:nv_xmit_buffer_count" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bu_software_version" type="mars2020:bu_software_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="cndh_firmware_version" type="mars2020:cndh_firmware_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="bu_hardware_identifier" type="mars2020:bu_hardware_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="se_firmware_version" type="mars2020:se_firmware_version" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="se_hardware_identifier" type="mars2020:se_hardware_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mu_version_identifier" type="mars2020:mu_version_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="mu_hardware_identifier" type="mars2020:mu_hardware_identifier" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="xmit_data_id" type="mars2020:xmit_data_id" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="reserved_1" type="mars2020:reserved_1" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="number_of_sections" type="mars2020:number_of_sections" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="generic_data_buffer_size" type="mars2020:generic_data_buffer_size" minOccurs="0" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="SuperCam_Parameters">
     <xs:annotation>
       <xs:documentation>The SuperCam_Parameters class provides metadata
@@ -787,6 +836,8 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="SuperCam_RMI_Mini_Header" type="mars2020:SuperCam_RMI_Mini_Header" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SuperCam_Ancillary_Header" type="mars2020:SuperCam_Ancillary_Header" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="SuperCam_Generic_Packet_Header" type="mars2020:SuperCam_Generic_Packet_Header" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -839,6 +890,30 @@
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
      <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bu_hardware_identifier">
+    <xs:annotation>
+      <xs:documentation> Hardware identifier for a specific BU CNDH
+        board. Used to know which SOH engineering unit conversion
+        factors to apply to the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bu_software_version">
+    <xs:annotation>
+      <xs:documentation> Unique identifier for the software version. Is
+        a unix timestamp of when the software was built.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
 
@@ -989,6 +1064,18 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:simpleType name="cndh_firmware_version">
+    <xs:annotation>
+      <xs:documentation> Unique identifier for the CNDH firmware
+        version. Is a unix timestamp of when the firmware was built.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="comments">
     <xs:annotation>
       <xs:documentation> For MOXIE: Comments associated with
@@ -1049,6 +1136,19 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="data_definition_version">
+    <xs:annotation>
+      <xs:documentation> Version number of the instrument command
+        dictionary, which defines specifics of each command parameter,
+        and the structure of individual data products like SOH.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="data_length">
     <xs:annotation>
@@ -1169,6 +1269,19 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="generic_data_buffer_size">
+    <xs:annotation>
+      <xs:documentation> The number of bytes of the entire generic
+        buffer. Includes commands, data, header, and trailer, every byte
+        from the packet header marker through the Fletcher checksum.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="group_spacing">
     <xs:annotation>
@@ -1407,6 +1520,29 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="mu_hardware_identifier">
+    <xs:annotation>
+      <xs:documentation> Hardware identifier for a specific MU board.
+        Used to know which housekeeping engineering unit conversion
+        factors to apply to the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="mu_version_identifier">
+    <xs:annotation>
+      <xs:documentation> Version of the MU, response from the MU send
+        version command. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="note">
     <xs:annotation>
       <xs:documentation>This note field can be used to indicate that the
@@ -1444,6 +1580,18 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:simpleType name="number_of_sections">
+    <xs:annotation>
+      <xs:documentation> Number of command or data sections contained in
+        this buffer. Does not include the header section or the trailer
+        section. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:complexType name="number_of_sweeps">
     <xs:annotation>
       <xs:documentation>Number of sweeps that are integrated internally
@@ -1455,6 +1603,18 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="nv_xmit_buffer_count">
+    <xs:annotation>
+      <xs:documentation> Non-volatile count of the number of times the
+        generic buffer has been transmitted to the RCE. Acts as a unique
+        identifier for the buffer. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="ol_p4_h_calibrated_WO_Units">
     <xs:restriction base="pds:ASCII_Real">
@@ -2103,6 +2263,117 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="scam_lastats_flag">
+    <xs:annotation>
+      <xs:documentation>Logical to indicate if LIBS active are
+        statistics</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_ldark">
+    <xs:annotation>
+      <xs:documentation>Indicates whether darks were collected after
+        LIBS active, before LIBS active, or both</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_ldstats_flag">
+    <xs:annotation>
+      <xs:documentation>Logical to indicate if LIBS dark are
+        statistics</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_point_number">
+    <xs:annotation>
+<xs:documentation>Point number in the raster</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_rastats_flag">
+    <xs:annotation>
+      <xs:documentation>Logical to indicate if Raman active are
+        statistics</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_rdark">
+    <xs:annotation>
+      <xs:documentation>Indicates whether darks were collected after
+        Raman active, before Raman active, or both</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_rdstats_flag">
+    <xs:annotation>
+      <xs:documentation>Logical to indicate if Raman darks are
+        statistics</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_two_d_flag">
+    <xs:annotation>
+<xs:documentation>Flag indicating a 2D collect</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="scam_type">
+    <xs:annotation>
+      <xs:documentation>Bit mask indicating technique
+        type</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="se_firmware_version">
+    <xs:annotation>
+      <xs:documentation> Unique identifier for the SE firmware version.
+        Is a unix timestamp of when the firmware was built.
+        </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="se_hardware_identifier">
+    <xs:annotation>
+      <xs:documentation> Hardware identifier for a specific SE board.
+        Used to know which SOH engineering unit conversion factors to
+        apply to the data. </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="secondary_objective">
     <xs:annotation>
@@ -3552,6 +3823,17 @@
         enable bit </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Boolean">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="xmit_data_id">
+    <xs:annotation>
+      <xs:documentation>The data_id parameter sent with the XMIT_DATA
+        command</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Integer">
+     <xs:minInclusive value="-9223372036854775808"/>
+     <xs:maxInclusive value="9223372036854775807"/>
 	   </xs:restriction>
   </xs:simpleType>
 
