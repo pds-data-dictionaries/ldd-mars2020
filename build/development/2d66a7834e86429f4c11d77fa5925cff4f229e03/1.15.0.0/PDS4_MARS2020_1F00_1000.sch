@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Tue Mar 30 19:03:15 UTC 2021 -->
+  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Thu Apr 08 00:36:32 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -497,6 +497,38 @@
     <sch:rule context="mars2020:Safety_Parameter_Table_Values/mars2020:sl_vt_t">
       <sch:assert test="@unit = ('day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr')">
         The attribute @unit must be equal to one of the following values 'day', 'hr', 'julian day', 'microseconds', 'min', 'ms', 's', 'yr'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mars2020:SuperCam_Ancillary_Header">
+      <sch:assert test="if (mars2020:scam_two_d_flag) then mars2020:scam_two_d_flag = ('true', 'false') else true()">
+        The attribute mars2020:scam_two_d_flag must be equal to one of the following values 'true', 'false'.</sch:assert>
+      <sch:assert test="if (mars2020:scam_rdstats_flag) then mars2020:scam_rdstats_flag = ('true', 'false') else true()">
+        The attribute mars2020:scam_rdstats_flag must be equal to one of the following values 'true', 'false'.</sch:assert>
+      <sch:assert test="if (mars2020:scam_rastats_flag) then mars2020:scam_rastats_flag = ('true', 'false') else true()">
+        The attribute mars2020:scam_rastats_flag must be equal to one of the following values 'true', 'false'.</sch:assert>
+      <sch:assert test="if (mars2020:scam_ldstats_flag) then mars2020:scam_ldstats_flag = ('true', 'false') else true()">
+        The attribute mars2020:scam_ldstats_flag must be equal to one of the following values 'true', 'false'.</sch:assert>
+      <sch:assert test="if (mars2020:scam_lastats_flag) then mars2020:scam_lastats_flag = ('true', 'false') else true()">
+        The attribute mars2020:scam_lastats_flag must be equal to one of the following values 'true', 'false'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_ldark">
+      <sch:assert test=". = ('0', '1', '2', '3')">
+        The attribute mars2020:scam_ldark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_rdark">
+      <sch:assert test=". = ('0', '1', '2', '3')">
+        The attribute mars2020:scam_rdark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_type">
+      <sch:assert test=". = ('36')">
+        The attribute mars2020:scam_type must be equal to the value '36'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>

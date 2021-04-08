@@ -1,8 +1,7 @@
 # LDD Source Directory
 
-3/30/21 Mars 2020 Mission Dictionary revisions:
-Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fractional value up to 9 digits (formerly 6).
- 
+4/7/21 Mars 2020 Mission Dictionary revisions:
+Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes. 
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.
 

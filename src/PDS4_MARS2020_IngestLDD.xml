@@ -56,9 +56,10 @@
        Added start_mars_year and stop_mars_year to mars2020:Observation_Information to support MOXIE.
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
+    2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
     
   </comment>
-  <last_modification_date_time>2021-03-30T18:42</last_modification_date_time>
+  <last_modification_date_time>2021-04-07T20:16</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -3482,6 +3483,63 @@
 
   <!-- Begin Attribute Definitions for SuperCam_Parameters Class and subclasses -->
   
+  <DD_Attribute>  <name>bu_hardware_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.bu_hardware_identifier</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Hardware identifier for a specific BU CNDH board.
+      Used to know which SOH engineering unit conversion factors to apply to the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>bu_software_version</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.bu_software_version</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Unique identifier for the software version. Is a unix timestamp of 
+      when the software was built.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>cndh_firmware_version</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.cndh_firmware_version</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Unique identifier for the CNDH firmware version. Is a unix timestamp 
+      of when the firmware was built.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>data_definition_version</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.data_definition_version</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Version number of the instrument command dictionary, which
+      defines specifics of each command parameter, and the structure 
+      of individual data products like SOH.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>data_length</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.data_length</local_identifier>
@@ -3491,6 +3549,21 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>generic_data_buffer_size</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.generic_data_buffer_size</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      The number of bytes of the entire generic buffer. Includes commands, 
+      data, header, and trailer, every byte from the packet header marker 
+      through the Fletcher checksum.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>marker_pad</name>
@@ -3528,6 +3601,34 @@
       <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute>  <name>mu_hardware_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.mu_hardware_identifier</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Hardware identifier for a specific MU board. 
+      Used to know which housekeeping engineering unit 
+      conversion factors to apply to the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>mu_version_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.mu_version_identifier</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Version of the MU, response from the MU send version command.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>num_images_transmitted</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.num_images_transmitted</local_identifier>
@@ -3537,6 +3638,34 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>number_of_sections</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.number_of_sections</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Number of command or data sections contained in this buffer. 
+      Does not include the header section or the trailer section.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>nv_xmit_buffer_count</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.nv_xmit_buffer_count</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Non-volatile count of the number of times the generic buffer 
+      has been transmitted to the RCE. Acts as a unique identifier for the buffer.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>rce_time_sync</name>
@@ -3603,6 +3732,180 @@
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_lastats_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_lastats_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Logical to indicate if LIBS active are statistics</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_ldark</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_ldark</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Indicates whether darks were collected after LIBS active, before LIBS active, or both</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <DD_Permissible_Value>
+        <value>0</value>
+        <value_meaning>No darks collected</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>1</value>
+        <value_meaning>Darks collected after LIBS active</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2</value>
+        <value_meaning>Darks collected before LIBS active</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>3</value>
+        <value_meaning>Darks collected both before and after LIBS active</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_ldstats_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_ldstats_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Logical to indicate if LIBS dark are statistics</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_point_number</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_point_number</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot Delapp</submitter_name>
+    <definition>Point number in the raster</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_rastats_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_rastats_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Logical to indicate if Raman active are statistics</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_rdark</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_rdark</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Indicates whether darks were collected after Raman active, before Raman active, or both</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <DD_Permissible_Value>
+        <value>0</value>
+        <value_meaning>No darks collected</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>1</value>
+        <value_meaning>Darks collected after Raman active</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2</value>
+        <value_meaning>Darks collected before Raman active</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>3</value>
+        <value_meaning>Darks collected both before and after Raman active</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_rdstats_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_rdstats_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Logical to indicate if Raman darks are statistics</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_two_d_flag</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_two_d_flag</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Flag indicating a 2D collect</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Boolean</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>scam_type</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.scam_type</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>Bit mask indicating technique type</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>true</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+      <DD_Permissible_Value>
+        <value>36</value>
+        <value_meaning>TBD by Dot</value_meaning>
+      </DD_Permissible_Value>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>se_firmware_version</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.se_firmware_version</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Unique identifier for the SE firmware version. Is a unix timestamp 
+      of when the firmware was built.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>se_hardware_identifier</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.se_hardware_identifier</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>
+      Hardware identifier for a specific SE board. Used to know 
+      which SOH engineering unit conversion factors to apply to the data.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute>  <name>xmit_data_id</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.xmit_data_id</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>The data_id parameter sent with the XMIT_DATA command</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <!-- End Attribute Definitions for the SuperCam_Parameters class and subclasses-->
@@ -5952,7 +6255,33 @@
                 ... normal HDR stuff
              </>
           </mars2020:SuperCam_RMI_Mini_Header>
-          TBD
+          <mars2020:SuperCam_Ancillary_Header>
+             <mars2020:scam_point_number> </>
+             <mars2020:scam_type> </>
+             <mars2020:scam_two_d_flag> </>
+             <mars2020:scam_ldark> </>
+             <mars2020:scam_rdark> </>
+             <mars2020:scam_rdstats_flag> </>
+             <mars2020:scam_rastats_flag> </>
+             <mars2020:scam_ldstats_flag> </>
+             <mars2020:scam_lastats_flag> </>
+          </mars2020:SuperCam_Ancillary_Header>
+          <mars2020:SuperCam_Generic_Packet_Header>
+             <mars2020:rce_time_sync> </>
+             <mars2020:data_definition_version> </>
+             <mars2020:nv_xmit_buffer_count> </>
+             <mars2020:bu_software_version> </>
+             <mars2020:cndh_firmware_version> </>
+             <mars2020:bu_hardware_identifier> </>
+             <mars2020:se_firmware_version> </>
+             <mars2020:se_hardware_identifier> </>
+             <mars2020:mu_version_identifier> </>
+             <mars2020:mu_hardware_identifier> </>
+             <mars2020:xmit_data_id> </>
+             <mars2020:reserved_1> </>
+             <mars2020:number_of_sections> </>
+             <mars2020:generic_data_buffer_size> </>
+          </mars2020:SuperCam_Generic_Packet_Header>
        </mars2020:SuperCam_Parameters>
   -->
   <DD_Class>  <name>SuperCam_RMI_Mini_Header</name>
@@ -6054,6 +6383,160 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+  <DD_Class>  <name>SuperCam_Ancillary_Header</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.SuperCam_Ancillary_Header</local_identifier>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>The SuperCam_Ancillary_Header class provides ancillary metadata specific to SuperCam observations.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_point_number</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_type</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_two_d_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_ldark</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_rdark</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_rdstats_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_rastats_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_ldstats_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.scam_lastats_flag</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>  <name>SuperCam_Generic_Packet_Header</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.SuperCam_Generic_Packet_Header</local_identifier>
+    <submitter_name>Dot DeLapp</submitter_name>
+    <definition>The SuperCam Generic_Packet_Header class provides metadata from the SuperCam product generic packet header.</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.rce_time_sync</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.data_definition_version</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.nv_xmit_buffer_count</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.bu_software_version</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.cndh_firmware_version</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.bu_hardware_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.se_firmware_version</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.se_hardware_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.mu_version_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.mu_hardware_identifier</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.xmit_data_id</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.reserved_1</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.number_of_sections</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.generic_data_buffer_size</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>  
   <DD_Class>  <name>SuperCam_Parameters</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.SuperCam_Parameters</local_identifier>
@@ -6063,6 +6546,18 @@
     <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.SuperCam_RMI_Mini_Header</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.SuperCam_Ancillary_Header</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.SuperCam_Generic_Packet_Header</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
