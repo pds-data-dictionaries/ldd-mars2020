@@ -57,6 +57,8 @@
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
+    2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
+       Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     
   </comment>
   <last_modification_date_time>2021-04-07T20:16</last_modification_date_time>
@@ -3134,6 +3136,24 @@
       <value_data_type>ASCII_NonNegative_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute> <name>pixl_rtt</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.pixl.pixl_rtt</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Kate Crombie</submitter_name>
+    <definition>
+      The pixl_rtt attribute is the PIXL-specific 9-character Round-Trip Tracking code.
+      A specific pixl_rtt value is assigned to all products collected during
+      the same PIXL observation set. The pixl_rtt value also appears in characters
+      36-44 of the PIXL data file name. The code is typically a string of digits
+      with leading zeroes.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+      <minimum_characters>9</minimum_characters>
+      <maximum_characters>9</maximum_characters>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>temperature_value</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.temperature_value</local_identifier>
@@ -3864,8 +3884,44 @@
       <enumeration_flag>true</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
       <DD_Permissible_Value>
+        <value>0</value>
+        <value_meaning>A scam_type value of 0 indicates SOH activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>1</value>
+        <value_meaning>A scam_type value of 1 indicates MICRO activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>2</value>
+        <value_meaning>A scam_type value of 2 indicates VISIR, VIS-only activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>4</value>
+        <value_meaning>A scam_type value of 4 indicates RAMAN activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>8</value>
+        <value_meaning>A scam_type value of 8 indicates LIBS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>9</value>
+        <value_meaning>A scam_type value of 9 indicates LIBSMIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>16</value>
+        <value_meaning>A scam_type value of 16 indicates IRSpec, IR-only activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>18</value>
+        <value_meaning>A scam_type value of 18 indicates VISIR, VIS+IR activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
         <value>36</value>
-        <value_meaning>TBD by Dot</value_meaning>
+        <value_meaning>A scam_type value of 36 indicates TRLS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>48</value>
+        <value_meaning>A scam_type value of 48 indicates IRraster activity type</value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
@@ -5750,6 +5806,7 @@
               </mars2020:Device_Voltages>
           </mars2020:PIXL_Illumination>
           <mars2020:pixl_motion_counter>12345</>
+          <mars2020:pixl_rtt>012345678</>
           <mars2020:pdp_category>26</>
           <mars2020:pdp_category_name>Histogram Bulk Sum A</>
           <mars2020:pdp_size>3636</>
@@ -5981,6 +6038,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.pixl.pixl_motion_counter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.pixl.pixl_rtt</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>

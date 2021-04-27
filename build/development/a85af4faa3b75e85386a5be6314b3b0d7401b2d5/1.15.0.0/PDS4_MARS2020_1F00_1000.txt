@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Thu Apr 08 00:36:32 UTC 2021
+   Time                   Tue Apr 27 20:29:43 UTC 2021
    Common Schema          [PDS4_PDS_1F00.xsd]
    Common Schematron      [PDS4_PDS_1F00.sch]
    IM Version Id:         1.15.0.0
@@ -30,8 +30,8 @@ Parameters:
 
 Summary:
    Classes                49
-   Attributes             256
-   Associations           335
+   Attributes             257
+   Associations           336
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -82,6 +82,8 @@ Parsed Input - Header:
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
+    2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
+       Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     
   
    Last Modification Time 2021-04-07T20:16
@@ -1187,6 +1189,14 @@ Parsed Input - Attributes:
    value data type        ASCII_NonNegative_Integer
    description             The PIXL Motion Counter is a counter representing a change to the PIXL Hexapod position. The counter starts at 0 when PIXL is powered on (presumably with the hexapod in the "homed" position) and increases by 1 each time the hexapod is moved. 
    nillable               true
+
+   name                   pixl_rtt
+   version                1.15
+   value data type        ASCII_Short_String_Collapsed
+   description             The pixl_rtt attribute is the PIXL-specific 9-character Round-Trip Tracking code. A specific pixl_rtt value is assigned to all products collected during the same PIXL observation set. The pixl_rtt value also appears in characters 36-44 of the PIXL data file name. The code is typically a string of digits with leading zeroes.
+   nillable               true
+   minimum characters     9
+   maximum characters     9
 
    name                   temperature_value
    version                1.15
@@ -3116,6 +3126,11 @@ Parsed Input - Classes:
    Associations
 
       local identifier      mars2020.pixl.pixl_motion_counter
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.pixl.pixl_rtt
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of

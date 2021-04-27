@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Thu Apr 08 00:36:20 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Tue Apr 27 20:29:43 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -123,8 +123,8 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:gate_frequency">
-      <sch:assert test="@unit = ('Hz')">
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -135,14 +135,14 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:start_frequency">
-      <sch:assert test="@unit = ('Hz')">
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:stop_frequency">
-      <sch:assert test="@unit = ('Hz')">
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -527,8 +527,8 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_type">
-      <sch:assert test=". = ('36')">
-        The attribute mars2020:scam_type must be equal to the value '36'.</sch:assert>
+      <sch:assert test=". = ('0', '1', '16', '18', '2', '36', '4', '48', '8', '9')">
+        The attribute mars2020:scam_type must be equal to one of the following values '0', '1', '16', '18', '2', '36', '4', '48', '8', '9'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
