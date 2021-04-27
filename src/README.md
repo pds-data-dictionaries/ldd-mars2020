@@ -1,7 +1,9 @@
 # LDD Source Directory
 
-4/7/21 Mars 2020 Mission Dictionary revisions:
-Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes. 
+4/27/21 Mars 2020 Mission Dictionary revisions:
+Added pixl_rtt to class PIXL_Parameters. 
+Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
+
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.
 
