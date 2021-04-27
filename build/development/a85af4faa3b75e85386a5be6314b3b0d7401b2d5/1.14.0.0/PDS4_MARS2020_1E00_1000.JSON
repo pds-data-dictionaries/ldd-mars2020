@@ -3,7 +3,7 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "Version": "1.14.0.0" ,
-      "Date": "Thu Apr 08 00:36:20 UTC 2021" ,
+      "Date": "Tue Apr 27 20:29:42 UTC 2021" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "classDictionary": [
         {
@@ -2393,6 +2393,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_rtt" ,
+                "title": "pixl_rtt" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_rtt"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category" ,
                 "title": "pdp_category" ,
                 "assocType": "attribute_of" ,
@@ -2402,7 +2418,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1030" ,
+                "classOrder": "1040" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category"
                  ]
@@ -2418,7 +2434,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1040" ,
+                "classOrder": "1050" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_category_name"
                  ]
@@ -2434,7 +2450,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1050" ,
+                "classOrder": "1060" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_size"
                  ]
@@ -2450,7 +2466,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1060" ,
+                "classOrder": "1070" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_usn"
                  ]
@@ -2466,7 +2482,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1070" ,
+                "classOrder": "1080" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_chunks"
                  ]
@@ -2482,7 +2498,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1080" ,
+                "classOrder": "1090" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_block"
                  ]
@@ -2498,7 +2514,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1090" ,
+                "classOrder": "1100" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pdp_nvm_page"
                  ]
@@ -2530,7 +2546,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1100" ,
+                "classOrder": "1110" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.PIXL_Compression"
                  ]
@@ -8601,6 +8617,31 @@
         }
       , {
           "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.PIXL_Parameters.mars2020.pixl_rtt" ,
+            "title": "pixl_rtt" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " The pixl_rtt attribute is the PIXL-specific 9-character Round-Trip Tracking code. A specific pixl_rtt value is assigned to all products collected during the same PIXL observation set. The pixl_rtt value also appears in characters 36-44 of the PIXL data file name. The code is typically a string of digits with leading zeroes." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "9" ,
+            "maximumCharacters": "9" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
             "identifier": "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.calibration" ,
             "title": "calibration" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -12576,8 +12617,62 @@
             "defaultUnitId": "null"
           , "PermissibleValueList": [
               {"PermissibleValue": {
+                  "value": "0" ,
+                  "valueMeaning": "A scam_type value of 0 indicates SOH activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "1" ,
+                  "valueMeaning": "A scam_type value of 1 indicates MICRO activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "16" ,
+                  "valueMeaning": "A scam_type value of 16 indicates IRSpec, IR-only activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "18" ,
+                  "valueMeaning": "A scam_type value of 18 indicates VISIR, VIS+IR activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "2" ,
+                  "valueMeaning": "A scam_type value of 2 indicates VISIR, VIS-only activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
                   "value": "36" ,
-                  "valueMeaning": "null" ,
+                  "valueMeaning": "A scam_type value of 36 indicates TRLS activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "4" ,
+                  "valueMeaning": "A scam_type value of 4 indicates RAMAN activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "48" ,
+                  "valueMeaning": "A scam_type value of 48 indicates IRraster activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "8" ,
+                  "valueMeaning": "A scam_type value of 8 indicates LIBS activity type" ,
+                  "isDeprecated": "false"
+                }
+             }
+            , {"PermissibleValue": {
+                  "value": "9" ,
+                  "valueMeaning": "A scam_type value of 9 indicates LIBSMIC activity type" ,
                   "isDeprecated": "false"
                 }
              }

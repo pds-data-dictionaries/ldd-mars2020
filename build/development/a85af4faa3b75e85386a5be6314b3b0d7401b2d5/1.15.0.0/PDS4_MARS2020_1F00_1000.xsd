@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Thu Apr 08 00:36:20 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Apr 27 20:29:43 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.14.0.0 - pds: - Common Dictionary                                       -->
-  <!-- 1.8.3.0 - img: - Imaging                                                  -->
+  <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.8.4.0 - img: - Imaging                                                  -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
-  <!-- 1.8.3.0 - img: - Imaging                                                  -->
+  <!-- 1.8.4.0 - img: - Imaging                                                  -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
   <!-- 1.0.0.0 - mars2020: - Mars 2020 Mission                                   -->
   <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD. -->
@@ -21,8 +21,8 @@
     attributeFormDefault="unqualified"
     version="1.0.0.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1E00.xsd"/>
-    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1E00_1830.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1F00_1840.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -64,6 +64,8 @@
        Changed MOXIE attribute names *_enable to *_en. 
     2021-03-30 Changed spacecraft_clock_start and spacecraft_clock_stop to allow a fraction up to 9 digits (was 6)
     2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
+    2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
+       Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     
   
     </xs:documentation>
@@ -451,6 +453,7 @@
     <xs:sequence>
       <xs:element name="PIXL_Illumination" type="mars2020:PIXL_Illumination" minOccurs="0" maxOccurs="2"> </xs:element>
       <xs:element name="pixl_motion_counter" nillable="true" type="mars2020:pixl_motion_counter" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="pixl_rtt" nillable="true" type="mars2020:pixl_rtt" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="pdp_category" nillable="true" type="mars2020:pdp_category" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="pdp_category_name" nillable="true" type="mars2020:pdp_category_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="pdp_size" nillable="true" type="mars2020:pdp_size" minOccurs="0" maxOccurs="1"> </xs:element>
@@ -799,7 +802,7 @@
       <xs:element name="scam_lastats_flag" type="mars2020:scam_lastats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="mars2020:scam_type = ('36')"/> -->
+    <!-- <xs:assert test="mars2020:scam_type = ('0', '1', '16', '18', '2', '36', '4', '48', '8', '9')"/> -->
     <!-- <xs:assert test="mars2020:scam_ldark = ('0', '1', '2', '3')"/> -->
     <!-- <xs:assert test="mars2020:scam_rdark = ('0', '1', '2', '3')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
@@ -2097,6 +2100,22 @@
     </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="pds:ASCII_NonNegative_Integer">
+        <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="pixl_rtt">
+    <xs:annotation>
+      <xs:documentation> The pixl_rtt attribute is the PIXL-specific
+        9-character Round-Trip Tracking code. A specific pixl_rtt value
+        is assigned to all products collected during the same PIXL
+        observation set. The pixl_rtt value also appears in characters
+        36-44 of the PIXL data file name. The code is typically a string
+        of digits with leading zeroes.</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="pds:ASCII_Short_String_Collapsed">
         <xs:attribute name="nilReason" type="pds:nil_reason" use="optional" />
       </xs:extension>
     </xs:simpleContent>
