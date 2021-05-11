@@ -2,9 +2,11 @@
   {
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
-      "Version": "1.14.0.0" ,
-      "Date": "Tue Apr 27 20:29:42 UTC 2021" ,
+      "IM Version": "1.14.0.0" ,
+      "LDD Version": "1.0.0.0" ,
+      "Date": "Tue May 11 16:32:37 UTC 2021" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
+      "namespaces": ["pds:", "img:", "img:", "mars2020:"] ,
       "classDictionary": [
         {
           "class": {
@@ -204,6 +206,22 @@
                 "classOrder": "1020" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.Algorithm_Parameter_Table_Metadata.mars2020.file_name_digital_numbers"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Algorithm_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+                "title": "file_name_binary" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Algorithm_Parameter_Table_Metadata.mars2020.file_name_binary"
                  ]
               }
             }
@@ -971,7 +989,7 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "MOXIE Ancillary Data"
+            "description": "References to ancillary data acquired by other instruments and\/or the rover"
               , "associationList": [
              {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data.mars2020.Ancillary_Data_MEDA" ,
@@ -982,7 +1000,7 @@
                 "isAny": "false" ,
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
-                "maximumCardinality": "*" ,
+                "maximumCardinality": "99" ,
                 "classOrder": "1010" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA"
@@ -998,7 +1016,7 @@
                 "isAny": "false" ,
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
-                "maximumCardinality": "*" ,
+                "maximumCardinality": "99" ,
                 "classOrder": "1020" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam"
@@ -1014,7 +1032,7 @@
                 "isAny": "false" ,
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
-                "maximumCardinality": "*" ,
+                "maximumCardinality": "99" ,
                 "classOrder": "1030" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam"
@@ -1030,7 +1048,7 @@
                 "isAny": "false" ,
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
-                "maximumCardinality": "*" ,
+                "maximumCardinality": "99" ,
                 "classOrder": "1040" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover"
@@ -1050,11 +1068,11 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "MOXIE Ancillary Data from EDLcam"
+            "description": "References to ancillary data acquired by the EDLcam instrument microphone"
               , "associationList": [
              {"association": {
-                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.pds.Internal_Reference" ,
-                "title": "Internal_Reference" ,
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.mars2020.Ancillary_Data_EDLcam_Internal_Reference" ,
+                "title": "Ancillary_Data_EDLcam_Internal_Reference" ,
                 "assocType": "component_of" ,
                 "isAttribute": "false" ,
                 "isChoice": "false" ,
@@ -1062,9 +1080,40 @@
                 "groupName": "null" ,
                 "minimumCardinality": "1" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1010" ,
+                "classOrder": "1020" ,
                 "classId": [
-                  "0001_NASA_PDS_1.pds.Internal_Reference"
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.pds.Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.pds.Internal_Reference" ,
+            "title": "Ancillary_Data_EDLcam_Internal_Reference" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Internal_Reference class is used to cross-reference other products in PDS4-compliant registries of PDS and its recognized international partners."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.mars2020.Ancillary_Data_EDLcam_reference_type" ,
+                "title": "reference_type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_EDLcam.mars2020.Ancillary_Data_EDLcam_reference_type"
                  ]
               }
             }
@@ -1081,11 +1130,11 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "MOXIE Ancillary Data from MEDA"
+            "description": "References to ancillary data acquired by the MEDA instrument"
               , "associationList": [
              {"association": {
-                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.pds.Internal_Reference" ,
-                "title": "Internal_Reference" ,
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.mars2020.Ancillary_Data_MEDA_Internal_Reference" ,
+                "title": "Ancillary_Data_MEDA_Internal_Reference" ,
                 "assocType": "component_of" ,
                 "isAttribute": "false" ,
                 "isChoice": "false" ,
@@ -1093,9 +1142,40 @@
                 "groupName": "null" ,
                 "minimumCardinality": "1" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1010" ,
+                "classOrder": "1020" ,
                 "classId": [
-                  "0001_NASA_PDS_1.pds.Internal_Reference"
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.pds.Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.pds.Internal_Reference" ,
+            "title": "Ancillary_Data_MEDA_Internal_Reference" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Internal_Reference class is used to cross-reference other products in PDS4-compliant registries of PDS and its recognized international partners."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.mars2020.Ancillary_Data_MEDA_reference_type" ,
+                "title": "reference_type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_MEDA.mars2020.Ancillary_Data_MEDA_reference_type"
                  ]
               }
             }
@@ -1112,11 +1192,11 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "MOXIE Ancillary Data from Rover"
+            "description": "References to ancillary data acquired by the rover"
               , "associationList": [
              {"association": {
-                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.pds.Internal_Reference" ,
-                "title": "Internal_Reference" ,
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.mars2020.Ancillary_Data_Rover_Internal_Reference" ,
+                "title": "Ancillary_Data_Rover_Internal_Reference" ,
                 "assocType": "component_of" ,
                 "isAttribute": "false" ,
                 "isChoice": "false" ,
@@ -1124,9 +1204,40 @@
                 "groupName": "null" ,
                 "minimumCardinality": "1" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1010" ,
+                "classOrder": "1020" ,
                 "classId": [
-                  "0001_NASA_PDS_1.pds.Internal_Reference"
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.pds.Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.pds.Internal_Reference" ,
+            "title": "Ancillary_Data_Rover_Internal_Reference" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Internal_Reference class is used to cross-reference other products in PDS4-compliant registries of PDS and its recognized international partners."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.mars2020.Ancillary_Data_Rover_reference_type" ,
+                "title": "reference_type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_Rover.mars2020.Ancillary_Data_Rover_reference_type"
                  ]
               }
             }
@@ -1143,11 +1254,11 @@
             "versionId": "1.0.0.0" ,
             "isAbstract": "false" ,
             "isDeprecated": "false" ,
-            "description": "MOXIE Ancillary Data from Supercam"
+            "description": "References to ancillary data acquired by the Supercam instrument microphone"
               , "associationList": [
              {"association": {
-                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.pds.Internal_Reference" ,
-                "title": "Internal_Reference" ,
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.mars2020.Ancillary_Data_Supercam_Internal_Reference" ,
+                "title": "Ancillary_Data_Supercam_Internal_Reference" ,
                 "assocType": "component_of" ,
                 "isAttribute": "false" ,
                 "isChoice": "false" ,
@@ -1155,9 +1266,40 @@
                 "groupName": "null" ,
                 "minimumCardinality": "1" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1010" ,
+                "classOrder": "1020" ,
                 "classId": [
-                  "0001_NASA_PDS_1.pds.Internal_Reference"
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.pds.Internal_Reference"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.pds.Internal_Reference" ,
+            "title": "Ancillary_Data_Supercam_Internal_Reference" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "The Internal_Reference class is used to cross-reference other products in PDS4-compliant registries of PDS and its recognized international partners."
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.mars2020.Ancillary_Data_Supercam_reference_type" ,
+                "title": "reference_type" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Ancillary_Data_Supercam.mars2020.Ancillary_Data_Supercam_reference_type"
                  ]
               }
             }
@@ -1525,6 +1667,305 @@
         }
       , {
           "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant" ,
+            "title": "Digital_Number_To_Calibrated_Unit_Constant" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Digital number to calibrated unit constant"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.symbol" ,
+                "title": "symbol" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.symbol"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.value" ,
+                "title": "value" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.value"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions" ,
+            "title": "Digital_Number_To_Calibrated_Unit_Conversions" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Digital number to calibrated unit conversions"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata" ,
+                "title": "Digital_Number_To_Calibrated_Unit_Conversions_Metadata" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions.mars2020.Digital_Number_To_Calibrated_Unit_Equations" ,
+                "title": "Digital_Number_To_Calibrated_Unit_Equations" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata" ,
+            "title": "Digital_Number_To_Calibrated_Unit_Conversions_Metadata" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Digital number to calibrated unit conversions metadata"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_calibration_table" ,
+                "title": "file_name_calibration_table" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_calibration_table"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_standard_parameters" ,
+                "title": "file_name_standard_parameters" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_standard_parameters"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_extended_parameters" ,
+                "title": "file_name_extended_parameters" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_extended_parameters"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_derived_parameters" ,
+                "title": "file_name_derived_parameters" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_derived_parameters"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.digital_number_to_calibrated_unit_conversion_software_version" ,
+                "title": "digital_number_to_calibrated_unit_conversion_software_version" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1050" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.digital_number_to_calibrated_unit_conversion_software_version"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation" ,
+            "title": "Digital_Number_To_Calibrated_Unit_Equation" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Digital number to calibrated unit equation"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.parameter" ,
+                "title": "parameter" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.parameter"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.equation" ,
+                "title": "equation" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.equation"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.Digital_Number_To_Calibrated_Unit_Constant" ,
+                "title": "Digital_Number_To_Calibrated_Unit_Constant" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1030" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations" ,
+            "title": "Digital_Number_To_Calibrated_Unit_Equations" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.0.0.0" ,
+            "isAbstract": "false" ,
+            "isDeprecated": "false" ,
+            "description": "Digital number to calibrated unit equations"
+              , "associationList": [
+             {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations.mars2020.comments" ,
+                "title": "comments" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1010" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations.mars2020.comments"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations.mars2020.Digital_Number_To_Calibrated_Unit_Equation" ,
+                "title": "Digital_Number_To_Calibrated_Unit_Equation" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "*" ,
+                "classOrder": "1020" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation"
+                 ]
+              }
+            }
+           ]
+          }
+        }
+      , {
+          "class": {
             "identifier": "0001_NASA_PDS_1.mars2020.Experiment_Configuration" ,
             "title": "Experiment_Configuration" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -1774,6 +2215,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.MOXIE_Parameters.mars2020.Digital_Number_To_Calibrated_Unit_Conversions" ,
+                "title": "Digital_Number_To_Calibrated_Unit_Conversions" ,
+                "assocType": "component_of" ,
+                "isAttribute": "false" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1020" ,
+                "classId": [
+                  "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.MOXIE_Parameters.mars2020.Ancillary_Data" ,
                 "title": "Ancillary_Data" ,
                 "assocType": "component_of" ,
@@ -1783,7 +2240,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1020" ,
+                "classOrder": "1030" ,
                 "classId": [
                   "0001_NASA_PDS_1.mars2020.Ancillary_Data"
                  ]
@@ -3075,6 +3532,22 @@
                  ]
               }
             }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Run_Control_Table_Metadata.mars2020.file_name_binary" ,
+                "title": "file_name_binary" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Run_Control_Table_Metadata.mars2020.file_name_binary"
+                 ]
+              }
+            }
            ]
           }
         }
@@ -4045,6 +4518,22 @@
                  ]
               }
             }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Run_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+                "title": "file_name_binary" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Run_Parameter_Table_Metadata.mars2020.file_name_binary"
+                 ]
+              }
+            }
            ]
           }
         }
@@ -4468,6 +4957,22 @@
                 "classOrder": "1020" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.Safety_Parameter_Table_Metadata.mars2020.file_name_digital_numbers"
+                 ]
+              }
+            }
+           , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.Safety_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+                "title": "file_name_binary" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "1" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1030" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.Safety_Parameter_Table_Metadata.mars2020.file_name_binary"
                  ]
               }
             }
@@ -6196,6 +6701,31 @@
         }
       , {
           "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Algorithm_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+            "title": "file_name_binary" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the Run Parameter Table binary file, as uplinked to the rover" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
             "identifier": "0001_NASA_PDS_1.mars2020.Algorithm_Parameter_Table_Metadata.mars2020.file_name_digital_numbers" ,
             "title": "file_name_digital_numbers" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -7641,6 +8171,256 @@
             "unitOfMeasure": "Units_of_Voltage" ,
             "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Voltage" ,
             "unitId": "V, mV" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.symbol" ,
+            "title": "symbol" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Symbol of the constant in the digital number to calibrated unit equation" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Constant.mars2020.value" ,
+            "title": "value" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Numerical value of the constant in the digital number to calibrated unit equation" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.digital_number_to_calibrated_unit_conversion_software_version" ,
+            "title": "digital_number_to_calibrated_unit_conversion_software_version" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Version number of the software used to convert digital numbers to calibrated units" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_calibration_table" ,
+            "title": "file_name_calibration_table" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the calibration table file containing the digital number to calibrated unit conversions" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_derived_parameters" ,
+            "title": "file_name_derived_parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters not in telemetry" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_extended_parameters" ,
+            "title": "file_name_extended_parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in extended telemetry" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Conversions_Metadata.mars2020.file_name_standard_parameters" ,
+            "title": "file_name_standard_parameters" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in standard telemetry" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.equation" ,
+            "title": "equation" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Digital number to calibrated unit equation" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equation.mars2020.parameter" ,
+            "title": "parameter" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the field to which the digital number to calibrated unit equation applies" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Digital_Number_To_Calibrated_Unit_Equations.mars2020.comments" ,
+            "title": "comments" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": " Comments associated with MOXIE_Parameters\/Run_Control_Table_Step or with MOXIE_Parameters\/...\/Digital_Number_To_Calibrated_Unit_Equations. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Preserved" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Preserved" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
             "defaultUnitId": "null"
           }
         }
@@ -9192,6 +9972,31 @@
         }
       , {
           "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Run_Control_Table_Metadata.mars2020.file_name_binary" ,
+            "title": "file_name_binary" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the Run Parameter Table binary file, as uplinked to the rover" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
             "identifier": "0001_NASA_PDS_1.mars2020.Run_Control_Table_Metadata.mars2020.file_name_digital_numbers" ,
             "title": "file_name_digital_numbers" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -9248,7 +10053,7 @@
             "nameSpaceId": "mars2020" ,
             "steward": "geo" ,
             "versionId": "1.14" ,
-            "description": " For MOXIE: Comments associated with MOXIE_Parameters Run_Control_Table_Step " ,
+            "description": " Comments associated with MOXIE_Parameters\/Run_Control_Table_Step or with MOXIE_Parameters\/...\/Digital_Number_To_Calibrated_Unit_Equations. " ,
             "isNillable": "false" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,
@@ -10442,6 +11247,31 @@
         }
       , {
           "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Run_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+            "title": "file_name_binary" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the Run Parameter Table binary file, as uplinked to the rover" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
             "identifier": "0001_NASA_PDS_1.mars2020.Run_Parameter_Table_Metadata.mars2020.file_name_digital_numbers" ,
             "title": "file_name_digital_numbers" ,
             "registrationAuthorityId": "0001_NASA_PDS_1" ,
@@ -10829,6 +11659,31 @@
             "isDeprecated": "false" ,
             "dataType": "UTF8_Short_String_Collapsed" ,
             "dataTypeId": "0001_NASA_PDS_1.pds.UTF8_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.Safety_Parameter_Table_Metadata.mars2020.file_name_binary" ,
+            "title": "file_name_binary" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.14" ,
+            "description": "Name of the Run Parameter Table binary file, as uplinked to the rover" ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
             "minimumCharacters": "1" ,
             "maximumCharacters": "255" ,
             "minimumValue": "Unbounded" ,

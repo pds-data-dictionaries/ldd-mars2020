@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Apr 27 20:29:43 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue May 11 16:32:29 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
@@ -66,7 +66,8 @@
     2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
     2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
        Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
-    
+    2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
+       Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
   
     </xs:documentation>
   </xs:annotation>
@@ -115,6 +116,7 @@
     <xs:sequence>
       <xs:element name="file_name_experiment_intent" type="mars2020:file_name_experiment_intent" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="file_name_digital_numbers" type="mars2020:file_name_digital_numbers" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_binary" type="mars2020:file_name_binary" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -175,53 +177,111 @@
 
   <xs:complexType name="Ancillary_Data">
     <xs:annotation>
-<xs:documentation>MOXIE Ancillary Data</xs:documentation>
+      <xs:documentation>References to ancillary data acquired by other
+        instruments and/or the rover</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Ancillary_Data_MEDA" type="mars2020:Ancillary_Data_MEDA" minOccurs="0" maxOccurs="unbounded"> </xs:element>
-      <xs:element name="Ancillary_Data_Supercam" type="mars2020:Ancillary_Data_Supercam" minOccurs="0" maxOccurs="unbounded"> </xs:element>
-      <xs:element name="Ancillary_Data_EDLcam" type="mars2020:Ancillary_Data_EDLcam" minOccurs="0" maxOccurs="unbounded"> </xs:element>
-      <xs:element name="Ancillary_Data_Rover" type="mars2020:Ancillary_Data_Rover" minOccurs="0" maxOccurs="unbounded"> </xs:element>
+      <xs:element name="Ancillary_Data_MEDA" type="mars2020:Ancillary_Data_MEDA" minOccurs="0" maxOccurs="99"> </xs:element>
+      <xs:element name="Ancillary_Data_Supercam" type="mars2020:Ancillary_Data_Supercam" minOccurs="0" maxOccurs="99"> </xs:element>
+      <xs:element name="Ancillary_Data_EDLcam" type="mars2020:Ancillary_Data_EDLcam" minOccurs="0" maxOccurs="99"> </xs:element>
+      <xs:element name="Ancillary_Data_Rover" type="mars2020:Ancillary_Data_Rover" minOccurs="0" maxOccurs="99"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
   <xs:complexType name="Ancillary_Data_EDLcam">
     <xs:annotation>
-      <xs:documentation>MOXIE Ancillary Data from
-        EDLcam</xs:documentation>
+      <xs:documentation>References to ancillary data acquired by the
+        EDLcam instrument microphone</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Ancillary_Data_EDLcam_Internal_Reference" type="mars2020:Ancillary_Data_EDLcam_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ancillary_Data_EDLcam_Internal_Reference">
+    <xs:annotation>
+      <xs:documentation>The Internal_Reference class is used to
+        cross-reference other products in PDS4-compliant registries of
+        PDS and its recognized international partners.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Ancillary_Data_EDLcam_reference_type" type="mars2020:Ancillary_Data_EDLcam_reference_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:Ancillary_Data_EDLcam_reference_type = ('data_to_ancillary_data')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
   <xs:complexType name="Ancillary_Data_MEDA">
     <xs:annotation>
-<xs:documentation>MOXIE Ancillary Data from MEDA</xs:documentation>
+      <xs:documentation>References to ancillary data acquired by the
+        MEDA instrument</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Ancillary_Data_MEDA_Internal_Reference" type="mars2020:Ancillary_Data_MEDA_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ancillary_Data_MEDA_Internal_Reference">
+    <xs:annotation>
+      <xs:documentation>The Internal_Reference class is used to
+        cross-reference other products in PDS4-compliant registries of
+        PDS and its recognized international partners.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Ancillary_Data_MEDA_reference_type" type="mars2020:Ancillary_Data_MEDA_reference_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:Ancillary_Data_MEDA_reference_type = ('data_to_ancillary_data')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
   <xs:complexType name="Ancillary_Data_Rover">
     <xs:annotation>
-      <xs:documentation>MOXIE Ancillary Data from
-        Rover</xs:documentation>
+      <xs:documentation>References to ancillary data acquired by the
+        rover</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Ancillary_Data_Rover_Internal_Reference" type="mars2020:Ancillary_Data_Rover_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ancillary_Data_Rover_Internal_Reference">
+    <xs:annotation>
+      <xs:documentation>The Internal_Reference class is used to
+        cross-reference other products in PDS4-compliant registries of
+        PDS and its recognized international partners.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Ancillary_Data_Rover_reference_type" type="mars2020:Ancillary_Data_Rover_reference_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:Ancillary_Data_Rover_reference_type = ('data_to_ancillary_data')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
   <xs:complexType name="Ancillary_Data_Supercam">
     <xs:annotation>
-      <xs:documentation>MOXIE Ancillary Data from
-        Supercam</xs:documentation>
+      <xs:documentation>References to ancillary data acquired by the
+        Supercam instrument microphone</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element ref="pds:Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Ancillary_Data_Supercam_Internal_Reference" type="mars2020:Ancillary_Data_Supercam_Internal_Reference" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Ancillary_Data_Supercam_Internal_Reference">
+    <xs:annotation>
+      <xs:documentation>The Internal_Reference class is used to
+        cross-reference other products in PDS4-compliant registries of
+        PDS and its recognized international partners.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Ancillary_Data_Supercam_reference_type" type="mars2020:Ancillary_Data_Supercam_reference_type" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+    <!-- Begin assert statements for schematron - Enumerated Values -->
+    <!-- <xs:assert test="mars2020:Ancillary_Data_Supercam_reference_type = ('data_to_ancillary_data')"/> -->
+    <!-- End assert statements for schematron - Enumerated Values -->
   </xs:complexType>
 
   <xs:complexType name="Calibration_Target">
@@ -328,6 +388,65 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="Digital_Number_To_Calibrated_Unit_Constant">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit
+        constant</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="symbol" type="mars2020:symbol" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="value" type="mars2020:value" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Digital_Number_To_Calibrated_Unit_Conversions">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit
+        conversions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions_Metadata" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions_Metadata" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Equations" type="mars2020:Digital_Number_To_Calibrated_Unit_Equations" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Digital_Number_To_Calibrated_Unit_Conversions_Metadata">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit conversions
+        metadata</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="file_name_calibration_table" type="mars2020:file_name_calibration_table" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_standard_parameters" type="mars2020:file_name_standard_parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_extended_parameters" type="mars2020:file_name_extended_parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_derived_parameters" type="mars2020:file_name_derived_parameters" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="digital_number_to_calibrated_unit_conversion_software_version" type="mars2020:digital_number_to_calibrated_unit_conversion_software_version" minOccurs="1" maxOccurs="1"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Digital_Number_To_Calibrated_Unit_Equation">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit
+        equation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="parameter" type="mars2020:parameter" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="equation" type="mars2020:equation" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Constant" type="mars2020:Digital_Number_To_Calibrated_Unit_Constant" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Digital_Number_To_Calibrated_Unit_Equations">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit
+        equations</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="comments" type="mars2020:comments" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Equation" type="mars2020:Digital_Number_To_Calibrated_Unit_Equation" minOccurs="1" maxOccurs="unbounded"> </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Experiment_Configuration">
     <xs:annotation>
 <xs:documentation>MOXIE Experiment Configuration</xs:documentation>
@@ -364,6 +483,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Experiment_Configuration" type="mars2020:Experiment_Configuration" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="Ancillary_Data" type="mars2020:Ancillary_Data" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -534,6 +654,7 @@
     <xs:sequence>
       <xs:element name="file_name_experiment_intent" type="mars2020:file_name_experiment_intent" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="file_name_digital_numbers" type="mars2020:file_name_digital_numbers" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_binary" type="mars2020:file_name_binary" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -640,6 +761,7 @@
     <xs:sequence>
       <xs:element name="file_name_experiment_intent" type="mars2020:file_name_experiment_intent" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="file_name_digital_numbers" type="mars2020:file_name_digital_numbers" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_binary" type="mars2020:file_name_binary" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -714,6 +836,7 @@
     <xs:sequence>
       <xs:element name="file_name_experiment_intent" type="mars2020:file_name_experiment_intent" minOccurs="1" maxOccurs="1"> </xs:element>
       <xs:element name="file_name_digital_numbers" type="mars2020:file_name_digital_numbers" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="file_name_binary" type="mars2020:file_name_binary" minOccurs="1" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -880,6 +1003,42 @@
         common namespace.
       </xs:documentation>
     </xs:annotation>
+
+  <xs:simpleType name="Ancillary_Data_EDLcam_reference_type">
+    <xs:annotation>
+      <xs:documentation>The reference_type attribute provides the name
+        of the association.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Ancillary_Data_MEDA_reference_type">
+    <xs:annotation>
+      <xs:documentation>The reference_type attribute provides the name
+        of the association.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Ancillary_Data_Rover_reference_type">
+    <xs:annotation>
+      <xs:documentation>The reference_type attribute provides the name
+        of the association.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Ancillary_Data_Supercam_reference_type">
+    <xs:annotation>
+      <xs:documentation>The reference_type attribute provides the name
+        of the association.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="active_flight_computer">
     <xs:annotation>
@@ -1081,8 +1240,10 @@
 
   <xs:simpleType name="comments">
     <xs:annotation>
-      <xs:documentation> For MOXIE: Comments associated with
-        MOXIE_Parameters Run_Control_Table_Step </xs:documentation>
+      <xs:documentation> Comments associated with
+        MOXIE_Parameters/Run_Control_Table_Step or with
+        MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Equations.
+        </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Preserved">
      <xs:minLength value="1"/>
@@ -1188,10 +1349,67 @@
 	   </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="digital_number_to_calibrated_unit_conversion_software_version">
+    <xs:annotation>
+      <xs:documentation>Version number of the software used to convert
+        digital numbers to calibrated units</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="equation">
+    <xs:annotation>
+      <xs:documentation>Digital number to calibrated unit
+        equation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="experiment_name">
     <xs:annotation>
       <xs:documentation> For MOXIE: Name of a MOXIE_Parameters
         experiment configuration </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="file_name_binary">
+    <xs:annotation>
+      <xs:documentation>Name of the Run Parameter Table binary file, as
+        uplinked to the rover</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="file_name_calibration_table">
+    <xs:annotation>
+      <xs:documentation>Name of the calibration table file containing
+        the digital number to calibrated unit
+        conversions</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="file_name_derived_parameters">
+    <xs:annotation>
+      <xs:documentation>Name of the file containing the mapping from
+        parameters to digital number to calibrated unit conversions, for
+        parameters not in telemetry</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
@@ -1216,6 +1434,30 @@
       <xs:documentation> For MOXIE: Name of a MOXIE_Parameters table
         comma-separated value file containing the experiment intent
         </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="file_name_extended_parameters">
+    <xs:annotation>
+      <xs:documentation>Name of the file containing the mapping from
+        parameters to digital number to calibrated unit conversions, for
+        parameters in extended telemetry</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="file_name_standard_parameters">
+    <xs:annotation>
+      <xs:documentation>Name of the file containing the mapping from
+        parameters to digital number to calibrated unit conversions, for
+        parameters in standard telemetry</xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Short_String_Collapsed">
      <xs:minLength value="1"/>
@@ -1991,6 +2233,17 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="parameter">
+    <xs:annotation>
+      <xs:documentation>Name of the field to which the digital number to
+        calibrated unit equation applies</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="pdp_category">
     <xs:annotation>
@@ -3703,6 +3956,17 @@
     </xs:simpleContent>
   </xs:complexType>
 
+  <xs:simpleType name="symbol">
+    <xs:annotation>
+      <xs:documentation>Symbol of the constant in the digital number to
+        calibrated unit equation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Short_String_Collapsed">
+     <xs:minLength value="1"/>
+     <xs:maxLength value="255"/>
+	   </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="temperature_value_WO_Units">
     <xs:restriction base="pds:ASCII_Real">
      <xs:minInclusive value="-1.7976931348623157e308"/>
@@ -3806,6 +4070,17 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+
+  <xs:simpleType name="value">
+    <xs:annotation>
+      <xs:documentation>Numerical value of the constant in the digital
+        number to calibrated unit equation</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="pds:ASCII_Real">
+     <xs:minInclusive value="-1.7976931348623157e308"/>
+     <xs:maxInclusive value="1.7976931348623157e308"/>
+	   </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="vb_en">
     <xs:annotation>
