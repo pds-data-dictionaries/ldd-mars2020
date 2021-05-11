@@ -59,9 +59,10 @@
     2021-04-07 Added classes SuperCam_Generic_Packet_Header, SuperCam_Ancillary_Header, and their attributes
     2021-04-27 Added pixl_rtt to class PIXL_Parameters. 
        Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
-    
+    2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
+       Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
   </comment>
-  <last_modification_date_time>2021-04-07T20:16</last_modification_date_time>
+  <last_modification_date_time>2021-05-06T21:36</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -639,7 +640,8 @@
     <nillable_flag>false</nillable_flag>
     <submitter_name>John McClean</submitter_name>
     <definition>
-        For MOXIE: Comments associated with MOXIE_Parameters Run_Control_Table_Step
+        Comments associated with MOXIE_Parameters/Run_Control_Table_Step
+        or with MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Equations.
     </definition>
     <DD_Value_Domain>
         <enumeration_flag>false</enumeration_flag>
@@ -689,6 +691,30 @@
     </DD_Value_Domain>
 </DD_Attribute>
 -->
+  <DD_Attribute>  <name>digital_number_to_calibrated_unit_conversion_software_version</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.digital_number_to_calibrated_unit_conversion_software_version</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Version number of the software used to convert digital numbers to calibrated units</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>equation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.equation</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit equation</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
   <DD_Attribute>  <name>experiment_name</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.experiment_name</local_identifier>
@@ -697,6 +723,42 @@
     <definition>
       For MOXIE: Name of a MOXIE_Parameters experiment configuration
     </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>  <name>file_name_binary</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.file_name_binary</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Name of the Run Parameter Table binary file, as uplinked to the rover</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+
+  <DD_Attribute>  <name>file_name_calibration_table</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.file_name_calibration_table</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Name of the calibration table file containing the digital number to calibrated unit conversions</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>file_name_derived_parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.file_name_derived_parameters</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters not in telemetry</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
@@ -730,7 +792,30 @@
         <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
     </DD_Value_Domain>
 </DD_Attribute>
-
+  <DD_Attribute>  <name>file_name_extended_parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.file_name_extended_parameters</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in extended telemetry</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>file_name_standard_parameters</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.file_name_standard_parameters</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Name of the file containing the mapping from parameters to digital number to calibrated unit conversions, for parameters in standard telemetry</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>  
+  
 <DD_Attribute>  <name>file_name_stem</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.file_name_stem</local_identifier>
@@ -1288,7 +1373,19 @@
     </DD_Value_Domain>
 </DD_Attribute>
 
-<DD_Attribute>  <name>persistence_en</name>
+<DD_Attribute>  <name>parameter</name>
+  <version_id>1.0</version_id>
+  <local_identifier>mars2020.moxie.parameter</local_identifier>
+  <nillable_flag>false</nillable_flag>
+  <submitter_name>John McClean</submitter_name>
+  <definition>Name of the field to which the digital number to calibrated unit equation applies</definition>
+  <DD_Value_Domain>
+    <enumeration_flag>false</enumeration_flag>
+    <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+  </DD_Value_Domain>
+</DD_Attribute>
+  
+  <DD_Attribute>  <name>persistence_en</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.persistence_en</local_identifier>
     <nillable_flag>false</nillable_flag>
@@ -2208,7 +2305,19 @@
         <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
 </DD_Attribute>
-
+  
+  <DD_Attribute>  <name>symbol</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.symbol</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Symbol of the constant in the digital number to calibrated unit equation</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
 <DD_Attribute>  <name>tl_ics1234_h_calibrated</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.tl_ics1234_h_calibrated</local_identifier>
@@ -2267,7 +2376,20 @@
     </DD_Value_Domain>
 </DD_Attribute>
 -->
-<DD_Attribute>  <name>vb_en</name>
+
+  <DD_Attribute>  <name>value</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.value</local_identifier>
+    <nillable_flag>false</nillable_flag>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Numerical value of the constant in the digital number to calibrated unit equation</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  
+  <DD_Attribute>  <name>vb_en</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.vb_en</local_identifier>
     <nillable_flag>false</nillable_flag>
@@ -4174,7 +4296,25 @@
                   </mars2020:Run_Parameter_Table_Fields>
               </mars2020:Run_Parameter_Table>
           </mars2020:Experiment_Configuration>
+          <mars2020:Digital_Number_To_Calibrated_Unit_Conversions>
+              <mars2020:Digital_Number_To_Calibrated_Unit_Conversions_Metadata>
+              </mars2020:Digital_Number_To_Calibrated_Unit_Conversions_Metadata>
+              <mars2020:Digital_Number_To_Calibrated_Unit_Equations>
+                  <mars2020:Digital_Number_To_Calibrated_Unit_Equation>
+                      <mars2020:Digital_Number_To_Calibrated_Unit_Constant>
+                      </mars2020:Digital_Number_To_Calibrated_Unit_Constant>
+                  </mars2020:Digital_Number_To_Calibrated_Unit_Equation>
+              </mars2020:Digital_Number_To_Calibrated_Unit_Equations>
+          </mars2020:Digital_Number_To_Calibrated_Unit_Conversions>
           <mars2020:Ancillary_Data>
+              <mars2020:Ancillary_Data_MEDA>
+              </mars2020:Ancillary_Data_MEDA>
+              <mars2020:Ancillary_Data_Supercam>
+              </mars2020:Ancillary_Data_Supercam>
+              <mars2020:Ancillary_Data_EDLcam>
+              </mars2020:Ancillary_Data_EDLcam>
+              <mars2020:Ancillary_Data_Rover>
+              </mars2020:Ancillary_Data_Rover>
           </mars2020:Ancillary_Data>
        </mars2020:MOXIE_Parameters>
     -->
@@ -4195,6 +4335,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_digital_numbers</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_binary</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -4584,6 +4730,12 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_binary</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
   <DD_Class>  <name>Algorithm_Parameter_Table_Field</name>
     <version_id>1.0</version_id>
@@ -4950,6 +5102,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_digital_numbers</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_binary</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
@@ -5396,6 +5554,12 @@
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_binary</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
   </DD_Class>
   <DD_Class>  <name>Run_Parameter_Table_Field</name>
     <version_id>1.0</version_id>
@@ -5619,11 +5783,135 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+  <DD_Class>  <name>Digital_Number_To_Calibrated_Unit_Constant</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Constant</local_identifier>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit constant</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.symbol</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.value</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>  <name>Digital_Number_To_Calibrated_Unit_Equation</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equation</local_identifier>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit equation</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.parameter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.equation</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Constant</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>  <name>Digital_Number_To_Calibrated_Unit_Equations</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations</local_identifier>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit equations</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.comments</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equation</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>  <name>Digital_Number_To_Calibrated_Unit_Conversions_Metadata</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata</local_identifier>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit conversions metadata</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_calibration_table</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_standard_parameters</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_extended_parameters</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.file_name_derived_parameters</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.digital_number_to_calibrated_unit_conversion_software_version</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
+  <DD_Class>  <name>Digital_Number_To_Calibrated_Unit_Conversions</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions</local_identifier>
+    <submitter_name>John McClean</submitter_name>
+    <definition>Digital number to calibrated unit conversions</definition>
+    <abstract_flag>false</abstract_flag>
+    <element_flag>false</element_flag>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+  </DD_Class>
   <DD_Class>  <name>Ancillary_Data_MEDA</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_MEDA</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>MOXIE Ancillary Data from MEDA</definition>
+    <definition>References to ancillary data acquired by the MEDA instrument</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Associate_External_Class>
@@ -5648,7 +5936,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_Supercam</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>MOXIE Ancillary Data from Supercam</definition>
+    <definition>References to ancillary data acquired by the Supercam instrument microphone</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Associate_External_Class>
@@ -5673,7 +5961,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_EDLcam</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>MOXIE Ancillary Data from EDLcam</definition>
+    <definition>References to ancillary data acquired by the EDLcam instrument microphone</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Associate_External_Class>
@@ -5698,7 +5986,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_Rover</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>MOXIE Ancillary Data from Rover</definition>
+    <definition>References to ancillary data acquired by the rover</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Associate_External_Class>
@@ -5723,35 +6011,35 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>MOXIE Ancillary Data</definition>
+    <definition>References to ancillary data acquired by other instruments and/or the rover</definition>
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Ancillary_Data_MEDA</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>*</maximum_occurrences>
+      <maximum_occurrences>99</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Ancillary_Data_Supercam</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>*</maximum_occurrences>
+      <maximum_occurrences>99</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Ancillary_Data_EDLcam</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>*</maximum_occurrences>
+      <maximum_occurrences>99</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Ancillary_Data_Rover</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>*</maximum_occurrences>
+      <maximum_occurrences>99</maximum_occurrences>
     </DD_Association>
   </DD_Class>
-  <DD_Class>  <name>MOXIE_Parameters</name>
+    <DD_Class>  <name>MOXIE_Parameters</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.MOXIE_Parameters</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
@@ -5759,6 +6047,11 @@
     <abstract_flag>false</abstract_flag>
     <element_flag>false</element_flag>
     <DD_Association>  <identifier_reference>mars2020.moxie.Experiment_Configuration</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>  <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
