@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:img  Version:1.8.4.0 - Tue May 11 16:32:26 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:img  Version:1.8.4.0 - Tue Jun 08 19:39:26 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.8.4.0 - img: - Imaging                                                  -->
-  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
+  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/dependencies/ldd-i -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/img/v1"

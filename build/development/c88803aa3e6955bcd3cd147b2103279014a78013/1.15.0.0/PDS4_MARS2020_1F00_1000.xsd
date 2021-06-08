@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue May 11 16:32:29 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Tue Jun 08 19:39:30 UTC 2021 -->
   <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.15.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.8.4.0 - img: - Imaging                                                  -->
-  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
+  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/dependencies/ldd-i -->
   <!-- 1.8.4.0 - img: - Imaging                                                  -->
-  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/dependencies/ldd-img/src -->
+  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/dependencies/ldd-i -->
   <!-- 1.0.0.0 - mars2020: - Mars 2020 Mission                                   -->
-  <!--   file:/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD. -->
+  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/PDS4_MARS2020_Inge -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/mars2020/v1"
@@ -68,6 +68,10 @@
        Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
        Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
+    2021-05-25 Changed the class MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Conversions and its subclasses
+       from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
+       Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+    2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
   
     </xs:documentation>
   </xs:annotation>
@@ -405,8 +409,8 @@
         conversions</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions_Metadata" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions_Metadata" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="Digital_Number_To_Calibrated_Unit_Equations" type="mars2020:Digital_Number_To_Calibrated_Unit_Equations" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions_Metadata" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions_Metadata" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Equations" type="mars2020:Digital_Number_To_Calibrated_Unit_Equations" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -483,7 +487,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Experiment_Configuration" type="mars2020:Experiment_Configuration" minOccurs="1" maxOccurs="1"> </xs:element>
-      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="Digital_Number_To_Calibrated_Unit_Conversions" type="mars2020:Digital_Number_To_Calibrated_Unit_Conversions" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="Ancillary_Data" type="mars2020:Ancillary_Data" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
@@ -509,7 +513,7 @@
         information about a science observation.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="release_number" nillable="true" type="mars2020:release_number" minOccurs="1" maxOccurs="1"> </xs:element>
+      <xs:element name="release_number" nillable="true" type="mars2020:release_number" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="mission_phase_name" type="mars2020:mission_phase_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="product_type_name" type="mars2020:product_type_name" minOccurs="0" maxOccurs="1"> </xs:element>
       <xs:element name="spacecraft_clock_start" type="mars2020:spacecraft_clock_start" minOccurs="0" maxOccurs="1"> </xs:element>
