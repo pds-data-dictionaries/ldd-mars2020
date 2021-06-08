@@ -61,8 +61,12 @@
        Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
        Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
+    2021-05-25 Changed the class MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Conversions and its subclasses
+       from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
+       Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+    2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
   </comment>
-  <last_modification_date_time>2021-05-06T21:36</last_modification_date_time>
+  <last_modification_date_time>2021-06-08T19:22Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -117,7 +121,7 @@
        active_flight_computer                 optional
        mission_phase_name                      optional
        product_type_name                       optional
-       release_number                          required
+       release_number                          optional
        sol_number                              either start/stop_sol_number or sol_number is required
        spacecraft_clock_partition              optional; should be used if SCLK does not include partition number
        spacecraft_clock_start                  optional
@@ -4119,7 +4123,7 @@
     <DD_Association>
       <identifier_reference>mars2020.release_number</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5897,13 +5901,13 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
@@ -5921,7 +5925,9 @@
       <maximum_occurrences>1</maximum_occurrences>
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
-        <attribute_relative_xpath>reference_type</attribute_relative_xpath>
+        <attribute_relative_xpath>
+          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_MEDA/pds:Internal_Reference/pds:reference_type
+        </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
           <value_meaning>
@@ -5946,7 +5952,9 @@
       <maximum_occurrences>1</maximum_occurrences>
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
-        <attribute_relative_xpath>reference_type</attribute_relative_xpath>
+        <attribute_relative_xpath>
+          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_Supercam/pds:Internal_Reference/pds:reference_type
+        </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
           <value_meaning>
@@ -5971,7 +5979,9 @@
       <maximum_occurrences>1</maximum_occurrences>
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
-        <attribute_relative_xpath>reference_type</attribute_relative_xpath>
+        <attribute_relative_xpath>
+          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_EDLcam/pds:Internal_Reference/pds:reference_type
+        </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
           <value_meaning>
@@ -5996,7 +6006,9 @@
       <maximum_occurrences>1</maximum_occurrences>
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
-        <attribute_relative_xpath>reference_type</attribute_relative_xpath>
+        <attribute_relative_xpath>
+          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_Rover/pds:Internal_Reference/pds:reference_type
+        </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
           <value_meaning>
@@ -6053,7 +6065,7 @@
     </DD_Association>
     <DD_Association>  <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions</identifier_reference>
       <reference_type>component_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>  <identifier_reference>mars2020.moxie.Ancillary_Data</identifier_reference>
