@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Tue May 11 16:32:37 UTC 2021
+   Time                   Tue Jun 08 19:39:21 UTC 2021
    Common Schema          [PDS4_PDS_1E00.xsd]
    Common Schematron      [PDS4_PDS_1E00.sch]
    IM Version Id:         1.14.0.0
@@ -20,7 +20,7 @@ Configuration:
    IM Document Spec       [DMDocument.pins]
 
 Parameters:
-   Input File             [/home/runner/work/ldd-m2020/ldd-m2020/src/PDS4_MARS2020_IngestLDD.xml]
+   Input File             [/home/runner/work/ldd-mars2020/ldd-mars2020/src/PDS4_MARS2020_IngestLDD.xml]
    PDS Processing         true
    LDD Processing         true
    Discipline LDD         false
@@ -86,8 +86,12 @@ Parsed Input - Header:
        Added enumerated value definitions for attribute SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
     2021-05-06 Added Digital_Number_to_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters.
        Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
+    2021-05-25 Changed the class MOXIE_Parameters/.../Digital_Number_To_Calibrated_Unit_Conversions and its subclasses
+       from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
+       Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+    2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
   
-   Last Modification Time 2021-05-06T21:36
+   Last Modification Time 2021-06-08T19:22Z
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -1577,7 +1581,7 @@ Parsed Input - Classes:
    Associations
 
       local identifier      mars2020.release_number
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
 
@@ -3021,12 +3025,12 @@ Parsed Input - Classes:
    Associations
 
       local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 
       local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 
@@ -3176,7 +3180,7 @@ Parsed Input - Classes:
       reference type        component_of
 
       local identifier      mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions
-      minimum occurrences   1
+      minimum occurrences   0
       maximum occurrences   1
       reference type        component_of
 

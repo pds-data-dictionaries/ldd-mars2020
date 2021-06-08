@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Tue May 11 16:32:37 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.14.0.0 - System Build 10b -->
+  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Tue Jun 08 19:39:30 UTC 2021 -->
+  <!-- Generated from the PDS4 Information Model Version 1.15.0.0 - System Build 11a -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -168,9 +168,9 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:gate_frequency">
-      <sch:assert test="@unit = ('Hz')">
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
         <title>mars2020:RIMFAX_Parameters/mars2020:gate_frequency/mars2020:gate_frequency</title>
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -182,16 +182,16 @@
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:start_frequency">
-      <sch:assert test="@unit = ('Hz')">
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
         <title>mars2020:RIMFAX_Parameters/mars2020:start_frequency/mars2020:start_frequency</title>
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:RIMFAX_Parameters/mars2020:stop_frequency">
-      <sch:assert test="@unit = ('Hz')">
+      <sch:assert test="@unit = ('GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz')">
         <title>mars2020:RIMFAX_Parameters/mars2020:stop_frequency/mars2020:stop_frequency</title>
-        The attribute @unit must be equal to one of the following values 'Hz'.</sch:assert>
+        The attribute @unit must be equal to one of the following values 'GHz', 'Hz', 'MHz', 'THz', 'kHz', 'mHz'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
