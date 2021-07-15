@@ -24,8 +24,8 @@
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
     Mars 2020 version 1.0.0.0 
-    PDS Build 1.15.0.0
-    LDDTool version 12.1.0
+    PDS Build 1.16.0.0
+    LDDTool version 13.0.2
     
     Built with LDDTool -plJ  PDS4_IMG_Ingest_LDD.xml PDS4_MARS2020_IngestLDD.xml
      
@@ -65,8 +65,14 @@
        from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
        Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
     2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
+    2021-06-23 Added attributes start/stop_utc, start/stop_jdate, start/stop_sounding_counter, min/max rover_lat, 
+       min/max_rover_lon, and min/max_rover_elev to RIMFAX_Parameters class. 
+       Changed RIMFAX_Parameters/config_id maximum_occurrences from 1 to *.
+       Added missing definitions for RIMFAX_Parameters decimation, sinetable, and time_cut_samples.
+       Changed sinetable data type from ASCII_Integer to ASCII_Short_String_Collapsed.
+       Built for IM 1G00 (1.16.0.0).
   </comment>
-  <last_modification_date_time>2021-06-08T19:22Z</last_modification_date_time>
+  <last_modification_date_time>2021-06-23T21:26Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -3308,15 +3314,12 @@
   </DD_Attribute>
   <!-- End Attribute Definitions for the PIXL_Parameters class -->
 
-  <!-- Begin Attribute Definitions for RIMFAX_Parameters Class 
-       There are still many TBDs in these definitions! 
-       All are optional at this point and also nillable because the 
-       test data sometimes has UNK for nearly all the parameters-->
+  <!-- Begin Attribute Definitions for RIMFAX_Parameters class -->
   <DD_Attribute>  <name>calibration</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.calibration</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
+    <submitter_name>Mark Sullivan</submitter_name>
     <definition>True if the radar is connected to the calibration cable, 
       false if it is connected to the antenna cable.
     </definition>
@@ -3330,8 +3333,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.config_id</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>The config ID from the sounding data.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Identifier of current RIMFAX configuration mode</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -3341,9 +3344,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.decimation</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>TBD</definition>
-    <comment>Value is always an integer in test products.</comment>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Onboard decimation of acquired soundings, in number of soundings removed per each sounding downlinked.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -3353,8 +3355,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.gate_frequency</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>TBD.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Frequency of the gate signal</definition>
     <comment>Values should be in MHz.</comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -3366,32 +3368,106 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.group_spacing</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>TBD</definition>
-    <comment>Mats: I'm not sure what this is.</comment>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Distance between sounding groups (i.e. distance between
+      soundings of a given mode) as set in activity uplink
+      (actual distance may deviate slightly); 0 if not a
+      Traverse sounding
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type> <!-- Temporary placeholder. What is the data type? -->
+      <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>lis_soundings</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.lis_soundings</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>The number of soundings in a Long Integration Sounding (LIS) observation.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      The number of soundings in a Long Integration Sounding (LIS) observation.
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>max_rover_elev</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.max_rover_elev</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The maximum value of rover_elev, the planetary elevation of the rover RNAV frame origin</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>max_rover_lat</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.max_rover_lat</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The maximum value of rover_lat, the planetocentric latitude of the rover RNAV frame origin</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>max_rover_lon</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.max_rover_lon</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The maximum value of rover_lon, the east longitude of the rover RNAV frame</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>min_rover_elev</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.min_rover_elev</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The minimum value of rover_elev, the planetary elevation of the rover RNAV frame origin</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>min_rover_lat</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.min_rover_lat</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The minimum value of rover_lat, the planetocentric latitude of the rover RNAV frame origin</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>min_rover_lon</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.min_rover_lon</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>The minimum value of rover_lon, the east longitude of the rover RNAV frame</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>note</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.note</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>This note field can be used to indicate that the attenuation values are in dB
-      because there is no unit_of_measure for such units.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      This note field can be used to indicate that the attenuation values are in dB
+      because there is no unit_of_measure for such units.
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
@@ -3401,7 +3477,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.number_of_samples</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
+    <submitter_name>Mark Sullivan</submitter_name>
     <definition>Number of samples in each sounding.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -3412,7 +3488,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.number_of_sweeps</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
+    <submitter_name>Mark Sullivan</submitter_name>
     <definition>Number of sweeps that are integrated internally in the radar.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -3423,7 +3499,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.receive_only</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
+    <submitter_name>Mark Sullivan</submitter_name>
     <definition>True if the radar is in passive mode, false if it is in active (normal radar) mode.
     </definition>
     <comment>Allowable values are 'true' or 'false' for Boolean types</comment>
@@ -3436,8 +3512,11 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.rx_attenuation</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>The value set for the programmable receiver attenuator.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Attenuation in the receive path; higher values represent
+      more dampening of the received signal
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -3447,8 +3526,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.rx_delay</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>Delay for switching the Rx switch on and off.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Time delay of receiver gate</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -3459,7 +3538,7 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.setup_file</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
+    <submitter_name>Mark Sullivan</submitter_name>
     <definition>Name of the setup file.</definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -3470,34 +3549,77 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.sinetable</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>TBD</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Sine table used to create the radar bandwidth sweep.</definition>
     <comment>Mats: I'm not sure what the value should be here. A hash of the sinetable? A date?
     </comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type> <!-- Temporary placeholder. What is the data type? -->
+      <value_data_type>ASCII_Short_String_Collapsed</value_data_type> <!-- Usually integer, but occasionally text values -->
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>start_frequency</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.start_frequency</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>Start frequency for the FMCW sweep.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Start frequency of recorded bandwidth range (same as
+      stop_frequency for single-frequency Passive Meas)
+    </definition>
     <comment>The value is in MHz.</comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
       <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>start_jdate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.start_jdate</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Start time in Julian date of first activity in the data product</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>start_sounding_counter</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.start_sounding_counter</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Start value of sounding counter of first activity in the data product. 
+      The sounding counter records absolute total count of soundings since 
+      start of M2020 mission.
+    </definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>start_utc</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.start_utc</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Start time in UTC of first activity in the data product</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>stop_frequency</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.stop_frequency</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>Stop frequency for the FMCW sweep.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Stop frequency of recorded bandwidth range (same as
+      start_frequency for single-frequency Passive Meas)
+    </definition>
     <comment>The value is in MHz.</comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
@@ -3505,12 +3627,51 @@
       <unit_of_measure_type>Units_of_Frequency</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute> <name>stop_jdate</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.stop_jdate</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Stop time in Julian date of last activity in the data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Real</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>stop_sounding_counter</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.stop_sounding_counter</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Stop value of sounding counter of last activity in the data product. 
+      The sounding counter records absolute total count of soundings since start of M2020 mission.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
+  <DD_Attribute> <name>stop_utc</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.stop_utc</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Stop time in UTC of last activity in the data product</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>sweep_time</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.sweep_time</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>The sweep time for each integrated sweep.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Duration of radar-signal generation sweep through
+      frequency bandwidth, for Active Meas; Duration of
+      receive-only sweep through frequency bandwidth, for
+      Passive Meas
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Real</value_data_type>
@@ -3521,20 +3682,26 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.time_cut_samples</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>TBD</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Number of samples for onboard splicing of sounding data.  
+      The number of uppermost samples and number of lowermost samples in 
+      each sounding are retained and spliced for downlink.  
+      The intervening samples in each sounding are discarded.</definition>
     <comment>This does not appear to be used.</comment>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
-      <value_data_type>ASCII_Integer</value_data_type>  <!-- temporary placeholder. What is the data type? -->
+      <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
   <DD_Attribute>  <name>tx_attenuation</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.tx_attenuation</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>The value set for the programmable transmitter attenuator.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>
+      Attenuation in the transmit path, higher values represent
+      lower output power
+    </definition>
     <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -3544,8 +3711,8 @@
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.tx_delay</local_identifier>
     <nillable_flag>true</nillable_flag>
-    <submitter_name>RIMFAX</submitter_name>
-    <definition>Delay for switching the Tx switch on and off.</definition>
+    <submitter_name>Mark Sullivan</submitter_name>
+    <definition>Time delay of transmitter gate</definition>
      <DD_Value_Domain>
       <enumeration_flag>false</enumeration_flag>
       <value_data_type>ASCII_Integer</value_data_type>
@@ -6409,7 +6576,7 @@
           <mars2020:config_id> </>
           <mars2020:decimation> </>
           <mars2020:setup_file> </>
-          <mars2020:calibration </>
+          <mars2020:calibration> </>
           <mars2020:gate_frequency> </>
           <mars2020:number_of_samples> </>
           <mars2020:number_of_sweeps> </>
@@ -6424,6 +6591,18 @@
           <mars2020:sinetable> </>
           <mars2020:lis_soundings> </>
           <mars2020:note> </>
+          <mars2020:start_utc> </>
+          <mars2020:stop_utc> </>
+          <mars2020:start_jdate> </>
+          <mars2020:stop_jdate> </>
+          <mars2020:start_sounding_counter> </>
+          <mars2020:stop_sounding_counter> </>
+          <mars2020:min_rover_lat> </>
+          <mars2020:max_rover_lat> </>
+          <mars2020:min_rover_lon> </>
+          <mars2020:max_rover_lon> </>
+          <mars2020:min_rover_elev> </>
+          <mars2020:max_rover_elev> </>
        </mars2020:RIMFAX_Parameters>
   -->
   <DD_Class>  <name>RIMFAX_Parameters</name>
@@ -6431,12 +6610,11 @@
     <local_identifier>mars2020.RIMFAX_Parameters</local_identifier>
     <submitter_name>Ed Guinness</submitter_name>
     <definition>Container for the attributes describing a RIMFAX observation</definition>
-    <!-- Not sure whether to make all optional or required -->
     <DD_Association>
       <identifier_reference>mars2020.rfax.config_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
-      <maximum_occurrences>1</maximum_occurrences>
+      <maximum_occurrences>*</maximum_occurrences>
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.rfax.decimation</identifier_reference>
@@ -6542,6 +6720,78 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.rfax.note</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.start_utc</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.stop_utc</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.start_jdate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.stop_jdate</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.start_sounding_counter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.stop_sounding_counter</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.min_rover_lat</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.max_rover_lat</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.min_rover_lon</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.max_rover_lon</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.min_rover_elev</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.max_rover_elev</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>

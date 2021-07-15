@@ -1,8 +1,7 @@
 # LDD Source Directory
 
 Mars 2020 Mission Dictionary revisions:
-5/11/21 Added Digital_Number_To_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters. Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
-6/8/21 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
+Updates to RIMFAX_Parameters class. Added attributes start/stop_utc, start/stop_jdate, start/stop_sounding_counter, min/max_rover_lat, min/max_rover_lon, and min/max_rover_elev. Changed config_id maximum_occurrences from 1 to many. Added mission definitions for decimation, sinetable, and time_cut_samples. Changed sinetable data type from ASCII_Integer to ASCII_Short_String_Collapsed.
 
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.
