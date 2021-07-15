@@ -7,7 +7,7 @@ name: Release and Tag LDD Release
 on:
    push:
      branches:
-       - 'master'
+       - 'main'
      paths:
       - 'build/release/**'
 
