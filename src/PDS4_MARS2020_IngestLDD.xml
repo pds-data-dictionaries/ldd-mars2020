@@ -65,14 +65,15 @@
        from required to optional. They should appear only for calibrated products, but the MOXIE team will do that check.
        Corrected error in the definitions of MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
     2021-06-08 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
-    2021-06-23 Added attributes start/stop_utc, start/stop_jdate, start/stop_sounding_counter, min/max rover_lat, 
+    2021-07-15 Added attributes start/stop_utc, start/stop_jdate, start/stop_sounding_counter, min/max rover_lat, 
        min/max_rover_lon, and min/max_rover_elev to RIMFAX_Parameters class. 
        Changed RIMFAX_Parameters/config_id maximum_occurrences from 1 to *.
        Added missing definitions for RIMFAX_Parameters decimation, sinetable, and time_cut_samples.
+       Commented out time_cut_samples because it is not used in any class.
        Changed sinetable data type from ASCII_Integer to ASCII_Short_String_Collapsed.
        Built for IM 1G00 (1.16.0.0).
   </comment>
-  <last_modification_date_time>2021-06-23T21:26Z</last_modification_date_time>
+  <last_modification_date_time>2021-07-15T16:55Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -3678,6 +3679,7 @@
       <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <!-- 
   <DD_Attribute>  <name>time_cut_samples</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.time_cut_samples</local_identifier>
@@ -3693,6 +3695,7 @@
       <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  -->
   <DD_Attribute>  <name>tx_attenuation</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.tx_attenuation</local_identifier>
