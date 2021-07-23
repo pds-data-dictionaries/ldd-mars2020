@@ -1,8 +1,11 @@
 # LDD Source Directory
 
 Mars 2020 Mission Dictionary revisions:
-5/11/21 Added Digital_Number_To_Calibrated_Unit_Conversions class, subclasses, and attributes to MOXIE_Parameters. Added file_name_binary attribute to MOXIE_Parameters subclasses. Revised definitions of some MOXIE subclasses.
-6/8/21 Changed attribute Mars2020_Parameters/Observation_Information/release_number minimum_occurrences from 1 to 0.
+
+2021-07-23 
+- Changed definitions of `MOXIE_Parameters/.../Ancillary_Data/` classes back to using DD_Association instead of DD_Associate_External_Class due to a bug in LDDTool. 
+- Corrected rule_context in rules for validating `MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/`.
+- Changed minimum_occurrences from 1 to 0 for all `MOXIE_Parameters/.../Algorithm\_Parameter_Table` calibrated attributes.
 
 -----
 This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.

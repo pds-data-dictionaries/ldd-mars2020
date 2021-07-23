@@ -1,13 +1,11 @@
-# {LDD Name} Local Data Dictionary (LDD)
+# Mars 2020 Mission Data Dictionary (LDD)
 
-The {LDD Name} dictionary contains classes that describe a fictitious mission. It can be used as a starting point for creating a new local data dictionary (LDD). After cloning the files, do the following:
+The Mars 2020 Mission Data Dictionary contains classes and attributes that describe data products from the Mars 2020 Perseverance Rover mission.
 
 
 # Documentation
 
-User Guide: TBD
-Other Documentation: TBD
-
+User Guide: [Mars 2020 Mission Dictionary User Guide](https://github.com/pds-data-dictionaries/ldd-mars2020/blob/main/Users-Guide.md)
 
 # Contribute
 

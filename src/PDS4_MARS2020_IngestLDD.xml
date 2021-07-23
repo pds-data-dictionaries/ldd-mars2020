@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.sch"
+    href="http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <?xml-model 
-    href="http://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1F00_1810.sch"
+    href="http://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
   xmlns="http://pds.nasa.gov/pds4/pds/v1" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:img="http://pds.nasa.gov/pds4/img/v1"
-  xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
-  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1F00.xsd
-                      http://pds.nasa.gov/pds4/img/v1 https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1F00_1810.xsd">
-  <name>Mars 2020 Mission</name>
+  xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd
+                      http://pds.nasa.gov/pds4/img/v1 https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.xsd">
+  <name>Mars 2020 Mission Dictionary</name>
   <ldd_version_id>1.0.0.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Susan Slavney</full_name>
@@ -72,8 +71,12 @@
        Commented out time_cut_samples because it is not used in any class.
        Changed sinetable data type from ASCII_Integer to ASCII_Short_String_Collapsed.
        Built for IM 1G00 (1.16.0.0).
+    2021-07-23 Changed definitions of MOXIE_Parameters/.../Ancillary_Data_*/ classes back to using DD_Association
+       instead of DD_Associate_External_Class due to a bug in LDDTool. 
+       Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
+       Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
   </comment>
-  <last_modification_date_time>2021-07-15T16:55Z</last_modification_date_time>
+  <last_modification_date_time>2021-07-23T16:15Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -4288,8 +4291,6 @@
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The Observation_Information class provides information about a science
       observation.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.release_number</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4414,7 +4415,7 @@
   <!-- End of Observation_Information Class Definition -->
 
   <!-- Begin MEDA_Parameters Class Definition -->
-    <!-- TBD -->
+    <!-- None -->
   <!-- End of MEDA_Parameters Class definitions -->
   
   <!-- Begin MOXIE_Parameters Class Definition
@@ -4485,8 +4486,8 @@
               </mars2020:Ancillary_Data_MEDA>
               <mars2020:Ancillary_Data_Supercam>
               </mars2020:Ancillary_Data_Supercam>
-              <mars2020:Ancillary_Data_EDLcam>
-              </mars2020:Ancillary_Data_EDLcam>
+              <mars2020:Ancillary_Data_EDLCAM>
+              </mars2020:Ancillary_Data_EDLCAM>
               <mars2020:Ancillary_Data_Rover>
               </mars2020:Ancillary_Data_Rover>
           </mars2020:Ancillary_Data>
@@ -4499,8 +4500,6 @@
     <definition>
       MOXIE Run Control Table metadata
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_experiment_intent</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4527,8 +4526,6 @@
     <definition>
       MOXIE Run Control Table field
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>pds.name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4555,8 +4552,6 @@
     <definition>
       MOXIE Run Control Table Fields
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Run_Control_Table_Field</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -4571,8 +4566,6 @@
     <definition>
       MOXIE Run Control Table step
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.step_number</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4850,8 +4843,6 @@
     <local_identifier>mars2020.moxie.Run_Control_Table_Values</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Control Table Values</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Run_Control_Table_Step</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -4864,8 +4855,6 @@
     <local_identifier>mars2020.moxie.Run_Control_Table</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Control Table</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Run_Control_Table_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -4890,8 +4879,6 @@
     <local_identifier>mars2020.moxie.Algorithm_Parameter_Table_Metadata</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Algorithm Parameter Table Metadata</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_experiment_intent</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4916,8 +4903,6 @@
     <local_identifier>mars2020.moxie.Algorithm_Parameter_Table_Field</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Algorithm Parameter Table Field</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>pds.name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4942,8 +4927,6 @@
     <local_identifier>mars2020.moxie.Algorithm_Parameter_Table_Fields</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Algorithm Parameter Table Fields</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Algorithm_Parameter_Table_Field</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -4956,8 +4939,6 @@
     <local_identifier>mars2020.moxie.Algorithm_Parameter_Table_Values</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Algorithm Parameter Table Values</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.persistence_en</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -4967,7 +4948,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ztt_p_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -4979,7 +4960,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ztb_p_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -4991,7 +4972,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ztt_i_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5003,7 +4984,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ztb_i_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5015,7 +4996,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zp4_p_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5027,7 +5008,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zp4_i_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5039,7 +5020,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zp4_l_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5051,7 +5032,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zp4_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5063,7 +5044,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zit_p_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5075,7 +5056,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zib_p_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5087,7 +5068,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zit_i_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5099,7 +5080,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zib_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5111,7 +5092,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zib_i_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5123,7 +5104,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zib_l_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5135,7 +5116,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zit_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5147,7 +5128,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.zit_l_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5159,7 +5140,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ht_vtl_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5171,7 +5152,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.ht_vth_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5183,7 +5164,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.hb_vbl_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5195,7 +5176,7 @@
     <DD_Association>
       <identifier_reference>mars2020.moxie.hb_vbh_h_calibrated</identifier_reference>
       <reference_type>attribute_of</reference_type>
-      <minimum_occurrences>1</minimum_occurrences>
+      <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
     <DD_Association>
@@ -5240,8 +5221,6 @@
     <local_identifier>mars2020.moxie.Algorithm_Parameter_Table</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Algorithm Parameter Table</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Algorithm_Parameter_Table_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5266,8 +5245,6 @@
     <local_identifier>mars2020.moxie.Safety_Parameter_Table_Metadata</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Safety Parameter Table Metadata</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_experiment_intent</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5292,8 +5269,6 @@
     <local_identifier>mars2020.moxie.Safety_Parameter_Table_Field</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Safety Parameter Table Field</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>pds.name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5318,8 +5293,6 @@
     <local_identifier>mars2020.moxie.Safety_Parameter_Table_Fields</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Safety Parameter Table Fields</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Safety_Parameter_Table_Field</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5332,8 +5305,6 @@
     <local_identifier>mars2020.moxie.Safety_Parameter_Table_Values</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Safety Parameter Table Values</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.persistence_en</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5688,8 +5659,6 @@
     <local_identifier>mars2020.moxie.Safety_Parameter_Table</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Safety Parameter Table</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Safety_Parameter_Table_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5714,8 +5683,6 @@
     <local_identifier>mars2020.moxie.Run_Parameter_Table_Metadata</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Parameter Table Metadata</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_experiment_intent</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5740,8 +5707,6 @@
     <local_identifier>mars2020.moxie.Run_Parameter_Table_Field</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Parameter Table Field</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>pds.name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5766,8 +5731,6 @@
     <local_identifier>mars2020.moxie.Run_Parameter_Table_Fields</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Parameter Table Fields</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Run_Parameter_Table_Field</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5780,8 +5743,6 @@
     <local_identifier>mars2020.moxie.Run_Parameter_Table_Values</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Parameter Table Values</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.persistence_en</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5848,8 +5809,6 @@
     <local_identifier>mars2020.moxie.Run_Parameter_Table</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Run Parameter Table</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Run_Parameter_Table_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5874,8 +5833,6 @@
     <local_identifier>mars2020.moxie.Experiment_Configuration_Metadata</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Experiment Configuration Metadata</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.run_id</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5924,8 +5881,6 @@
     <local_identifier>mars2020.moxie.Experiment_Configuration</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>MOXIE Experiment Configuration</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Experiment_Configuration_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -5962,8 +5917,6 @@
     <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Constant</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>Digital number to calibrated unit constant</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.symbol</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -5982,8 +5935,6 @@
     <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equation</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>Digital number to calibrated unit equation</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.parameter</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6008,8 +5959,6 @@
     <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Equations</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>Digital number to calibrated unit equations</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.comments</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6028,8 +5977,6 @@
     <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>Digital number to calibrated unit conversions metadata</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.file_name_calibration_table</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6066,8 +6013,6 @@
     <local_identifier>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>Digital number to calibrated unit conversions</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Digital_Number_To_Calibrated_Unit_Conversions_Metadata</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6081,14 +6026,19 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
+  
   <DD_Class>  <name>Ancillary_Data_MEDA</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_MEDA</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>References to ancillary data acquired by the MEDA instrument</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
-    <DD_Associate_External_Class>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <!--    <DD_Associate_External_Class>
       <namespace_id>pds</namespace_id>
       <class_name>Internal_Reference</class_name>
       <minimum_occurrences>1</minimum_occurrences>
@@ -6107,15 +6057,21 @@
         </DD_Permissible_Value>
       </DD_Context_Value_List>
     </DD_Associate_External_Class>
+    -->
   </DD_Class>
+  
   <DD_Class>  <name>Ancillary_Data_Supercam</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_Supercam</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>References to ancillary data acquired by the Supercam instrument microphone</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
-    <DD_Associate_External_Class>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+<!--    <DD_Associate_External_Class>
       <namespace_id>pds</namespace_id>
       <class_name>Internal_Reference</class_name>
       <minimum_occurrences>1</minimum_occurrences>
@@ -6123,7 +6079,7 @@
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
         <attribute_relative_xpath>
-          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_Supercam/pds:Internal_Reference/pds:reference_type
+          pds:Internal_Reference/pds:reference_type
         </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
@@ -6134,15 +6090,20 @@
         </DD_Permissible_Value>
       </DD_Context_Value_List>
     </DD_Associate_External_Class>
+    -->
   </DD_Class>
-  <DD_Class>  <name>Ancillary_Data_EDLcam</name>
+  <DD_Class>  <name>Ancillary_Data_EDLCAM</name>
     <version_id>1.0</version_id>
-    <local_identifier>mars2020.moxie.Ancillary_Data_EDLcam</local_identifier>
+    <local_identifier>mars2020.moxie.Ancillary_Data_EDLCAM</local_identifier>
     <submitter_name>John McClean</submitter_name>
-    <definition>References to ancillary data acquired by the EDLcam instrument microphone</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
-    <DD_Associate_External_Class>
+    <definition>References to ancillary data acquired by the EDLCam instrument microphone</definition>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+<!--    <DD_Associate_External_Class>
       <namespace_id>pds</namespace_id>
       <class_name>Internal_Reference</class_name>
       <minimum_occurrences>1</minimum_occurrences>
@@ -6150,7 +6111,7 @@
       <DD_Context_Value_List>
         <attribute_name>reference_type</attribute_name>
         <attribute_relative_xpath>
-          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_EDLcam/pds:Internal_Reference/pds:reference_type
+          pds:Product_Observational/pds:Observation_Area/pds:Mission_Area/mars2020:Mars2020_Parameters/mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_EDLCAM/pds:Internal_Reference/pds:reference_type
         </attribute_relative_xpath>
         <DD_Permissible_Value>
           <value>data_to_ancillary_data</value>
@@ -6161,15 +6122,20 @@
         </DD_Permissible_Value>
       </DD_Context_Value_List>
     </DD_Associate_External_Class>
+    -->
   </DD_Class>
   <DD_Class>  <name>Ancillary_Data_Rover</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data_Rover</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>References to ancillary data acquired by the rover</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
-    <DD_Associate_External_Class>
+    <DD_Association>
+      <identifier_reference>pds.Internal_Reference</identifier_reference>
+      <reference_type>component_of</reference_type>
+      <minimum_occurrences>1</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+<!--    <DD_Associate_External_Class>
       <namespace_id>pds</namespace_id>
       <class_name>Internal_Reference</class_name>
       <minimum_occurrences>1</minimum_occurrences>
@@ -6187,15 +6153,13 @@
           </value_meaning>
         </DD_Permissible_Value>
       </DD_Context_Value_List>
-    </DD_Associate_External_Class>
+    </DD_Associate_External_Class> -->
   </DD_Class>  
   <DD_Class>  <name>Ancillary_Data</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.moxie.Ancillary_Data</local_identifier>
     <submitter_name>John McClean</submitter_name>
     <definition>References to ancillary data acquired by other instruments and/or the rover</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.moxie.Ancillary_Data_MEDA</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6209,7 +6173,7 @@
       <maximum_occurrences>99</maximum_occurrences>
     </DD_Association>
     <DD_Association>
-      <identifier_reference>mars2020.moxie.Ancillary_Data_EDLcam</identifier_reference>
+      <identifier_reference>mars2020.moxie.Ancillary_Data_EDLCAM</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>99</maximum_occurrences>
@@ -6226,8 +6190,6 @@
     <local_identifier>mars2020.MOXIE_Parameters</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The MOXIE_Parameters class provides metadata specific to MOXIE observations.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>  <identifier_reference>mars2020.moxie.Experiment_Configuration</identifier_reference>
       <reference_type>component_of</reference_type>
       <minimum_occurrences>1</minimum_occurrences>
@@ -6302,8 +6264,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Current class provides the current of some point
       on an imaging instrument or other imaging device.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.device_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6323,8 +6283,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Currents class provides a container for the set of
       currents of an imaging instrument or other imaging device.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.Device_Current</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6338,8 +6296,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Flash class provides the duration of a single
     identified component of the flash for the PIXL MCC illumination.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.device_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6359,8 +6315,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Flashes class provides a container for 
     the set of flash durations for the PIXL MCC illumination.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.Device_Flash</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6374,8 +6328,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Temperature class provides a container for the
       temperature of some point on an imaging instrument or other imaging device.</definition>
-      <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.device_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6395,8 +6347,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Temperatures class provides a container for the set of
       temperatures of an imaging instrument or other imaging device.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.Device_Temperature</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6411,8 +6361,6 @@
     <definition>The Device_Voltage class provides the voltage of some point
       on an imaging instrument or other imaging device.
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.device_name</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6432,8 +6380,6 @@
     <submitter_name>Bob Deen</submitter_name>
     <definition>The Device_Voltage class provides a container for the set of
       voltages of an imaging instrument or other imaging device.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.Device_Voltage</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6450,8 +6396,6 @@
     that some of the illumination is in the img:Illumination class; the
     information here is instrument-specific information that does not 
     fit into the img: framework.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.Device_Currents</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6477,14 +6421,11 @@
       <maximum_occurrences>1</maximum_occurrences>
     </DD_Association>
   </DD_Class>
-  <DD_Class>
-    <name>PIXL_Compression</name>
+  <DD_Class>  <name>PIXL_Compression</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.PIXL_Compression</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The PIXL Compression class provides information about the compression applied to the data product.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.pixl.inst_compression_mode</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -6503,8 +6444,6 @@
     <local_identifier>mars2020.PIXL_Parameters</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The PIXL Parameters class provides metadata specific to PIXL observations.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.PIXL_Illumination</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -6917,8 +6856,6 @@
       information is also included in appropriate sections of the 
       discipline dictionaries, which is where general users should go.
     </definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.rmi_header_size</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -7009,8 +6946,6 @@
     <local_identifier>mars2020.SuperCam_Ancillary_Header</local_identifier>
     <submitter_name>Dot DeLapp</submitter_name>
     <definition>The SuperCam_Ancillary_Header class provides ancillary metadata specific to SuperCam observations.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.scam_point_number</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -7071,8 +7006,6 @@
     <local_identifier>mars2020.SuperCam_Generic_Packet_Header</local_identifier>
     <submitter_name>Dot DeLapp</submitter_name>
     <definition>The SuperCam Generic_Packet_Header class provides metadata from the SuperCam product generic packet header.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.rce_time_sync</identifier_reference>
       <reference_type>attribute_of</reference_type>
@@ -7163,8 +7096,6 @@
     <local_identifier>mars2020.SuperCam_Parameters</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The SuperCam_Parameters class provides metadata specific to SuperCam observations.</definition>
-    <abstract_flag>false</abstract_flag>
-    <element_flag>false</element_flag>
     <DD_Association>
       <identifier_reference>mars2020.SuperCam_RMI_Mini_Header</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -7192,7 +7123,6 @@
     <local_identifier>Mars2020_Parameters</local_identifier>
     <submitter_name>Susan Slavney</submitter_name>
     <definition>The Mars2020_Parameters class is a superclass containing all Mars2020 mission classes.</definition>
-    <abstract_flag>false</abstract_flag>
     <element_flag>true</element_flag>
     <DD_Association>  <identifier_reference>mars2020.Observation_Information</identifier_reference>
       <reference_type>component_of</reference_type>
@@ -7339,6 +7269,49 @@
   
   <!--  End of Mars 2020-specific rules for time values SCLK, SOL, and LTST -->
 
+  <!--  MOXIE-specific rules for Internal_Reference/reference_type in Ancillary_Data_SuperCam, Ancillary_Data_Rover, Ancillary_Data_MEDA, and Ancillary_Data_EDLCAM -->
+
+  <DD_Rule>
+    <local_identifier>moxie_meda_internal_reference_rule</local_identifier>
+    <rule_context>mars2020:Ancillary_Data_MEDA/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = ('data_to_ancillary_data')</rule_test>
+      <rule_message>In the mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_MEDA class, the attribute pds:reference_type must be equal to 'data_to_ancillary_data'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <DD_Rule>
+    <local_identifier>moxie_supercam_internal_reference_rule</local_identifier>
+    <rule_context>mars2020:Ancillary_Data_Supercam/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = ('data_to_ancillary_data')</rule_test>
+      <rule_message>In the mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_Supercam class, the attribute pds:reference_type must be equal to 'data_to_ancillary_data'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <DD_Rule>
+    <local_identifier>moxie_edlcam_internal_reference_rule</local_identifier>
+    <rule_context>mars2020:Ancillary_Data_EDLCAM/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = ('data_to_ancillary_data')</rule_test>
+      <rule_message>In the mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_EDLCAM class, the attribute pds:reference_type must be equal to 'data_to_ancillary_data'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  
+  <DD_Rule>
+    <local_identifier>moxie_rover_internal_reference_rule</local_identifier>
+    <rule_context>mars2020:Ancillary_Data_Rover/pds:Internal_Reference</rule_context>
+    <DD_Rule_Statement>
+      <rule_type>Assert</rule_type>
+      <rule_test>pds:reference_type = ('data_to_ancillary_data')</rule_test>
+      <rule_message>In the mars2020:MOXIE_Parameters/mars2020:Ancillary_Data/mars2020:Ancillary_Data_Rover class, the attribute pds:reference_type must be equal to 'data_to_ancillary_data'.</rule_message>
+    </DD_Rule_Statement>
+  </DD_Rule>
+  <!--  End of MOXIE-specific rules for Internal_Reference/reference_type in Ancillary_Data_SuperCam, Ancillary_Data_Rover, Ancillary_Data_MEDA, and Ancillary_Data_EDLCam -->
+  
   <!-- End of rule statements -->
 
 </Ingest_LDD>
