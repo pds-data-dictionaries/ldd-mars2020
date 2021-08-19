@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Wed Aug 11 22:17:08 UTC 2021
+   Time                   Thu Aug 19 16:50:38 UTC 2021
    Common Schema          [PDS4_PDS_1G00.xsd]
    Common Schematron      [PDS4_PDS_1G00.sch]
    IM Version Id:         1.16.0.0
@@ -30,8 +30,8 @@ Parameters:
 
 Summary:
    Classes                54
-   Attributes             278
-   Associations           367
+   Attributes             279
+   Associations           368
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -101,6 +101,7 @@ Parsed Input - Header:
        instead of DD_Associate_External_Class due to a bug in LDDTool. 
        Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
        Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
+    2021-08-13 Added attribute number_of_soundings to RIMFAX_Parameters class.
   
    Last Modification Time 2021-07-23T16:15Z
    PDS4 Merge Flag        false
@@ -1359,6 +1360,12 @@ Parsed Input - Attributes:
    version                1.16
    value data type        ASCII_Integer
    description            Number of samples in each sounding.
+   nillable               true
+
+   name                   number_of_soundings
+   version                1.16
+   value data type        ASCII_Integer
+   description            Number of radar soundings in a RIMFAX data product.
    nillable               true
 
    name                   number_of_sweeps
@@ -3541,6 +3548,11 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      mars2020.rfax.lis_soundings
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mars2020.rfax.number_of_soundings
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
