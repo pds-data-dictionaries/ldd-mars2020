@@ -4,7 +4,7 @@
       "Title": "PDS4 Data Dictionary" ,
       "IM Version": "1.16.0.0" ,
       "LDD Version": "1.0.0.0" ,
-      "Date": "Wed Aug 11 22:17:08 UTC 2021" ,
+      "Date": "Thu Aug 19 16:50:38 UTC 2021" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "namespaces": ["pds:", "img:", "img:", "mars2020:"] ,
       "classDictionary": [
@@ -3189,6 +3189,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.number_of_soundings" ,
+                "title": "number_of_soundings" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1190" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.number_of_soundings"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.note" ,
                 "title": "note" ,
                 "assocType": "attribute_of" ,
@@ -3198,7 +3214,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1190" ,
+                "classOrder": "1200" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.note"
                  ]
@@ -3214,7 +3230,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1200" ,
+                "classOrder": "1210" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.start_utc"
                  ]
@@ -3230,7 +3246,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1210" ,
+                "classOrder": "1220" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.stop_utc"
                  ]
@@ -3246,7 +3262,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1220" ,
+                "classOrder": "1230" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.start_jdate"
                  ]
@@ -3262,7 +3278,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1230" ,
+                "classOrder": "1240" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.stop_jdate"
                  ]
@@ -3278,7 +3294,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1240" ,
+                "classOrder": "1250" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.start_sounding_counter"
                  ]
@@ -3294,7 +3310,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1250" ,
+                "classOrder": "1260" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.stop_sounding_counter"
                  ]
@@ -3310,7 +3326,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1260" ,
+                "classOrder": "1270" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.min_rover_lat"
                  ]
@@ -3326,7 +3342,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1270" ,
+                "classOrder": "1280" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.max_rover_lat"
                  ]
@@ -3342,7 +3358,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1280" ,
+                "classOrder": "1290" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.min_rover_lon"
                  ]
@@ -3358,7 +3374,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1290" ,
+                "classOrder": "1300" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.max_rover_lon"
                  ]
@@ -3374,7 +3390,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1300" ,
+                "classOrder": "1310" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.min_rover_elev"
                  ]
@@ -3390,7 +3406,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1310" ,
+                "classOrder": "1320" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.max_rover_elev"
                  ]
@@ -9822,6 +9838,31 @@
             "steward": "geo" ,
             "versionId": "1.16" ,
             "description": "Number of samples in each sounding." ,
+            "isNillable": "true" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Integer" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Integer" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-9223372036854775808" ,
+            "maximumValue": "9223372036854775807" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mars2020.RIMFAX_Parameters.mars2020.number_of_soundings" ,
+            "title": "number_of_soundings" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mars2020" ,
+            "steward": "geo" ,
+            "versionId": "1.16" ,
+            "description": "Number of radar soundings in a RIMFAX data product." ,
             "isNillable": "true" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,
