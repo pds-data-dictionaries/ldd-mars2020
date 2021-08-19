@@ -1,6 +1,6 @@
 # Mars 2020 Mission Data Dictionary (LDD)
 
-The Mars 2020 Mission Data Dictionary contains classes and attributes that describe data products from the Mars 2020 Perseverance Rover mission.
+The Mars 2020 Mission Data Dictionary contains classes and attributes that describe data products from the Mars 2020 Perseverance Rover Mission. 
 
 
 # Documentation
