@@ -75,6 +75,7 @@
        instead of DD_Associate_External_Class due to a bug in LDDTool. 
        Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
        Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
+    2021-08-13 Added attribute number_of_soundings to RIMFAX_Parameters class.
   </comment>
   <last_modification_date_time>2021-07-23T16:15Z</last_modification_date_time>
   
@@ -3488,6 +3489,17 @@
       <value_data_type>ASCII_Integer</value_data_type>
     </DD_Value_Domain>
   </DD_Attribute>
+  <DD_Attribute>  <name>number_of_soundings</name>
+    <version_id>1.0</version_id>
+    <local_identifier>mars2020.rfax.number_of_soundings</local_identifier>
+    <nillable_flag>true</nillable_flag>
+    <submitter_name>Patrick Russell</submitter_name>
+    <definition>Number of radar soundings in a RIMFAX data product.</definition>
+    <DD_Value_Domain>
+      <enumeration_flag>false</enumeration_flag>
+      <value_data_type>ASCII_Integer</value_data_type>
+    </DD_Value_Domain>
+  </DD_Attribute>
   <DD_Attribute>  <name>number_of_sweeps</name>
     <version_id>1.0</version_id>
     <local_identifier>mars2020.rfax.number_of_sweeps</local_identifier>
@@ -6532,6 +6544,7 @@
           <mars2020:group_spacing> </>
           <mars2020:sinetable> </>
           <mars2020:lis_soundings> </>
+          <mars2020:number_of_soundings> </>
           <mars2020:note> </>
           <mars2020:start_utc> </>
           <mars2020:stop_utc> </>
@@ -6656,6 +6669,12 @@
     </DD_Association>
     <DD_Association>
       <identifier_reference>mars2020.rfax.lis_soundings</identifier_reference>
+      <reference_type>attribute_of</reference_type>
+      <minimum_occurrences>0</minimum_occurrences>
+      <maximum_occurrences>1</maximum_occurrences>
+    </DD_Association>
+    <DD_Association>
+      <identifier_reference>mars2020.rfax.number_of_soundings</identifier_reference>
       <reference_type>attribute_of</reference_type>
       <minimum_occurrences>0</minimum_occurrences>
       <maximum_occurrences>1</maximum_occurrences>
