@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.0.0 - Thu Aug 19 16:50:38 UTC 2021 -->
-  <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
+  <!-- PDS4 Schematron for Name Space Id:mars2020  Version:1.0.1.0 - Wed May 25 20:37:06 UTC 2022 -->
+  <!-- Generated from the PDS4 Information Model Version 1.17.0.0 - System Build 12.0 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
 
@@ -114,14 +114,14 @@
     <sch:rule context="mars2020:Observation_Information/mars2020:active_flight_computer">
       <sch:assert test=". = ('A', 'B')">
         <title>mars2020:Observation_Information/mars2020:active_flight_computer/mars2020:active_flight_computer</title>
-        The attribute mars2020:active_flight_computer must be equal to one of the following values 'A', 'B'.</sch:assert>
+        The attribute mars2020:Observation_Information/mars2020:active_flight_computer must be equal to one of the following values 'A', 'B'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:Observation_Information/mars2020:mission_phase_name">
       <sch:assert test=". = ('ATLO', 'Cruise', 'Development', 'Surface Mission', 'Test')">
         <title>mars2020:Observation_Information/mars2020:mission_phase_name/mars2020:mission_phase_name</title>
-        The attribute mars2020:mission_phase_name must be equal to one of the following values 'ATLO', 'Cruise', 'Development', 'Surface Mission', 'Test'.</sch:assert>
+        The attribute mars2020:Observation_Information/mars2020:mission_phase_name must be equal to one of the following values 'ATLO', 'Cruise', 'Development', 'Surface Mission', 'Test'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -602,21 +602,21 @@
     <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_ldark">
       <sch:assert test=". = ('0', '1', '2', '3')">
         <title>mars2020:SuperCam_Ancillary_Header/mars2020:scam_ldark/mars2020:scam_ldark</title>
-        The attribute mars2020:scam_ldark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
+        The attribute mars2020:SuperCam_Ancillary_Header/mars2020:scam_ldark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_rdark">
       <sch:assert test=". = ('0', '1', '2', '3')">
         <title>mars2020:SuperCam_Ancillary_Header/mars2020:scam_rdark/mars2020:scam_rdark</title>
-        The attribute mars2020:scam_rdark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
+        The attribute mars2020:SuperCam_Ancillary_Header/mars2020:scam_rdark must be equal to one of the following values '0', '1', '2', '3'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="mars2020:SuperCam_Ancillary_Header/mars2020:scam_type">
-      <sch:assert test=". = ('0', '1', '16', '18', '2', '36', '4', '48', '8', '9')">
+      <sch:assert test=". = ('0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '2', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '3', '30', '31', '32', '33', '36', '4', '48', '49', '5', '6', '7', '8', '9')">
         <title>mars2020:SuperCam_Ancillary_Header/mars2020:scam_type/mars2020:scam_type</title>
-        The attribute mars2020:scam_type must be equal to one of the following values '0', '1', '16', '18', '2', '36', '4', '48', '8', '9'.</sch:assert>
+        The attribute mars2020:SuperCam_Ancillary_Header/mars2020:scam_type must be equal to one of the following values '0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '2', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '3', '30', '31', '32', '33', '36', '4', '48', '49', '5', '6', '7', '8', '9'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>

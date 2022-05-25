@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.0.0 - Thu Aug 19 16:50:38 UTC 2021 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mars2020  Version:1.0.1.0 - Wed May 25 20:36:59 UTC 2022 -->
   <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
   <!-- 1.16.0.0 - pds: - Common Dictionary                                       -->
   <!-- 1.8.6.0 - img: - Imaging                                                  -->
-  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/dependencies/ldd-i -->
   <!-- 1.8.6.0 - img: - Imaging                                                  -->
-  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/dependencies/ldd-i -->
-  <!-- 1.0.0.0 - mars2020: - Mars 2020 Mission Dictionary                        -->
-  <!--   file:/home/runner/work/ldd-mars2020/ldd-mars2020/src/PDS4_MARS2020_Inge -->
+  <!-- 1.0.1.0 - mars2020: - Mars 2020 Mission Dictionary                        -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/mars2020/v1"
@@ -19,7 +16,7 @@
     xmlns:img="http://pds.nasa.gov/pds4/img/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.0.0.0">
+    version="1.0.1.0">
  
     <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd"/>
     <xs:import namespace="http://pds.nasa.gov/pds4/img/v1" schemaLocation="https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1860.xsd"/>
@@ -30,7 +27,7 @@
     The Mars 2020 mission dictionary contains classes and attributes specific to
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
-    Mars 2020 version 1.0.0.0 
+    Mars 2020 version 1.0.1.0 
     PDS Build 1.16.0.0
     LDDTool version 13.0.2
     
@@ -84,6 +81,7 @@
        Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
        Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
     2021-08-13 Added attribute number_of_soundings to RIMFAX_Parameters class.
+    2022-05-25 Version 1.0.1.0. Added values for SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.  
   
     </xs:documentation>
   </xs:annotation>
@@ -898,7 +896,7 @@
       <xs:element name="scam_lastats_flag" type="mars2020:scam_lastats_flag" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
     <!-- Begin assert statements for schematron - Enumerated Values -->
-    <!-- <xs:assert test="mars2020:scam_type = ('0', '1', '16', '18', '2', '36', '4', '48', '8', '9')"/> -->
+    <!-- <xs:assert test="mars2020:scam_type = ('0', '1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '2', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '3', '30', '31', '32', '33', '36', '4', '48', '49', '5', '6', '7', '8', '9')"/> -->
     <!-- <xs:assert test="mars2020:scam_ldark = ('0', '1', '2', '3')"/> -->
     <!-- <xs:assert test="mars2020:scam_rdark = ('0', '1', '2', '3')"/> -->
     <!-- End assert statements for schematron - Enumerated Values -->
