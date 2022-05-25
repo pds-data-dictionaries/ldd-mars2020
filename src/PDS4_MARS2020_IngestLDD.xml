@@ -13,7 +13,7 @@
   xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd
                       http://pds.nasa.gov/pds4/img/v1 https://pds.nasa.gov/pds4/img/v1/PDS4_IMG_1G00_1850.xsd">
   <name>Mars 2020 Mission Dictionary</name>
-  <ldd_version_id>1.0.0.0</ldd_version_id>
+  <ldd_version_id>1.0.1.0</ldd_version_id>
   <dictionary_type>Mission</dictionary_type>
   <full_name>Susan Slavney</full_name>
   <steward_id>geo</steward_id>
@@ -22,7 +22,7 @@
     The Mars 2020 mission dictionary contains classes and attributes specific to
     the Mars 2020 (Perseverance Rover) mission and its instruments.
     
-    Mars 2020 version 1.0.0.0 
+    Mars 2020 version 1.0.1.0 
     PDS Build 1.16.0.0
     LDDTool version 13.0.2
     
@@ -76,8 +76,9 @@
        Corrected rule_context in rules for validating MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/.
        Changed minimum_occurrences from 1 to 0 for all MOXIE_Parameters/.../Algorithm_Parameter_Table calibrated attributes.
     2021-08-13 Added attribute number_of_soundings to RIMFAX_Parameters class.
+    2022-05-25 Version 1.0.1.0. Added values for SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.  
   </comment>
-  <last_modification_date_time>2021-07-23T16:15Z</last_modification_date_time>
+  <last_modification_date_time>2022-05-25T18:13Z</last_modification_date_time>
   
   <!-- Hierarchy of classes and attributes
     <mars2020:Mars2020_Parameters>
@@ -4207,8 +4208,24 @@
         <value_meaning>A scam_type value of 2 indicates VISIR, VIS-only activity type</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
+        <value>3</value>
+        <value_meaning>A scam_type value of 3 indicates VISIR, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
         <value>4</value>
         <value_meaning>A scam_type value of 4 indicates RAMAN activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>5</value>
+        <value_meaning>A scam_type value of 5 indicates RAMAN, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>6</value>
+        <value_meaning>A scam_type value of 6 indicates RAMAN, VISIR activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>7</value>
+        <value_meaning>A scam_type value of 7 indicates RAMAN, VISIR, MIC activity type</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>8</value>
@@ -4219,12 +4236,100 @@
         <value_meaning>A scam_type value of 9 indicates LIBSMIC activity type</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
+        <value>10</value>
+        <value_meaning>A scam_type value of 10 indicates LIBS, VIS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>11</value>
+        <value_meaning>A scam_type value of 11 indicates LIBS, VIS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>12</value>
+        <value_meaning>A scam_type value of 12 indicates LIBS, RAMAN activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>13</value>
+        <value_meaning>A scam_type value of 13 indicates LIBS, RAMAN, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>14</value>
+        <value_meaning>A scam_type value of 14 indicates LIBS, RAMAN, VIS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>15</value>
+        <value_meaning>A scam_type value of 15 indicates LIBS, RAMAN, VIS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
         <value>16</value>
         <value_meaning>A scam_type value of 16 indicates IRSpec, IR-only activity type</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
+        <value>17</value>
+        <value_meaning>A scam_type value of 17 indicates IR, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
         <value>18</value>
         <value_meaning>A scam_type value of 18 indicates VISIR, VIS+IR activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>19</value>
+        <value_meaning>A scam_type value of 19 indicates TRL, VISIR, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>20</value>
+        <value_meaning>A scam_type value of 20 indicates IR, RAMAN activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>21</value>
+        <value_meaning>A scam_type value of 21 indicates IR, RAMAN, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>22</value>
+        <value_meaning>A scam_type value of 22 indicates IR, RAMAN, VIS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>23</value>
+        <value_meaning>A scam_type value of 23 indicates IR, RAMAN, VIS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>24</value>
+        <value_meaning>A scam_type value of 24 indicates IR, LIBS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>25</value>
+        <value_meaning>A scam_type value of 25 indicates IR, LIBS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>26</value>
+        <value_meaning>A scam_type value of 26 indicates IR, LIBS, VIS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>27</value>
+        <value_meaning>A scam_type value of 27 indicates IR, LIBS, VIS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>28</value>
+        <value_meaning>A scam_type value of 28 indicates IR, LIBS, RAMAN activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>29</value>
+        <value_meaning>A scam_type value of 29 indicates IR, LIBS, RAMAN, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>30</value>
+        <value_meaning>A scam_type value of 30 indicates IR, LIBS, RAMAN, VIS activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>31</value>
+        <value_meaning>A scam_type value of 31 indicates IR, LIBS, RAMAN, VIS, MIC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>32</value>
+        <value_meaning>A scam_type value of 32 indicates MISC activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>33</value>
+        <value_meaning>A scam_type value of 33 indicates MISC, MIC activity type</value_meaning>
       </DD_Permissible_Value>
       <DD_Permissible_Value>
         <value>36</value>
@@ -4233,6 +4338,10 @@
       <DD_Permissible_Value>
         <value>48</value>
         <value_meaning>A scam_type value of 48 indicates IRraster activity type</value_meaning>
+      </DD_Permissible_Value>
+      <DD_Permissible_Value>
+        <value>49</value>
+        <value_meaning>A scam_type value of 49 indicates IRraster, MIC activity type</value_meaning>
       </DD_Permissible_Value>
     </DD_Value_Domain>
   </DD_Attribute>
