@@ -7,7 +7,7 @@ Mars 2020 Mission Dictionary revisions:
 - Corrected rule_context in rules for validating `MOXIE_Parameters/.../Ancillary_Data_*/Internal_Reference/`.
 - Changed minimum_occurrences from 1 to 0 for all `MOXIE_Parameters/.../Algorithm\_Parameter_Table` calibrated attributes.
 
-2025-05-25
+2022-05-25
 - Version 1.0.1.0. Added values for SuperCam_Parameters/SuperCam_Ancillary_Header/scam_type.
 
 -----
