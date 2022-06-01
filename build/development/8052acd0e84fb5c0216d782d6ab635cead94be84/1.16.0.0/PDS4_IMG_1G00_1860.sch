@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:img  Version:1.8.6.0 - Thu Aug 19 16:50:36 UTC 2021 -->
+  <!-- PDS4 Schematron for Name Space Id:img  Version:1.8.6.0 - Wed May 25 20:36:56 UTC 2022 -->
   <!-- Generated from the PDS4 Information Model Version 1.16.0.0 - System Build 11.1 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -122,14 +122,14 @@
     <sch:rule context="img:Color_Filter_Array/img:color_filter_array_state">
       <sch:assert test=". = ('Decoded', 'Encoded', 'No CFA')">
         <title>img:Color_Filter_Array/img:color_filter_array_state/img:color_filter_array_state</title>
-        The attribute img:color_filter_array_state must be equal to one of the following values 'Decoded', 'Encoded', 'No CFA'.</sch:assert>
+        The attribute img:Color_Filter_Array/img:color_filter_array_state must be equal to one of the following values 'Decoded', 'Encoded', 'No CFA'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Color_Filter_Array/img:color_filter_array_type">
       <sch:assert test=". = ('Bayer RGGB', 'None')">
         <title>img:Color_Filter_Array/img:color_filter_array_type/img:color_filter_array_type</title>
-        The attribute img:color_filter_array_type must be equal to one of the following values 'Bayer RGGB', 'None'.</sch:assert>
+        The attribute img:Color_Filter_Array/img:color_filter_array_type must be equal to one of the following values 'Bayer RGGB', 'None'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -146,7 +146,7 @@
     <sch:rule context="img:Companding/img:companding_state">
       <sch:assert test=". = ('Companded', 'Expanded', 'None')">
         <title>img:Companding/img:companding_state/img:companding_state</title>
-        The attribute img:companding_state must be equal to one of the following values 'Companded', 'Expanded', 'None'.</sch:assert>
+        The attribute img:Companding/img:companding_state must be equal to one of the following values 'Companded', 'Expanded', 'None'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -163,7 +163,7 @@
     <sch:rule context="img:Detector/img:detector_to_image_flip">
       <sch:assert test=". = ('Horizontal', 'None', 'Vertical')">
         <title>img:Detector/img:detector_to_image_flip/img:detector_to_image_flip</title>
-        The attribute img:detector_to_image_flip must be equal to one of the following values 'Horizontal', 'None', 'Vertical'.</sch:assert>
+        The attribute img:Detector/img:detector_to_image_flip must be equal to one of the following values 'Horizontal', 'None', 'Vertical'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -219,7 +219,7 @@
     <sch:rule context="img:Exposure/img:exposure_type">
       <sch:assert test=". = ('Auto', 'Auto Last', 'Manual', 'Manual Last', 'None', 'Test')">
         <title>img:Exposure/img:exposure_type/img:exposure_type</title>
-        The attribute img:exposure_type must be equal to one of the following values 'Auto', 'Auto Last', 'Manual', 'Manual Last', 'None', 'Test'.</sch:assert>
+        The attribute img:Exposure/img:exposure_type must be equal to one of the following values 'Auto', 'Auto Last', 'Manual', 'Manual Last', 'None', 'Test'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -265,7 +265,7 @@
     <sch:rule context="img:Frame/img:frame_type_name">
       <sch:assert test=". = ('Mono', 'Stereo')">
         <title>img:Frame/img:frame_type_name/img:frame_type_name</title>
-        The attribute img:frame_type_name must be equal to one of the following values 'Mono', 'Stereo'.</sch:assert>
+        The attribute img:Frame/img:frame_type_name must be equal to one of the following values 'Mono', 'Stereo'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -279,7 +279,7 @@
     <sch:rule context="img:High_Dynamic_Range/img:hdr_acquisition_mode">
       <sch:assert test=". = ('Multiframe', 'None', 'Piecewise', 'Single')">
         <title>img:High_Dynamic_Range/img:hdr_acquisition_mode/img:hdr_acquisition_mode</title>
-        The attribute img:hdr_acquisition_mode must be equal to one of the following values 'Multiframe', 'None', 'Piecewise', 'Single'.</sch:assert>
+        The attribute img:High_Dynamic_Range/img:hdr_acquisition_mode must be equal to one of the following values 'Multiframe', 'None', 'Piecewise', 'Single'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -314,28 +314,28 @@
     <sch:rule context="img:Image_Mask_File/img:mask_type">
       <sch:assert test=". = ('description', 'image')">
         <title>img:Image_Mask_File/img:mask_type/img:mask_type</title>
-        The attribute img:mask_type must be equal to one of the following values 'description', 'image'.</sch:assert>
+        The attribute img:Image_Mask_File/img:mask_type must be equal to one of the following values 'description', 'image'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:JPEG_Parameters/img:color_subsampling_mode">
       <sch:assert test=". = ('4:2:2', '4:4:4', 'Grayscale')">
         <title>img:JPEG_Parameters/img:color_subsampling_mode/img:color_subsampling_mode</title>
-        The attribute img:color_subsampling_mode must be equal to one of the following values '4:2:2', '4:4:4', 'Grayscale'.</sch:assert>
+        The attribute img:JPEG_Parameters/img:color_subsampling_mode must be equal to one of the following values '4:2:2', '4:4:4', 'Grayscale'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:JPEG_Progressive_Parameters/img:color_subsampling_mode">
       <sch:assert test=". = ('4:2:2', '4:4:4', 'Grayscale')">
         <title>img:JPEG_Progressive_Parameters/img:color_subsampling_mode/img:color_subsampling_mode</title>
-        The attribute img:color_subsampling_mode must be equal to one of the following values '4:2:2', '4:4:4', 'Grayscale'.</sch:assert>
+        The attribute img:JPEG_Progressive_Parameters/img:color_subsampling_mode must be equal to one of the following values '4:2:2', '4:4:4', 'Grayscale'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:LED_Illumination_Source/img:illumination_state">
       <sch:assert test=". = ('Off', 'On')">
         <title>img:LED_Illumination_Source/img:illumination_state/img:illumination_state</title>
-        The attribute img:illumination_state must be equal to one of the following values 'Off', 'On'.</sch:assert>
+        The attribute img:LED_Illumination_Source/img:illumination_state must be equal to one of the following values 'Off', 'On'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -382,21 +382,21 @@
     <sch:rule context="img:Onboard_Compression/img:onboard_compression_class">
       <sch:assert test=". = ('Lossless', 'Lossy', 'Uncompressed')">
         <title>img:Onboard_Compression/img:onboard_compression_class/img:onboard_compression_class</title>
-        The attribute img:onboard_compression_class must be equal to one of the following values 'Lossless', 'Lossy', 'Uncompressed'.</sch:assert>
+        The attribute img:Onboard_Compression/img:onboard_compression_class must be equal to one of the following values 'Lossless', 'Lossy', 'Uncompressed'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Onboard_Compression/img:onboard_compression_type">
       <sch:assert test=". = ('GZIP', 'H.264 Frame', 'ICER', 'ICT', 'JPEG', 'JPEG Progressive', 'LOCO', 'LZO', 'Lossless', 'MSSS Lossless', 'None', 'StarPixel Flexible', 'StarPixel Lossless')">
         <title>img:Onboard_Compression/img:onboard_compression_type/img:onboard_compression_type</title>
-        The attribute img:onboard_compression_type must be equal to one of the following values 'GZIP', 'H.264 Frame', 'ICER', 'ICT', 'JPEG', 'JPEG Progressive', 'LOCO', 'LZO', 'Lossless', 'MSSS Lossless', 'None', 'StarPixel Flexible', 'StarPixel Lossless'.</sch:assert>
+        The attribute img:Onboard_Compression/img:onboard_compression_type must be equal to one of the following values 'GZIP', 'H.264 Frame', 'ICER', 'ICT', 'JPEG', 'JPEG Progressive', 'LOCO', 'LZO', 'Lossless', 'MSSS Lossless', 'None', 'StarPixel Flexible', 'StarPixel Lossless'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Onboard_Compression/img:onboard_compression_venue">
       <sch:assert test=". = ('Hardware', 'Software')">
         <title>img:Onboard_Compression/img:onboard_compression_venue/img:onboard_compression_venue</title>
-        The attribute img:onboard_compression_venue must be equal to one of the following values 'Hardware', 'Software'.</sch:assert>
+        The attribute img:Onboard_Compression/img:onboard_compression_venue must be equal to one of the following values 'Hardware', 'Software'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -473,7 +473,7 @@
     <sch:rule context="img:Radiometric_Correction/img:radiometric_type">
       <sch:assert test=". = ('No CFA', 'Radiance Factor', 'Scaled Spectral Radiance', 'Spectral Radiance')">
         <title>img:Radiometric_Correction/img:radiometric_type/img:radiometric_type</title>
-        The attribute img:radiometric_type must be equal to one of the following values 'No CFA', 'Radiance Factor', 'Scaled Spectral Radiance', 'Spectral Radiance'.</sch:assert>
+        The attribute img:Radiometric_Correction/img:radiometric_type must be equal to one of the following values 'No CFA', 'Radiance Factor', 'Scaled Spectral Radiance', 'Spectral Radiance'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -513,7 +513,7 @@
     <sch:rule context="img:Shutter_Subtraction/img:shutter_subtraction_mode">
       <sch:assert test=". = ('Always', 'Conditional', 'None', 'True')">
         <title>img:Shutter_Subtraction/img:shutter_subtraction_mode/img:shutter_subtraction_mode</title>
-        The attribute img:shutter_subtraction_mode must be equal to one of the following values 'Always', 'Conditional', 'None', 'True'.</sch:assert>
+        The attribute img:Shutter_Subtraction/img:shutter_subtraction_mode must be equal to one of the following values 'Always', 'Conditional', 'None', 'True'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -534,7 +534,7 @@
     <sch:rule context="img:Subframe/img:subframe_type">
       <sch:assert test=". = ('Hardware Compatible', 'Hardware Else Software', 'None', 'Software Only', 'Subframe Around Sun', 'Sun Subframe Or Full')">
         <title>img:Subframe/img:subframe_type/img:subframe_type</title>
-        The attribute img:subframe_type must be equal to one of the following values 'Hardware Compatible', 'Hardware Else Software', 'None', 'Software Only', 'Subframe Around Sun', 'Sun Subframe Or Full'.</sch:assert>
+        The attribute img:Subframe/img:subframe_type must be equal to one of the following values 'Hardware Compatible', 'Hardware Else Software', 'None', 'Software Only', 'Subframe Around Sun', 'Sun Subframe Or Full'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
@@ -552,28 +552,28 @@
     <sch:rule context="img:Thumbnail/img:frame_type_name">
       <sch:assert test=". = ('Mono', 'Stereo')">
         <title>img:Thumbnail/img:frame_type_name/img:frame_type_name</title>
-        The attribute img:frame_type_name must be equal to one of the following values 'Mono', 'Stereo'.</sch:assert>
+        The attribute img:Thumbnail/img:frame_type_name must be equal to one of the following values 'Mono', 'Stereo'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Tile/img:tile_upsample_method">
       <sch:assert test=". = ('Bilinear', 'None', 'Replication')">
         <title>img:Tile/img:tile_upsample_method/img:tile_upsample_method</title>
-        The attribute img:tile_upsample_method must be equal to one of the following values 'Bilinear', 'None', 'Replication'.</sch:assert>
+        The attribute img:Tile/img:tile_upsample_method must be equal to one of the following values 'Bilinear', 'None', 'Replication'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Tiling/img:tile_type">
       <sch:assert test=". = ('Irregular', 'Regular')">
         <title>img:Tiling/img:tile_type/img:tile_type</title>
-        The attribute img:tile_type must be equal to one of the following values 'Irregular', 'Regular'.</sch:assert>
+        The attribute img:Tiling/img:tile_type must be equal to one of the following values 'Irregular', 'Regular'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
     <sch:rule context="img:Tiling/img:tile_venue">
       <sch:assert test=". = ('Ground', 'Onboard')">
         <title>img:Tiling/img:tile_venue/img:tile_venue</title>
-        The attribute img:tile_venue must be equal to one of the following values 'Ground', 'Onboard'.</sch:assert>
+        The attribute img:Tiling/img:tile_venue must be equal to one of the following values 'Ground', 'Onboard'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
